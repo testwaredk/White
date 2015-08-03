@@ -1,4 +1,5 @@
 using Castle.Core.Logging;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.UIItems.Finders;
 

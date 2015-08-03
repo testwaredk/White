@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using Castle.Core.Logging;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.Factory;
 using TestStack.White.Sessions;

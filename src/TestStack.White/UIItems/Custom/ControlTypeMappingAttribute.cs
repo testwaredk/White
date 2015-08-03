@@ -1,4 +1,5 @@
 using System;
+using TestStack.White.Core;
 
 namespace TestStack.White.UIItems.Custom
 {

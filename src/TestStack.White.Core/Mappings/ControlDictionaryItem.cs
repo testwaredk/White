@@ -1,8 +1,8 @@
 using System;
 using System.Windows.Automation;
-using TestStack.White.UIItems;
 
-namespace TestStack.White.Mappings
+
+namespace TestStack.White.Core.Mappings
 {
     public class ControlDictionaryItem
     {

@@ -1,4 +1,5 @@
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.UIItems.Actions;
 
 namespace TestStack.White.UIItems.PropertyGridItems

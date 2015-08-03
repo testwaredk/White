@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using TestStack.White.Core;
 using TestStack.White.Factory;
 using TestStack.White.ScreenObjects;
 using TestStack.White.UIItems;

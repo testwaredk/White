@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TestStack.White.Configuration;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using Xunit;

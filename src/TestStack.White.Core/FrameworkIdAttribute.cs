@@ -1,6 +1,6 @@
 using System;
 
-namespace TestStack.White.UIItems
+namespace TestStack.White.Core
 {
     public class FrameworkIdAttribute : Attribute
     {

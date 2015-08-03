@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Automation;
 using Castle.Core.Logging;
 using TestStack.White.Configuration;
-using TestStack.White.Mappings;
+using TestStack.White.Core.Mappings;
 
 namespace TestStack.White.UIA
 {

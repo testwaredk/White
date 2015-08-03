@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
 
-namespace TestStack.White.Mappings
+namespace TestStack.White.Core.Mappings
 {
     public class ControlDictionaryItems : List<ControlDictionaryItem>
     {

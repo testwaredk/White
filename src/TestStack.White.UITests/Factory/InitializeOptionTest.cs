@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using TestStack.White.Factory;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
 using Xunit;

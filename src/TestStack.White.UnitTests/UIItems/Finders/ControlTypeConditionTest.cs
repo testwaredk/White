@@ -1,4 +1,5 @@
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowStripControls;

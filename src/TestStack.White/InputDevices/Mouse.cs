@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.Drawing;
 using TestStack.White.UIA;

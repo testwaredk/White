@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Automation;
 using Castle.DynamicProxy;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.Factory;
 using TestStack.White.InputDevices;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowStripControls;
 using Xunit;

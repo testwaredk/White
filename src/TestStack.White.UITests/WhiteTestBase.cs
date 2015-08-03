@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Castle.Core.Logging;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.InputDevices;
 using TestStack.White.ScreenObjects;

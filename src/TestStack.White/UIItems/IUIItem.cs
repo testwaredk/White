@@ -1,6 +1,7 @@
 using System.Drawing;
 using System.Windows;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.Recording;
 using TestStack.White.UIItems.Actions;
 using TestStack.White.UIItems.Finders;

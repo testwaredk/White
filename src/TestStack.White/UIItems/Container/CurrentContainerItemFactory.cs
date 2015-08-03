@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Automation;
 using TestStack.White.Factory;
 using TestStack.White.Finder;
-using TestStack.White.Mappings;
+using TestStack.White.Core.Mappings;
 using TestStack.White.Sessions;
 using TestStack.White.UIItems.Actions;
 using TestStack.White.UIItems.Finders;

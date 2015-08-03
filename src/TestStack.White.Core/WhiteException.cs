@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace TestStack.White
+namespace TestStack.White.Core
 {
     [Serializable]
     public class WhiteException : Exception

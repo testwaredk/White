@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.Utility;

@@ -1,3 +1,4 @@
+using TestStack.White.Core;
 using TestStack.White.UIItems.Finders;
 
 namespace TestStack.White.UIItems

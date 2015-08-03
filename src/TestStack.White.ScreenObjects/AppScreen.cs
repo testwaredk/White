@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Castle.Core.Logging;
 using TestStack.White.Configuration;
-using TestStack.White.Mappings;
+using TestStack.White.Core.Mappings;
 using TestStack.White.ScreenObjects.EntityMapping;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;

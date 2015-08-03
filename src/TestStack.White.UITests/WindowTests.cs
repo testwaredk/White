@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;

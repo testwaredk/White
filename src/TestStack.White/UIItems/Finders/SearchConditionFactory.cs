@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using System.Windows.Automation;
-using TestStack.White.Mappings;
+using TestStack.White.Core;
+using TestStack.White.Core.Mappings;
 using TestStack.White.UIItems.Custom;
 
 namespace TestStack.White.UIItems.Finders

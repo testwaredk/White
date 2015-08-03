@@ -1,4 +1,5 @@
 ﻿using System;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 
 namespace TestStack.White.UITests.Infrastructure

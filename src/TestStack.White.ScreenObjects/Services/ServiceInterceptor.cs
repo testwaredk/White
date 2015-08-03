@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Castle.DynamicProxy;
+using TestStack.White.Core;
 using TestStack.White.Reporting.Domain;
 
 namespace TestStack.White.ScreenObjects.Services

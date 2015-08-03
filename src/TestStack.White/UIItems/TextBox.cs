@@ -1,4 +1,5 @@
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.Recording;
 using TestStack.White.UIA;
 using TestStack.White.UIItemEvents;

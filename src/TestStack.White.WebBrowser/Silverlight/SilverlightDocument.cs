@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.Factory;
 using TestStack.White.Sessions;
 using TestStack.White.UIItems;

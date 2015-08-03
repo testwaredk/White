@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using TestStack.White.Core;
 using TestStack.White.InputDevices;
 using TestStack.White.UIItems;
 using TestStack.White.WindowsAPI;

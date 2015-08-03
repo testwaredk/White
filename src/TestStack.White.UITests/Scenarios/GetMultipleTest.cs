@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using Xunit;

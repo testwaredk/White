@@ -151,6 +151,10 @@
       <Project>{492e6340-32cc-4d03-a9c4-36fb4c40cf5c}</Project>
       <Name>WpfTestApplication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
+      <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
+      <Name>TestStack.White.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Reporting\TestStack.White.Reporting.csproj">
       <Project>{19FC2A6E-1C39-4DB8-AABF-A234FD6BC3FE}</Project>
       <Name>TestStack.White.Reporting</Name>

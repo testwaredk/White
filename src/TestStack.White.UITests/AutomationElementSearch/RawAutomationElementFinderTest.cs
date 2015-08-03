@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.AutomationElementSearch;
 using TestStack.White.Configuration;
 using TestStack.White.UIItems;

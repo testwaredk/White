@@ -6,7 +6,7 @@ using System.Windows.Automation;
 using Castle.Core.Logging;
 using TestStack.White.Configuration;
 using TestStack.White.Factory;
-using TestStack.White.Mappings;
+using TestStack.White.Core.Mappings;
 using TestStack.White.UIA;
 using TestStack.White.UIItems.Actions;
 

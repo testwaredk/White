@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Automation;
+using TestStack.White.Core;
 
 namespace TestStack.White.UIItems.Custom
 {

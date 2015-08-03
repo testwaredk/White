@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using TestStack.White.Core;
 using TestStack.White.Bricks;
 using TestStack.White.ScreenObjects.EntityMapping;
 using TestStack.White.ScreenObjects.Interceptors;

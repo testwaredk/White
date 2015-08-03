@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Automation;
+using TestStack.White.Core;
 using TestStack.White.AutomationElementSearch;
 using TestStack.White.UIItems.Custom;
 using TestStack.White.UIItems.WindowStripControls;

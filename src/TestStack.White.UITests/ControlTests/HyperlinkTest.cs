@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Windows;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using Xunit;
 

@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Automation;
-using TestStack.White.Mappings;
+using TestStack.White.Core;
+using TestStack.White.Core.Mappings;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Actions;
 
@@ -8,6 +9,12 @@ namespace TestStack.White.Factory
 {
     public class DictionaryMappedItemFactory : UIItemFactory
     {
+        /// <summary>
+        /// This factory method takes the automation element, analyse it through ControlDictionary and returns the corresponding UIItem.
+        /// </summary>
+        /// <param name="automationElement"></param>
+        /// <param name="actionListener"></param>
+        /// <returns></returns>
         public virtual IUIItem Create(AutomationElement automationElement, ActionListener actionListener)
         {
             if (automationElement == null) return null;

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Drawing;
+using TestStack.White.Core;
 using TestStack.White.UIItems;
 using Xunit;
 
