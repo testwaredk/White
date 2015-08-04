@@ -199,10 +199,11 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)..\TestStack.White.Plugins.WinForm\bin\Debug\TestStack.White.Plugins.WinForm.dll $(TargetDir)Plugins /y
-copy $(ProjectDir)..\TestStack.White.Plugins.Wpf\bin\Debug\TestStack.White.Plugins.Wpf.dll $(TargetDir)Plugins /y
-copy $(ProjectDir)..\TestStack.White.Plugins.Generic\bin\Debug\TestStack.White.Plugins.Generic.dll $(TargetDir)Plugins /y
-copy $(ProjectDir)..\TestStack.White.Plugins.Silverlight\bin\Debug\TestStack.White.Plugins.Silverlight.dll $(TargetDir)Plugins /y
+    <PostBuildEvent>copy $(ProjectDir)..\TestStack.White.Plugins.WinForm\bin\Debug\TestStack.White.Plugins.WinForm.* $(TargetDir)Plugins /y
+copy $(ProjectDir)..\TestStack.White.Plugins.Wpf\bin\Debug\TestStack.White.Plugins.Wpf.* $(TargetDir)Plugins /y
+copy $(ProjectDir)..\TestStack.White.Plugins.Generic\bin\Debug\TestStack.White.Plugins.Generic.* $(TargetDir)Plugins /y
+copy $(ProjectDir)..\TestStack.White.Plugins.Silverlight\bin\Debug\TestStack.White.Plugins.Silverlight.* $(TargetDir)Plugins /y
+copy $(ProjectDir)..\TestStack.White.Plugins.Win32\bin\Debug\TestStack.White.Plugins.Win32.* $(TargetDir)Plugins /y
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
