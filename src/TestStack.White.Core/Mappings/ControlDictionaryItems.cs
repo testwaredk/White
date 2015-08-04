@@ -61,6 +61,10 @@ namespace TestStack.White.Core.Mappings
             Add(ControlDictionaryItem.SilverlightPrimary(testControlType, controlType));
         }
 
+        public virtual void AddSilverlightPrimary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            Add(ControlDictionaryItem.SilverlightPrimary(testControlType, controlType, hasPrimaryChildren));
+        }
         public virtual void AddPrimary(Type testControlType, ControlType controlType)
         {
             Add(ControlDictionaryItem.Primary(testControlType, controlType));

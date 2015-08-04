@@ -31,13 +31,13 @@ namespace TestStack.White.Core.Mappings
         public override int GetHashCode()
         {
             int[] ints = new int[] { 
-                Cryptography.GetMD5Hash(this.testControlType.ToString()),
-                Cryptography.GetMD5Hash(this.controlType.ToString()),
+                Cryptography.GetMD5Hash(this.testControlType == null ? "" : this.testControlType.Name),
+                Cryptography.GetMD5Hash(this.controlType.ProgrammaticName),
                 Cryptography.GetMD5Hash(this.className),
                 this.identifiedByClassName ? 1 : 0,
                 this.isPrimary ? 1 : 0,
                 this.isExcluded ? 1 : 0,
-                Cryptography.GetMD5Hash(this.frameworkId),
+                Cryptography.GetMD5Hash(this.frameworkId == null ? "" : this.frameworkId),
                 this.hasPrimaryChildren ? 1 : 0
             };
             return Cryptography.GetMD5Hash(ints);
@@ -90,6 +90,10 @@ namespace TestStack.White.Core.Mappings
         public static ControlDictionaryItem SilverlightPrimary(Type testControlType, ControlType controlType)
         {
             return Primary(testControlType, controlType, WindowsFramework.Silverlight.FrameworkId());
+        }
+        public static ControlDictionaryItem SilverlightPrimary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            return Primary(testControlType, controlType, WindowsFramework.Silverlight.FrameworkId(), hasPrimaryChildren);
         }
 
         private static ControlDictionaryItem Secondary(Type testControlType, ControlType controlType, string frameworkId)

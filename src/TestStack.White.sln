@@ -74,6 +74,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.Wpf", "TestStack.White.Plugins.Wpf\TestStack.White.Plugins.Wpf.csproj", "{BC79DB2C-E148-499B-A89E-33433850D7E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.Silverlight", "TestStack.White.Plugins.Silverlight\TestStack.White.Plugins.Silverlight.csproj", "{22B06D20-1275-4013-8E6B-887C7A85EB56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.Generic", "TestStack.White.Plugins.Generic\TestStack.White.Plugins.Generic.csproj", "{902730E2-B176-48D6-9395-443CD1CAC700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +176,14 @@ Global
 		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B06D20-1275-4013-8E6B-887C7A85EB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B06D20-1275-4013-8E6B-887C7A85EB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B06D20-1275-4013-8E6B-887C7A85EB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B06D20-1275-4013-8E6B-887C7A85EB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{902730E2-B176-48D6-9395-443CD1CAC700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{902730E2-B176-48D6-9395-443CD1CAC700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{902730E2-B176-48D6-9395-443CD1CAC700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{902730E2-B176-48D6-9395-443CD1CAC700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
