@@ -21,6 +21,7 @@ namespace TestStack.White.UnitTests.Mappings
             controlDictionary = ControlDictionary.Instance;
         }
 
+
         [Fact]
         public void PrimaryControlTypes()
         {

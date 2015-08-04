@@ -15,6 +15,8 @@ namespace TestStack.White.Plugins
     /// </summary>
     public class PluginsManager
     {
+        static bool isPluginsLoaded = false;
+
         private static List<Assembly> LoadPlugInAssemblies()
         {
             DirectoryInfo dInfo = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "Plugins"));
@@ -57,13 +59,18 @@ namespace TestStack.White.Plugins
         /// </summary>
         public static void LoadPlugins(ControlDictionary controlDictionaryInstance)
         {
-            List<Assembly> assemblies = LoadPlugInAssemblies();
-
-            List<IPluginFacade> plugins = GetPlugIns(assemblies);
-
-            foreach (IPluginFacade plugin in plugins)
+            if (!isPluginsLoaded)
             {
-                controlDictionaryInstance.AddControlDictionaryItems(plugin.GetControlDictionaryItems());
+                List<Assembly> assemblies = LoadPlugInAssemblies();
+
+                List<IPluginFacade> plugins = GetPlugIns(assemblies);
+
+                foreach (IPluginFacade plugin in plugins)
+                {
+                    controlDictionaryInstance.AddControlDictionaryItems(plugin.GetControlDictionaryItems());
+                }
+
+                isPluginsLoaded = true;
             }
         }
 

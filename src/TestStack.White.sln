@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Core", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.WinForm", "TestStack.White.Plugins.WinForm\TestStack.White.Plugins.WinForm.csproj", "{283673F4-0CE8-441D-B4C4-8A8704C547E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.Wpf", "TestStack.White.Plugins.Wpf\TestStack.White.Plugins.Wpf.csproj", "{BC79DB2C-E148-499B-A89E-33433850D7E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -166,6 +168,10 @@ Global
 		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC79DB2C-E148-499B-A89E-33433850D7E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

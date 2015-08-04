@@ -7,6 +7,23 @@ namespace TestStack.White.Core.Mappings
 {
     public class ControlDictionaryItems : List<ControlDictionaryItem>
     {
+
+        private List<int> index = new List<int>();
+
+        public void Add(ControlDictionaryItem item)
+        {
+            if (!index.Contains(item.GetHashCode()))
+            {
+                index.Add(item.GetHashCode());
+                base.Add(item);
+            } 
+            else
+            {
+                throw new WhiteException("Cannot add ControlDictionaryItem that already is defined. " + item.ToString());
+            }
+        }
+
+
         public virtual void AddWin32Primary(Type testControlType, ControlType controlType)
         {
             Add(ControlDictionaryItem.Win32Primary(testControlType, controlType));
@@ -16,10 +33,18 @@ namespace TestStack.White.Core.Mappings
         {
             Add(ControlDictionaryItem.WPFPrimary(testControlType, controlType));
         }
+        public virtual void AddWPFPrimary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            Add(ControlDictionaryItem.WPFPrimary(testControlType, controlType, hasPrimaryChildren));
+        }
 
         public virtual void AddWPFSecondary(Type testControlType, ControlType controlType)
         {
             Add(ControlDictionaryItem.WPFSecondary(testControlType, controlType));
+        }
+        public virtual void AddWPFSecondary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            Add(ControlDictionaryItem.WPFSecondary(testControlType, controlType, hasPrimaryChildren));
         }
 
         public virtual void AddWinFormPrimary(Type testControlType, ControlType controlType)
