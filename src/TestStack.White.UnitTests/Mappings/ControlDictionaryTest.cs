@@ -6,6 +6,7 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.PropertyGridItems;
 using TestStack.White.UIItems.WindowStripControls;
+using TestStack.White.Plugins;
 using Xunit;
 
 namespace TestStack.White.UnitTests.Mappings
@@ -16,6 +17,7 @@ namespace TestStack.White.UnitTests.Mappings
 
         public ControlDictionaryTest()
         {
+            PluginsManager.LoadPlugins(ControlDictionary.Instance);
             controlDictionary = ControlDictionary.Instance;
         }
 

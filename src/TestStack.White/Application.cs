@@ -6,12 +6,14 @@ using System.Diagnostics;
 using System.IO;
 using Castle.Core.Logging;
 using TestStack.White.Core;
+using TestStack.White.Core.Mappings;
 using TestStack.White.Configuration;
 using TestStack.White.Factory;
 using TestStack.White.Sessions;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White.WindowsAPI;
+using TestStack.White.Plugins;
 
 namespace TestStack.White
 {
@@ -27,6 +29,7 @@ namespace TestStack.White
 
         protected Application()
         {
+            PluginsManager.LoadPlugins(ControlDictionary.Instance);
         }
 
         private Application(Process process)

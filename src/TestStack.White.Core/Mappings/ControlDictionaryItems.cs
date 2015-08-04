@@ -26,6 +26,10 @@ namespace TestStack.White.Core.Mappings
         {
             Add(ControlDictionaryItem.WinFormPrimary(testControlType, controlType));
         }
+        public virtual void AddWinFormPrimary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            Add(ControlDictionaryItem.WinFormPrimary(testControlType, controlType, hasPrimaryChildren));
+        }
 
         public virtual void AddSilverlightPrimary(Type testControlType, ControlType controlType)
         {

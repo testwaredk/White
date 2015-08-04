@@ -42,10 +42,18 @@ namespace TestStack.White.Core.Mappings
         {
             return new ControlDictionaryItem(testControlType, controlType, string.Empty, false, true, false, frameworkId, false);
         }
+        private static ControlDictionaryItem Primary(Type testControlType, ControlType controlType, string frameworkId, bool hasPrimaryChildren)
+        {
+            return new ControlDictionaryItem(testControlType, controlType, string.Empty, false, true, false, frameworkId, hasPrimaryChildren);
+        }
 
         public static ControlDictionaryItem WinFormPrimary(Type testControlType, ControlType controlType)
         {
             return Primary(testControlType, controlType, WindowsFramework.WinForms.FrameworkId());
+        }
+        public static ControlDictionaryItem WinFormPrimary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            return Primary(testControlType, controlType, WindowsFramework.WinForms.FrameworkId(), hasPrimaryChildren);
         }
 
         public static ControlDictionaryItem WPFPrimary(Type testControlType, ControlType controlType)
@@ -68,6 +76,11 @@ namespace TestStack.White.Core.Mappings
             return new ControlDictionaryItem(testControlType, controlType, string.Empty, false, false, false, frameworkId, false);
         }
 
+        private static ControlDictionaryItem Secondary(Type testControlType, ControlType controlType, string frameworkId, bool hasPrimaryChildren)
+        {
+            return new ControlDictionaryItem(testControlType, controlType, string.Empty, false, false, false, frameworkId, hasPrimaryChildren);
+        }
+
         public static ControlDictionaryItem Secondary(Type testControlType, ControlType controlType)
         {
             return new ControlDictionaryItem(testControlType, controlType, string.Empty, false, false, false, null, false);
@@ -81,6 +94,10 @@ namespace TestStack.White.Core.Mappings
         public static ControlDictionaryItem WinFormSecondary(Type testControlType, ControlType controlType)
         {
             return Secondary(testControlType, controlType, WindowsFramework.WinForms.FrameworkId());
+        }
+        public static ControlDictionaryItem WinFormSecondary(Type testControlType, ControlType controlType, bool hasPrimaryChildren)
+        {
+            return Secondary(testControlType, controlType, WindowsFramework.WinForms.FrameworkId(), hasPrimaryChildren);
         }
 
         public static ControlDictionaryItem Win32Secondary(Type testControlType, ControlType controlType)

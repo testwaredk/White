@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Core", "TestStack.White.Core\TestStack.White.Core.csproj", "{DFE6DDC7-B6F5-4EC4-99D1-0185068E3DDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Plugins.WinForm", "TestStack.White.Plugins.WinForm\TestStack.White.Plugins.WinForm.csproj", "{283673F4-0CE8-441D-B4C4-8A8704C547E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -160,6 +162,10 @@ Global
 		{DFE6DDC7-B6F5-4EC4-99D1-0185068E3DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFE6DDC7-B6F5-4EC4-99D1-0185068E3DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFE6DDC7-B6F5-4EC4-99D1-0185068E3DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283673F4-0CE8-441D-B4C4-8A8704C547E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

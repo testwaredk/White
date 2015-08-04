@@ -17,6 +17,14 @@ namespace TestStack.White.Core.Mappings
 
         }
 
+        public virtual void AddControlDictionaryItems(ControlDictionaryItems controlItems)
+        {
+            foreach (ControlDictionaryItem item in controlItems)
+            {
+                items.Add(item);
+            }
+        }
+
         public virtual bool HasPrimaryChildren(ControlType controlType)
         {
             if (controlType.Equals(ControlType.Custom)) return true;
