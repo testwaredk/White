@@ -19,10 +19,12 @@ namespace TestStack.White.Core.Mappings
 
         public virtual void AddControlDictionaryItems(ControlDictionaryItems controlItems)
         {
-            foreach (ControlDictionaryItem item in controlItems)
-            {
-                items.Add(item);
-            }
+            this.items.AddRange(controlItems);
+        }
+
+        public virtual void AddEditableControls(List<Type> editableControls)
+        {
+            this.editableControls.AddRange(editableControls);
         }
 
         public virtual bool HasPrimaryChildren(ControlType controlType)

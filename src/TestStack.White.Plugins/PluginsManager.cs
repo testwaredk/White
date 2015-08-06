@@ -15,9 +15,19 @@ namespace TestStack.White.Plugins
     /// </summary>
     public class PluginsManager
     {
-        static bool isPluginsLoaded = false;
+        public static readonly PluginsManager Instance = new PluginsManager();
 
-        private static List<Assembly> LoadPlugInAssemblies()
+        public List<IPluginFacade> LoadedPlugins { get;  private set; }
+
+        bool isDictionaryLoaded = false;
+
+        public PluginsManager()
+        {
+            List<Assembly> assemblies = LoadPlugInAssemblies();
+            LoadedPlugins = GetPlugIns(assemblies);
+        }
+
+        private List<Assembly> LoadPlugInAssemblies()
         {
             DirectoryInfo dInfo = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "Plugins"));
             FileInfo[] files = dInfo.GetFiles("*.dll");
@@ -35,7 +45,7 @@ namespace TestStack.White.Plugins
         }
 
 
-        private static List<IPluginFacade> GetPlugIns(List<Assembly> assemblies)
+        private List<IPluginFacade> GetPlugIns(List<Assembly> assemblies)
         {
             List<Type> availableTypes = new List<Type>();
             foreach (Assembly currentAssembly in assemblies)
@@ -57,20 +67,17 @@ namespace TestStack.White.Plugins
         /// <summary>
         /// This method should load all the plugins in the plugins directory and read the controldictionary from the plugins
         /// </summary>
-        public static void LoadPlugins(ControlDictionary controlDictionaryInstance)
+        public void FillControlDictionary(ControlDictionary controlDictionaryInstance)
         {
-            if (!isPluginsLoaded)
+            if (!isDictionaryLoaded)
             {
-                List<Assembly> assemblies = LoadPlugInAssemblies();
-
-                List<IPluginFacade> plugins = GetPlugIns(assemblies);
-
-                foreach (IPluginFacade plugin in plugins)
+                foreach (IPluginFacade plugin in LoadedPlugins)
                 {
                     controlDictionaryInstance.AddControlDictionaryItems(plugin.GetControlDictionaryItems());
+                    controlDictionaryInstance.AddEditableControls(plugin.GetEditableControls());
                 }
 
-                isPluginsLoaded = true;
+                isDictionaryLoaded = true;
             }
         }
 

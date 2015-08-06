@@ -29,7 +29,7 @@ namespace TestStack.White
 
         protected Application()
         {
-            PluginsManager.LoadPlugins(ControlDictionary.Instance);
+            PluginsManager.Instance.FillControlDictionary(ControlDictionary.Instance);
         }
 
         private Application(Process process)

@@ -17,7 +17,7 @@ namespace TestStack.White.UnitTests.Mappings
 
         public ControlDictionaryTest()
         {
-            PluginsManager.LoadPlugins(ControlDictionary.Instance);
+            PluginsManager.Instance.FillControlDictionary(ControlDictionary.Instance);
             controlDictionary = ControlDictionary.Instance;
         }
 
