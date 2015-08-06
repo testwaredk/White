@@ -89,10 +89,6 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TestStack.White.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2672efbf3e161801, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\TestStack.White.Plugins\bin\Debug\TestStack.White.Plugins.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationClient">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -172,6 +168,10 @@
     <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
       <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
       <Name>TestStack.White.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Plugins\TestStack.White.Plugins.csproj">
+      <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
+      <Name>TestStack.White.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Reporting\TestStack.White.Reporting.csproj">
       <Project>{19FC2A6E-1C39-4DB8-AABF-A234FD6BC3FE}</Project>
