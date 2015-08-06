@@ -9,9 +9,9 @@ using TestStack.White.Plugins;
 namespace TestStack.White.Plugins.Silverlight
 {
     [WhitePlugin("Silverlight")]
-    public class Facade : IPluginFacade
+    public class SilverlightFacade : PluginFacade
     {
-        public ControlDictionaryItems GetControlDictionaryItems()
+        public override ControlDictionaryItems GetControlDictionaryItems()
         {
             ControlDictionaryItems items = new ControlDictionaryItems();
 
@@ -40,19 +40,8 @@ namespace TestStack.White.Plugins.Silverlight
         }
 
 
-        public List<Type> GetEditableControls()
-        {
-            List<Type> editableControls = new List<Type>();
-            return editableControls;
-        }
 
-
-        public object GetTestConfiguration()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Supports(Type t)
+        public override Type[] GetSupportedGenericControls()
         {
             throw new NotImplementedException();
         }

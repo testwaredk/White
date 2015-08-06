@@ -9,9 +9,9 @@ using TestStack.White.Plugins;
 namespace TestStack.White.Plugins.Generic
 {
     [WhitePlugin("Generic for non specific frameworkId")]
-    public class Facade : IPluginFacade
+    public class GenericFacade : PluginFacade
     {
-        public ControlDictionaryItems GetControlDictionaryItems()
+        public override ControlDictionaryItems GetControlDictionaryItems()
         {
             ControlDictionaryItems items = new ControlDictionaryItems();
 
@@ -52,7 +52,7 @@ namespace TestStack.White.Plugins.Generic
         }
 
 
-        public List<Type> GetEditableControls()
+        public override List<Type> GetEditableControls()
         {
             List<Type> editableControls = new List<Type>();
 
@@ -65,12 +65,8 @@ namespace TestStack.White.Plugins.Generic
         }
 
 
-        public object GetTestConfiguration()
-        {
-            throw new NotImplementedException();
-        }
 
-        public bool Supports(Type t)
+        public override Type[] GetSupportedGenericControls()
         {
             throw new NotImplementedException();
         }

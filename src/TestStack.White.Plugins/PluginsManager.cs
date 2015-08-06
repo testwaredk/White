@@ -17,7 +17,7 @@ namespace TestStack.White.Plugins
     {
         public static readonly PluginsManager Instance = new PluginsManager();
 
-        public List<IPluginFacade> LoadedPlugins { get;  private set; }
+        public List<PluginFacade> LoadedPlugins { get;  private set; }
 
         bool isDictionaryLoaded = false;
 
@@ -45,7 +45,7 @@ namespace TestStack.White.Plugins
         }
 
 
-        private List<IPluginFacade> GetPlugIns(List<Assembly> assemblies)
+        private List<PluginFacade> GetPlugIns(List<Assembly> assemblies)
         {
             List<Type> availableTypes = new List<Type>();
             foreach (Assembly currentAssembly in assemblies)
@@ -58,10 +58,14 @@ namespace TestStack.White.Plugins
                 List<Type> interfaceTypes = new List<Type>(t.GetInterfaces());
 
                 object[] arr = t.GetCustomAttributes(typeof(WhitePluginAttribute), true);
-                return !(arr == null || arr.Length == 0) && interfaceTypes.Contains(typeof(IPluginFacade));
+
+                // the type returned need to first contain the WhitePluginAttribute and then be inherited from Facade
+                return !(arr == null || arr.Length == 0) && t.BaseType.Equals(typeof(PluginFacade));
+
+                //return !(arr == null || arr.Length == 0) && interfaceTypes.Contains(typeof(IPluginFacade));
             });
 
-            return facadeList.ConvertAll<IPluginFacade>(t => Activator.CreateInstance(t) as IPluginFacade);
+            return facadeList.ConvertAll<PluginFacade>(t => Activator.CreateInstance(t) as PluginFacade);
         }
 
         /// <summary>
@@ -71,7 +75,7 @@ namespace TestStack.White.Plugins
         {
             if (!isDictionaryLoaded)
             {
-                foreach (IPluginFacade plugin in LoadedPlugins)
+                foreach (PluginFacade plugin in LoadedPlugins)
                 {
                     controlDictionaryInstance.AddControlDictionaryItems(plugin.GetControlDictionaryItems());
                     controlDictionaryInstance.AddEditableControls(plugin.GetEditableControls());

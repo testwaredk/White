@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Automation;
 using TestStack.White;
@@ -9,9 +10,9 @@ using TestStack.White.Plugins;
 namespace TestStack.White.Plugins.WinForm
 {
     [WhitePlugin("WinForm")]
-    public class Facade : IPluginFacade
+    public class WinFormFacade : PluginFacade
     {
-        public ControlDictionaryItems GetControlDictionaryItems()
+        public override ControlDictionaryItems GetControlDictionaryItems()
         {
             ControlDictionaryItems items = new ControlDictionaryItems();
 
@@ -32,24 +33,19 @@ namespace TestStack.White.Plugins.WinForm
             return items;
         }
 
-        public List<Type> GetEditableControls()
-        {
-            List<Type> editableControls = new List<Type>();
-            return editableControls;
-        }
 
-
-
-        public object GetTestConfiguration()
+        public override object GetTestConfiguration()
         {
             throw new NotImplementedException();
         }
 
-        public bool Supports(Type t)
+        public override Type[] GetSupportedGenericControls()
         {
-            throw new NotImplementedException();
+            return new Type[] { 
+                typeof(UIItems.TextBox),
+                typeof(UIItems.WinFormTextBox),
+                typeof(UIItems.Label) 
+            };
         }
-
-
     }
 }

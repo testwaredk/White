@@ -9,9 +9,9 @@ using TestStack.White.Plugins;
 namespace TestStack.White.Plugins.Win32
 {
     [WhitePlugin("Win32")]
-    public class Facade : IPluginFacade
+    public class Win32Facade : PluginFacade
     {
-        public ControlDictionaryItems GetControlDictionaryItems()
+        public override ControlDictionaryItems GetControlDictionaryItems()
         {
             ControlDictionaryItems items = new ControlDictionaryItems();
 
@@ -26,22 +26,12 @@ namespace TestStack.White.Plugins.Win32
             return items;
         }
 
-        public List<Type> GetEditableControls()
+
+        public override Type[] GetSupportedGenericControls()
         {
-            List<Type> editableControls = new List<Type>();
-            return editableControls;
-        }
-
-
-
-        public object GetTestConfiguration()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Supports(Type t)
-        {
-            throw new NotImplementedException();
+            return new Type[] {
+                typeof(UIItems.WindowStripControls.MenuBar)
+            };
         }
     }
 }

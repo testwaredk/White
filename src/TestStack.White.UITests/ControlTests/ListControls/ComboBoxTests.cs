@@ -143,7 +143,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         protected override IEnumerable<System.Type> CoveredControls()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(ComboBox);
         }
 
         protected override void ExecuteTestRun()

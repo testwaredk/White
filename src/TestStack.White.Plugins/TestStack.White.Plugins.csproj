@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPluginFacade.cs" />
+    <Compile Include="PluginFacade.cs" />
     <Compile Include="PluginsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhitePluginAttribute.cs" />

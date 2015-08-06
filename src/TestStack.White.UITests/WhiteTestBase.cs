@@ -24,7 +24,7 @@ namespace TestStack.White.UITests
         readonly List<Window> windowsToClose = new List<Window>();
         readonly string screenshotDir;
         WindowsFramework? currentFramework;
-        IPluginFacade currentPlugin;
+        PluginFacade currentPlugin;
 
         internal Keyboard Keyboard;
 
@@ -45,9 +45,9 @@ namespace TestStack.White.UITests
         {
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
             
-            foreach (IPluginFacade plugin in PluginsManager.Instance.LoadedPlugins)
+            foreach (PluginFacade plugin in PluginsManager.Instance.LoadedPlugins)
             {
-                if (CoveredControls().All(t => plugin.Supports(t)))
+                if (CoveredControls().All(t => plugin.IsSupported(t)))
                 {
                     currentPlugin = plugin;
                     using (SetMainWindow(plugin))
@@ -125,7 +125,7 @@ namespace TestStack.White.UITests
 
         protected abstract void ExecuteTestRun();
 
-        private IDisposable SetMainWindow(IPluginFacade plugin)
+        private IDisposable SetMainWindow(PluginFacade plugin)
         {
             try
             {

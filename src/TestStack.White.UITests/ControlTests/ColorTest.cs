@@ -46,7 +46,9 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override void ExecuteTestRun()
         {
-            throw new System.NotImplementedException();
+            SelectInputControls();
+            RunTest(BorderColour);
+            RunTest(DisplayAsImage);
         }
     }
 }
