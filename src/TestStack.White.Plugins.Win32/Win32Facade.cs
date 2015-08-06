@@ -11,27 +11,16 @@ namespace TestStack.White.Plugins.Win32
     [WhitePlugin("Win32")]
     public class Win32Facade : PluginFacade
     {
-        public override ControlDictionaryItems GetControlDictionaryItems()
+        public Win32Facade()
         {
-            ControlDictionaryItems items = new ControlDictionaryItems();
+            ControlItems.AddWin32Primary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.MenuBar);
+            ControlItems.AddWin32Primary(typeof(UIItems.ListBoxItems.Win32ComboBox), ControlType.ComboBox);
+            ControlItems.AddWin32Primary(typeof(UIItems.TextBox), ControlType.Document);
+            ControlItems.AddWin32Primary(typeof(UIItems.Image), ControlType.Image);
 
-            items.AddWin32Primary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.MenuBar);
-            items.AddWin32Primary(typeof(UIItems.ListBoxItems.Win32ComboBox), ControlType.ComboBox);
-            items.AddWin32Primary(typeof(UIItems.TextBox), ControlType.Document);
-            items.AddWin32Primary(typeof(UIItems.Image), ControlType.Image);
-
-            items.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
-            items.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.TreeItems.Win32TreeNode), ControlType.TreeItem));
-
-            return items;
+            ControlItems.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
+            ControlItems.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.TreeItems.Win32TreeNode), ControlType.TreeItem));
         }
 
-
-        public override Type[] GetSupportedGenericControls()
-        {
-            return new Type[] {
-                typeof(UIItems.WindowStripControls.MenuBar)
-            };
-        }
     }
 }

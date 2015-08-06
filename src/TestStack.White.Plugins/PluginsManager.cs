@@ -75,8 +75,8 @@ namespace TestStack.White.Plugins
             {
                 foreach (PluginFacade plugin in LoadedPlugins)
                 {
-                    controlDictionaryInstance.AddControlDictionaryItems(plugin.GetControlDictionaryItems());
-                    controlDictionaryInstance.AddEditableControls(plugin.GetEditableControls());
+                    controlDictionaryInstance.AddControlDictionaryItems(plugin.ControlItems);
+                    controlDictionaryInstance.AddEditableControls(plugin.EditableControls);
                 }
 
                 isDictionaryLoaded = true;

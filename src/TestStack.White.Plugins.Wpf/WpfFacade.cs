@@ -11,42 +11,29 @@ namespace TestStack.White.Plugins.Wpf
     [WhitePlugin("Wpf")]
     public class WpfFacade : PluginFacade
     {
-        public override ControlDictionaryItems GetControlDictionaryItems()
+        public WpfFacade()
         {
-            ControlDictionaryItems items = new ControlDictionaryItems();
-
             // Primary controls
-            items.AddWPFPrimary(typeof(UIItems.TextBox), ControlType.Edit);
-            items.AddWPFPrimary(typeof(UIItems.WPFSlider), ControlType.Slider);
+            ControlItems.AddWPFPrimary(typeof(UIItems.TextBox), ControlType.Edit);
+            ControlItems.AddWPFPrimary(typeof(UIItems.WPFSlider), ControlType.Slider);
 
-            items.AddWPFPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.Menu);
+            ControlItems.AddWPFPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.Menu);
 
-            items.AddWPFPrimary(typeof(UIItems.WPFLabel), ControlType.Text);
-            items.AddWPFPrimary(typeof(UIItems.ListBoxItems.WPFComboBox), ControlType.ComboBox);
-            items.AddWPFPrimary(typeof(UIItems.WindowStripControls.WPFStatusBar), ControlType.StatusBar);
+            ControlItems.AddWPFPrimary(typeof(UIItems.WPFLabel), ControlType.Text);
+            ControlItems.AddWPFPrimary(typeof(UIItems.ListBoxItems.WPFComboBox), ControlType.ComboBox);
+            ControlItems.AddWPFPrimary(typeof(UIItems.WindowStripControls.WPFStatusBar), ControlType.StatusBar);
 
-            items.AddWPFPrimary(typeof(UIItems.Custom.CustomUIItem), ControlType.Custom);
-            items.AddWPFPrimary(typeof(UIItems.Image), ControlType.Image);
-            
+            ControlItems.AddWPFPrimary(typeof(UIItems.Custom.CustomUIItem), ControlType.Custom);
+            ControlItems.AddWPFPrimary(typeof(UIItems.Image), ControlType.Image);
+
             // Secondary controls
-            
-            items.AddWPFSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem);
 
-            items.AddWPFSecondary(typeof(UIItems.TreeItems.WPFTreeNode), ControlType.TreeItem);
-            
-            items.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Custom, "DatePicker", true, true, false, WindowsFramework.Wpf.FrameworkId(), false));
-            
+            ControlItems.AddWPFSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem);
 
+            ControlItems.AddWPFSecondary(typeof(UIItems.TreeItems.WPFTreeNode), ControlType.TreeItem);
 
+            ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Custom, "DatePicker", true, true, false, WindowsFramework.Wpf.FrameworkId(), false));
 
-            return items;
-        }
-
-        public override Type[] GetSupportedGenericControls()
-        {
-            return new Type[] {
-                typeof(UIItems.TextBox)
-            };
         }
     }
 }

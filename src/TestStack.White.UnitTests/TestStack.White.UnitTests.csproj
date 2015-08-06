@@ -201,7 +201,6 @@
   <PropertyGroup>
     <PostBuildEvent>copy $(ProjectDir)..\TestStack.White.Plugins.WinForm\bin\Debug\TestStack.White.Plugins.WinForm.* $(TargetDir)Plugins /y
 copy $(ProjectDir)..\TestStack.White.Plugins.Wpf\bin\Debug\TestStack.White.Plugins.Wpf.* $(TargetDir)Plugins /y
-copy $(ProjectDir)..\TestStack.White.Plugins.Generic\bin\Debug\TestStack.White.Plugins.Generic.* $(TargetDir)Plugins /y
 copy $(ProjectDir)..\TestStack.White.Plugins.Silverlight\bin\Debug\TestStack.White.Plugins.Silverlight.* $(TargetDir)Plugins /y
 copy $(ProjectDir)..\TestStack.White.Plugins.Win32\bin\Debug\TestStack.White.Plugins.Win32.* $(TargetDir)Plugins /y
 </PostBuildEvent>

@@ -44,6 +44,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginFacade.cs" />
@@ -55,6 +57,10 @@
     <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
       <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
       <Name>TestStack.White.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White\TestStack.White.csproj">
+      <Project>{12c59ce2-9cf7-44f4-b27c-90754609f979}</Project>
+      <Name>TestStack.White</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -11,39 +11,29 @@ namespace TestStack.White.Plugins.Silverlight
     [WhitePlugin("Silverlight")]
     public class SilverlightFacade : PluginFacade
     {
-        public override ControlDictionaryItems GetControlDictionaryItems()
+        public SilverlightFacade()
         {
-            ControlDictionaryItems items = new ControlDictionaryItems();
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.TextBox), ControlType.Edit);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.WPFSlider), ControlType.Slider);
 
-            items.AddSilverlightPrimary(typeof(UIItems.TextBox), ControlType.Edit);
-            items.AddSilverlightPrimary(typeof(UIItems.WPFSlider), ControlType.Slider);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.Menu);
 
-            items.AddSilverlightPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.Menu);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.ProgressBar), ControlType.ProgressBar);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.Spinner), ControlType.Spinner);
 
-            items.AddSilverlightPrimary(typeof(UIItems.ProgressBar), ControlType.ProgressBar);
-            items.AddSilverlightPrimary(typeof(UIItems.Spinner), ControlType.Spinner);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.WPFLabel), ControlType.Text);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.ListBoxItems.SilverlightComboBox), ControlType.ComboBox);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.WindowStripControls.WPFStatusBar), ControlType.StatusBar);
 
-            items.AddSilverlightPrimary(typeof(UIItems.WPFLabel), ControlType.Text);
-            items.AddSilverlightPrimary(typeof(UIItems.ListBoxItems.SilverlightComboBox), ControlType.ComboBox);
-            items.AddSilverlightPrimary(typeof(UIItems.WindowStripControls.WPFStatusBar), ControlType.StatusBar);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.Image), ControlType.Image);
 
-            items.AddSilverlightPrimary(typeof(UIItems.Image), ControlType.Image);
+            ControlItems.AddSilverlightPrimary(typeof(UIItems.WindowItems.SilverlightChildWindow), ControlType.Window);
 
-            items.AddSilverlightPrimary(typeof(UIItems.WindowItems.SilverlightChildWindow), ControlType.Window);
+            ControlItems.Add(ControlDictionaryItem.SilverlightSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem));
 
-            items.Add(ControlDictionaryItem.SilverlightSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem));
+            ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Pane, "DatePicker", true, true, false, WindowsFramework.Silverlight.FrameworkId(), false));
 
-            items.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Pane, "DatePicker", true, true, false, WindowsFramework.Silverlight.FrameworkId(), false));
-            
-
-            return items;
         }
 
-
-
-        public override Type[] GetSupportedGenericControls()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

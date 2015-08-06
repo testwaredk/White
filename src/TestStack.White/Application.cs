@@ -13,7 +13,7 @@ using TestStack.White.Sessions;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White.WindowsAPI;
-using TestStack.White.Plugins;
+
 
 namespace TestStack.White
 {
@@ -29,7 +29,7 @@ namespace TestStack.White
 
         protected Application()
         {
-            PluginsManager.Instance.FillControlDictionary(ControlDictionary.Instance);
+            
         }
 
         private Application(Process process)
