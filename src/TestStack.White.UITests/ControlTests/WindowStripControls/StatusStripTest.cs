@@ -81,5 +81,10 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
         {
             yield return WindowsFramework.WinForms;
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

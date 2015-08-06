@@ -40,5 +40,10 @@ namespace TestStack.White.UITests.ControlTests.ListControls
         {
             yield return WindowsFramework.Wpf;
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

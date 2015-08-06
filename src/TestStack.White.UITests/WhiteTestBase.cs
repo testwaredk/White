@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Castle.Core.Logging;
+using TestStack.White.Plugins;
 using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.InputDevices;
@@ -23,6 +24,7 @@ namespace TestStack.White.UITests
         readonly List<Window> windowsToClose = new List<Window>();
         readonly string screenshotDir;
         WindowsFramework? currentFramework;
+        IPluginFacade currentPlugin;
 
         internal Keyboard Keyboard;
 
@@ -42,6 +44,31 @@ namespace TestStack.White.UITests
         public void Automate()
         {
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
+            
+            foreach (IPluginFacade plugin in PluginsManager.Instance.LoadedPlugins)
+            {
+                if (CoveredControls().All(t => plugin.Supports(t)))
+                {
+                    currentPlugin = plugin;
+                    using (SetMainWindow(plugin))
+                    {
+                        try
+                        {
+                            ExecuteTestRun(plugin);
+                        }
+                        catch (TestFailedException)
+                        {
+                            throw;
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new TestFailedException(string.Format("Failed to run test for {0}", plugin), ex);
+                        }
+                    }
+                }
+            }
+            return;
+
             var frameworksToRun = SupportedFrameworks();
 
             foreach (var framework in frameworksToRun)
@@ -96,6 +123,33 @@ namespace TestStack.White.UITests
 
         protected abstract void ExecuteTestRun(WindowsFramework framework);
 
+        protected abstract void ExecuteTestRun();
+
+        private IDisposable SetMainWindow(IPluginFacade plugin)
+        {
+            try
+            {
+                Keyboard = Keyboard.Instance;
+                var configuration = (TestConfiguration)plugin.GetTestConfiguration();
+                Application = configuration.LaunchApplication();
+                Repository = new ScreenRepository(Application);
+                MainWindow = configuration.GetMainWindow(Application);
+                MainScreen = configuration.GetMainScreen(Repository);
+
+                return new ShutdownApplicationDisposable(this);
+
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Failed to launch application and get main window", e);
+                if (Application != null)
+                    Application.Close();
+                throw;
+
+            }
+        }
+
+
         private IDisposable SetMainWindow(WindowsFramework framework)
         {
             try
@@ -119,6 +173,8 @@ namespace TestStack.White.UITests
         }
 
         protected abstract IEnumerable<WindowsFramework> SupportedFrameworks();
+
+        protected abstract IEnumerable<Type> CoveredControls();
 
         protected IEnumerable<WindowsFramework> AllFrameworks()
         {

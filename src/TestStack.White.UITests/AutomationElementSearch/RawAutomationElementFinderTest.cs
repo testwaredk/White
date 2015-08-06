@@ -48,5 +48,10 @@ namespace TestStack.White.UITests.AutomationElementSearch
         {
             cleanup.Dispose();
         }
+
+        protected override IEnumerable<Type> CoveredControls()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

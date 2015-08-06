@@ -38,5 +38,10 @@ namespace TestStack.White.UITests.ControlTests
         {
             yield return WindowsFramework.WinForms;
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            yield return typeof(UIItems.TextBox);
+        }
     }
 }

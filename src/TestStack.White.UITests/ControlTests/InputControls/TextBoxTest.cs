@@ -91,5 +91,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             yield return WindowsFramework.WinForms;
             yield return WindowsFramework.Wpf;
         }
+
+        protected override IEnumerable<Type> CoveredControls()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

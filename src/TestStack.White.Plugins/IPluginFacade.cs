@@ -9,5 +9,9 @@ namespace TestStack.White.Plugins
         ControlDictionaryItems GetControlDictionaryItems();
 
         List<Type> GetEditableControls();
+
+        object GetTestConfiguration();
+
+        bool Supports(Type t);
     }
 }

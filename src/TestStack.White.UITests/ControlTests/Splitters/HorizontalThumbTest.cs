@@ -49,5 +49,10 @@ namespace TestStack.White.UITests.ControlTests.Splitters
             yield return WindowsFramework.Wpf;
             // yield return FrameworkId.Silverlight; Has some timing issues
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

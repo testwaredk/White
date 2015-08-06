@@ -42,5 +42,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
         {
             yield return WindowsFramework.WinForms;
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

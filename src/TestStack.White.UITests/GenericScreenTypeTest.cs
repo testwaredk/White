@@ -38,5 +38,10 @@ namespace TestStack.White.UITests
                 window.Get(SearchCriteria.All);
             }
         }
+
+        protected override IEnumerable<System.Type> CoveredControls()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
