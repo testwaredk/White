@@ -33,5 +33,10 @@ namespace TestStack.White.UITests.Interceptors
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

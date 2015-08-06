@@ -55,5 +55,10 @@ namespace TestStack.White.UITests.ControlTests.Splitters
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

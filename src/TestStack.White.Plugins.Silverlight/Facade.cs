@@ -45,5 +45,16 @@ namespace TestStack.White.Plugins.Silverlight
             List<Type> editableControls = new List<Type>();
             return editableControls;
         }
+
+
+        public object GetTestConfiguration()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Supports(Type t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

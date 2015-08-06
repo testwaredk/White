@@ -45,5 +45,10 @@ namespace TestStack.White.UITests.Factory
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -32,5 +32,16 @@ namespace TestStack.White.Plugins.Win32
             return editableControls;
         }
 
+
+
+        public object GetTestConfiguration()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Supports(Type t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

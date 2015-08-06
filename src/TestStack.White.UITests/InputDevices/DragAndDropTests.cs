@@ -55,5 +55,10 @@ namespace TestStack.White.UITests.InputDevices
         {
             throw new NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

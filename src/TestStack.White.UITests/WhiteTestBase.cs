@@ -54,7 +54,7 @@ namespace TestStack.White.UITests
                     {
                         try
                         {
-                            ExecuteTestRun(plugin);
+                            ExecuteTestRun();
                         }
                         catch (TestFailedException)
                         {
@@ -139,7 +139,7 @@ namespace TestStack.White.UITests
                 return new ShutdownApplicationDisposable(this);
 
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 logger.Error("Failed to launch application and get main window", e);
                 if (Application != null)

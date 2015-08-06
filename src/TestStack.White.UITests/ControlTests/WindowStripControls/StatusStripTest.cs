@@ -86,5 +86,10 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -30,5 +30,10 @@ namespace TestStack.White.UITests.UIA
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

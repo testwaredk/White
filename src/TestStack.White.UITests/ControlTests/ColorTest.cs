@@ -43,5 +43,10 @@ namespace TestStack.White.UITests.ControlTests
         {
             yield return typeof(UIItems.TextBox);
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -111,5 +111,10 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

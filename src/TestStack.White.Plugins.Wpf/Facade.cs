@@ -48,5 +48,16 @@ namespace TestStack.White.Plugins.Wpf
         }
 
 
+
+
+        public object GetTestConfiguration()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Supports(Type t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -34,5 +34,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -53,5 +53,10 @@ namespace TestStack.White.UITests.AutomationElementSearch
         {
             throw new NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -82,5 +82,10 @@ namespace TestStack.White.UITests.Scenarios
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

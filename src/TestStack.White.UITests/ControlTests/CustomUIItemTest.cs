@@ -42,5 +42,10 @@ namespace TestStack.White.UITests.ControlTests
         {
             throw new NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

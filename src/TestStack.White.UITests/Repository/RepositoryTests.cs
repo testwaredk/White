@@ -21,5 +21,10 @@ namespace TestStack.White.UITests.Repository
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

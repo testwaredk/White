@@ -53,5 +53,10 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void ExecuteTestRun()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
