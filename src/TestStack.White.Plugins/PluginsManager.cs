@@ -61,8 +61,6 @@ namespace TestStack.White.Plugins
 
                 // the type returned need to first contain the WhitePluginAttribute and then be inherited from Facade
                 return !(arr == null || arr.Length == 0) && t.BaseType.Equals(typeof(PluginFacade));
-
-                //return !(arr == null || arr.Length == 0) && interfaceTypes.Contains(typeof(IPluginFacade));
             });
 
             return facadeList.ConvertAll<PluginFacade>(t => Activator.CreateInstance(t) as PluginFacade);

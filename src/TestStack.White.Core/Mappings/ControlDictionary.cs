@@ -19,7 +19,14 @@ namespace TestStack.White.Core.Mappings
 
         public virtual void AddControlDictionaryItems(ControlDictionaryItems controlItems)
         {
-            this.items.AddRange(controlItems);
+            foreach (ControlDictionaryItem item in controlItems)
+            {
+                // add only unique items
+                if (!this.items.Any(t => t.GetHashCode().Equals(item.GetHashCode())))
+                {
+                    this.items.Add(item);
+                }
+            }
         }
 
         public virtual void AddEditableControls(List<Type> editableControls)
