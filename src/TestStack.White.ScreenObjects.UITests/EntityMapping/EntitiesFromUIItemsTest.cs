@@ -2,8 +2,9 @@ using System;
 using TestStack.White.ScreenObjects.EntityMapping;
 using TestStack.White.UIItems.TableItems;
 using TestStack.White.UIItems.WindowItems;
-using TestStack.White.UITests.Infrastructure;
 using TestStack.White.UnitTests.Repository.EntityMapping;
+using TestStack.White.Modules;
+using TestStack.White.Modules.WinForm;
 using Xunit;
 
 namespace TestStack.White.ScreenObjects.UITests.EntityMapping

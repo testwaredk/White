@@ -35,9 +35,6 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override void ExecuteTestRun(WindowsFramework framework)
         {
-            RunTest(RaiseClickEvent);
-            RunTest(Click);
-            RunTest(ThrowsWhenNotFound);
         }
 
         protected override IEnumerable<WindowsFramework> SupportedFrameworks()
@@ -48,12 +45,14 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override IEnumerable<System.Type> CoveredControls()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(Button);
         }
 
         protected override void ExecuteTestRun()
         {
-            throw new System.NotImplementedException();
+            RunTest(RaiseClickEvent);
+            RunTest(Click);
+            RunTest(ThrowsWhenNotFound);
         }
     }
 }

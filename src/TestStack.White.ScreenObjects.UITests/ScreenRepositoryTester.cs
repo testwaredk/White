@@ -1,7 +1,8 @@
 using System;
 using TestStack.White.Factory;
 using TestStack.White.ScreenObjects.UITests.Testing;
-using TestStack.White.UITests.Infrastructure;
+using TestStack.White.Modules;
+using TestStack.White.Modules.WinForm;
 
 namespace TestStack.White.ScreenObjects.UITests
 {

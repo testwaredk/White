@@ -94,12 +94,18 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         protected override IEnumerable<Type> CoveredControls()
         {
-            throw new NotImplementedException();
+            yield return typeof(TextBox);
         }
 
         protected override void ExecuteTestRun()
         {
-            throw new NotImplementedException();
+            SelectInputControls();
+            RunTest(IsReadOnly);
+            RunTest(CopyTest);
+            RunTest(EnterText);
+            RunTest(EnterBulkText);
+            RunTest(SuggestionList, WindowsFramework.WinForms);
+            RunTest(SelectFromSuggestionList, WindowsFramework.WinForms);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Windows.Automation;
 using TestStack.White.Core;
 using TestStack.White.Core.Mappings;
-using TestStack.White.Plugins;
+using TestStack.White.Modules;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowStripControls;
@@ -13,7 +13,7 @@ namespace TestStack.White.UnitTests.UIItems.Finders
     {
         public ControlTypeConditionTest()
         {
-            PluginsManager.Instance.FillControlDictionary(ControlDictionary.Instance);
+            ModulesManager.Instance.FillControlDictionary(ControlDictionary.Instance);
         }
         
         [Fact]

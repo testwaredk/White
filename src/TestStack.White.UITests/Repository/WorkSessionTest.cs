@@ -4,7 +4,10 @@ using TestStack.White.ScreenObjects.Services;
 using TestStack.White.ScreenObjects.Sessions;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
-using TestStack.White.UITests.Infrastructure;
+using TestStack.White.Modules;
+using TestStack.White.Modules.WinForm;
+
+
 using Xunit;
 
 namespace TestStack.White.UITests.Repository

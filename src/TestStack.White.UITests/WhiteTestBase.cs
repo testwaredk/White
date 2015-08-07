@@ -5,15 +5,14 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Castle.Core.Logging;
-using TestStack.White.Plugins;
+using TestStack.White.Modules;
 using TestStack.White.Core;
 using TestStack.White.Configuration;
 using TestStack.White.InputDevices;
 using TestStack.White.ScreenObjects;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
-using TestStack.White.UITests.Infrastructure;
-using TestStack.White.UITests.Screens;
+using TestStack.White.Modules.Screens;
 using Xunit;
 
 namespace TestStack.White.UITests
@@ -23,8 +22,8 @@ namespace TestStack.White.UITests
         readonly ILogger logger = CoreAppXmlConfiguration.Instance.LoggerFactory.Create(typeof(WhiteTestBase));
         readonly List<Window> windowsToClose = new List<Window>();
         readonly string screenshotDir;
-        WindowsFramework? currentFramework;
-        PluginFacade currentPlugin;
+        WindowsFramework? currentFramework = null;
+        ModuleFacade currentModule;
 
         internal Keyboard Keyboard;
 
@@ -45,12 +44,13 @@ namespace TestStack.White.UITests
         {
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
             
-            foreach (PluginFacade plugin in PluginsManager.Instance.LoadedPlugins)
+            foreach (ModuleFacade module in ModulesManager.Instance.LoadedModules)
             {
-                if (CoveredControls().All(t => plugin.IsSupported(t)))
+                currentModule = module;
+                // ensure that all controls is supported by the plugins before running the test
+                if (CoveredControls().All(t => module.IsControlSupported(t)))
                 {
-                    currentPlugin = plugin;
-                    using (SetMainWindow(plugin))
+                    using (SetMainWindow(module))
                     {
                         try
                         {
@@ -62,35 +62,11 @@ namespace TestStack.White.UITests
                         }
                         catch (Exception ex)
                         {
-                            throw new TestFailedException(string.Format("Failed to run test for {0}", plugin), ex);
+                            throw new TestFailedException(string.Format("Failed to run test for {0}", module), ex);
                         }
                     }
                 }
             }
-            return;
-
-            var frameworksToRun = SupportedFrameworks();
-
-            foreach (var framework in frameworksToRun)
-            {
-                currentFramework = framework;
-                using (SetMainWindow(framework))
-                {
-                    try
-                    {
-                        ExecuteTestRun(framework);
-                    }
-                    catch (TestFailedException)
-                    {
-                        throw;
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new TestFailedException(string.Format("Failed to run test for {0}", framework), ex);
-                    }
-                }
-            }
-            currentFramework = null;
         }
 
         protected void RunTest(Action testAction, params WindowsFramework[] runFor)
@@ -125,12 +101,12 @@ namespace TestStack.White.UITests
 
         protected abstract void ExecuteTestRun();
 
-        private IDisposable SetMainWindow(PluginFacade plugin)
+        private IDisposable SetMainWindow(ModuleFacade module)
         {
             try
             {
                 Keyboard = Keyboard.Instance;
-                var configuration = (TestConfiguration)plugin.GetTestConfiguration();
+                var configuration = module.GetTestConfiguration();
                 Application = configuration.LaunchApplication();
                 Repository = new ScreenRepository(Application);
                 MainWindow = configuration.GetMainWindow(Application);
@@ -154,14 +130,16 @@ namespace TestStack.White.UITests
         {
             try
             {
+                /*
                 Keyboard = Keyboard.Instance;
                 var configuration = TestConfigurationFactory.Create(framework);
                 Application = configuration.LaunchApplication();
                 Repository = new ScreenRepository(Application);
                 MainWindow = configuration.GetMainWindow(Application);
                 MainScreen = configuration.GetMainScreen(Repository);
-
+                */
                 return new ShutdownApplicationDisposable(this);
+                
             }
             catch (Exception e)
             {
@@ -174,6 +152,12 @@ namespace TestStack.White.UITests
 
         protected abstract IEnumerable<WindowsFramework> SupportedFrameworks();
 
+        /// <summary>
+        /// CoveredControls are the controls (UIItem types) that the test case
+        /// is testing. It is only the test case itself that knows which UIItems that should be tested here.
+        /// When Automate is executed, the runner ensures that the plugins loaded supports the controls that should be tested by the test case.
+        /// </summary>
+        /// <returns></returns>
         protected abstract IEnumerable<Type> CoveredControls();
 
         protected IEnumerable<WindowsFramework> AllFrameworks()
