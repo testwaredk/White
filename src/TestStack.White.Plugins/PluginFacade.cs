@@ -13,8 +13,6 @@ namespace TestStack.White.Plugins
         public ControlDictionaryItems ControlItems { get; protected set; }
         public List<Type> EditableControls { get; protected set; }
 
-        protected List<Type> supportGenericControls;
-
         public PluginFacade()
         {
             ControlItems = new ControlDictionaryItems();
@@ -37,7 +35,7 @@ namespace TestStack.White.Plugins
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.GroupBox), ControlType.Group, string.Empty, false, true, false, null, true));
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.Panel), ControlType.Pane, "", false, true, false, null, true));
-            ControlItems.Add(new ControlDictionaryItem(null, ControlType.TitleBar, string.Empty, false, false, true, null, false));
+            //ControlItems.Add(new ControlDictionaryItem(null, ControlType.TitleBar, string.Empty, false, false, true, null, false));
 
             ControlDictionaryItem dictionaryItem = ControlDictionaryItem.Primary(typeof(UIItems.PropertyGridItems.PropertyGrid), ControlType.Pane);
             dictionaryItem.IsIdentifiedByName = true;
@@ -58,13 +56,11 @@ namespace TestStack.White.Plugins
             EditableControls.Add(typeof(UIItems.RadioButton));
             EditableControls.Add(typeof(UIItems.ListBoxItems.ListControl));
 
-            supportGenericControls = new List<Type>();
-
         }
 
-        public bool IsSupported(Type t)
+        public bool IsControlSupported(Type t)
         {
-            return supportGenericControls.Any(m => m.Equals(t));
+            return ControlItems.Exists(m => m.TestControlType.Equals(t));
         }
 
         public virtual object GetTestConfiguration()
