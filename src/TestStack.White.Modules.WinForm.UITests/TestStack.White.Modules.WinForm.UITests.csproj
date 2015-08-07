@@ -7,8 +7,8 @@
     <ProjectGuid>{36F4050E-367E-4A67-BC9A-BCB279B02273}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestStack.White.Plugins.WinForm.UITests</RootNamespace>
-    <AssemblyName>TestStack.White.Plugins.WinForm.UITests</AssemblyName>
+    <RootNamespace>TestStack.White.Modules.WinForm.UITests</RootNamespace>
+    <AssemblyName>TestStack.White.Modules.WinForm.UITests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>

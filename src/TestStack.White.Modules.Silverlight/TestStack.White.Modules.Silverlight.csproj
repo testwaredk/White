@@ -7,8 +7,8 @@
     <ProjectGuid>{22B06D20-1275-4013-8E6B-887C7A85EB56}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestStack.White.Plugins.Silverlight</RootNamespace>
-    <AssemblyName>TestStack.White.Plugins.Silverlight</AssemblyName>
+    <RootNamespace>TestStack.White.Modules.Silverlight</RootNamespace>
+    <AssemblyName>TestStack.White.Modules.Silverlight</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

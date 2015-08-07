@@ -7,8 +7,8 @@
     <ProjectGuid>{283673F4-0CE8-441D-B4C4-8A8704C547E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestStack.White.Plugins.WinForm</RootNamespace>
-    <AssemblyName>TestStack.White.Plugins.WinForm</AssemblyName>
+    <RootNamespace>TestStack.White.Modules.WinForm</RootNamespace>
+    <AssemblyName>TestStack.White.Modules.WinForm</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
