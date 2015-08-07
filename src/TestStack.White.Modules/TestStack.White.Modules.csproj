@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestConfiguration.cs" />
     <Compile Include="Screens\MainScreen.cs" />
-    <Compile Include="WhitePluginAttribute.cs" />
+    <Compile Include="WhiteModuleAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
