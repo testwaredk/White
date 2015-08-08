@@ -25,6 +25,7 @@ namespace TestStack.White.Modules
         {
             List<Assembly> assemblies = LoadModuleAssemblies();
             LoadedModules = GetModules(assemblies);
+            FillControlDictionary(ControlDictionary.Instance);
         }
 
         private List<Assembly> LoadModuleAssemblies()

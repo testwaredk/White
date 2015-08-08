@@ -13,7 +13,7 @@ namespace TestStack.White.Modules.WinForm
 
         protected override string ApplicationExePath()
         {
-            return "WindowsFormsTestApplication.exe";
+            return @"..\..\..\TestStack.White.Modules.Winform.TestApp\bin\debug\WindowsFormsTestApplication.exe";
         }
     }
 }

@@ -48,12 +48,14 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         protected override IEnumerable<System.Type> CoveredControls()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(UIItems.CheckBox);
         }
 
         protected override void ExecuteTestRun()
         {
-            throw new System.NotImplementedException();
+            SelectInputControls();
+            RunTest(SelectUnselect);
+            RunTest(CheckAndUncheckCheckbox);
         }
     }
 }

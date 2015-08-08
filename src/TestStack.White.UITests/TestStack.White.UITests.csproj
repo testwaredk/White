@@ -175,6 +175,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)Modules" mkdir "$(TargetDir)Modules"
+copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight.*" "$(TargetDir)Modules" /y
+copy "$(SolutionDir)TestStack.White.Modules.WinForm\bin\debug\TestStack.White.Modules.WinForm.*" "$(TargetDir)Modules" /y
+copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf.*" "$(TargetDir)Modules" /y
+copy "$(SolutionDir)TestStack.White.Modules.Win32\bin\debug\TestStack.White.Modules.Win32.*" "$(TargetDir)Modules" /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

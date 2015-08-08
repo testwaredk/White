@@ -13,7 +13,7 @@ namespace TestStack.White.Modules.Wpf
 
         protected override string ApplicationExePath()
         {
-            return "WpfTestApplication.exe";
+            return @"..\..\..\TestStack.White.Modules.Wpf.TestApp\bin\debug\WpfTestApplication.exe";
         }
     }
 }

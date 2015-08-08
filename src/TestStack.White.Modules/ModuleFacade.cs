@@ -66,5 +66,6 @@ namespace TestStack.White.Modules
         }
 
         public abstract TestConfiguration GetTestConfiguration();
+
     }
 }

@@ -29,6 +29,7 @@ namespace TestStack.White.Modules.WinForm
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.DateTimePicker), ControlType.Pane, "SysDateTimePick32", true, true, false, WindowsFramework.WinForms.FrameworkId(), false));
 
             SupportedControls.Add(typeof(UIItems.TextBox));
+            SupportedControls.Add(typeof(UIItems.CheckBox));
 
         }
 
@@ -36,5 +37,6 @@ namespace TestStack.White.Modules.WinForm
         {
             return new WinformsTestConfiguration();
         }
+
     }
 }

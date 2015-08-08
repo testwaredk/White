@@ -22,10 +22,11 @@ namespace TestStack.White.Modules
 
         public override Application LaunchApplication()
         {
-            var app = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), ApplicationExePath());
+            var dirInfo = new DirectoryInfo(Path.Combine(System.Environment.CurrentDirectory, ApplicationExePath()));
+            
             var processStartInfo = new ProcessStartInfo
             {
-                FileName = app,
+                FileName = dirInfo.FullName,
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,

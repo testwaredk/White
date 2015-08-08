@@ -34,6 +34,7 @@ namespace TestStack.White.Modules.Wpf
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Custom, "DatePicker", true, true, false, WindowsFramework.Wpf.FrameworkId(), false));
 
+            SupportedControls.Add(typeof(UIItems.CheckBox));
         }
 
         public override TestConfiguration GetTestConfiguration()
