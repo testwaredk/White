@@ -135,13 +135,6 @@ namespace TestStack.White.UITests
         /// <returns></returns>
         protected abstract IEnumerable<Type> CoveredRequirements();
 
-        protected IEnumerable<WindowsFramework> AllFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Silverlight;
-        }
-
         private class ShutdownApplicationDisposable : IDisposable
         {
             private readonly WhiteTestBase testBase;

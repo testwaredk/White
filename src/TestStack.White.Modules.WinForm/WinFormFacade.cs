@@ -46,8 +46,6 @@ namespace TestStack.White.Modules.WinForm
                 typeof(Core.Requirements.MenuItems.MenuRequirement),
                 typeof(Core.Requirements.MenuItems.PopUpMenuRequirement),
 
-                typeof(Core.Requirements.Splitters.HorizontalThumbRequirement),
-
                 typeof(Core.Requirements.Table.TableCellRequirement),
                 typeof(Core.Requirements.Table.TableRowsRequirement),
                 typeof(Core.Requirements.Table.TableRowRequirement),

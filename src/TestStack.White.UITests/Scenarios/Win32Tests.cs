@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using TestStack.White.Modules;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
@@ -16,6 +17,12 @@ namespace TestStack.White.UITests.Scenarios
         const string ExeSourceFile = @"C:\Windows\system32\calc.exe";
         const string Notepad = @"C:\Windows\system32\notepad.exe";
         const string InternetExplorer = @"C:\Program Files\Internet Explorer\iexplore.exe";
+
+        public Win32Tests()
+        {
+            // Load the modules
+            ModulesManager manager = ModulesManager.Instance;
+        }
 
         [Fact]
         public void NotepadTests()
