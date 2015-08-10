@@ -108,7 +108,6 @@
     <Compile Include="ControlTests\ListControls\ComboBoxTests.cs" />
     <Compile Include="ControlTests\ListControls\DataBoundComboBoxTests.cs" />
     <Compile Include="ControlTests\ListControls\EditableComboBoxTests.cs" />
-    <Compile Include="ControlTests\DataGridTests.cs" />
     <Compile Include="ControlTests\InputControls\DatePickerTests.cs" />
     <Compile Include="ControlTests\Splitters\HorizontalThumbTest.cs" />
     <Compile Include="ControlTests\Splitters\VerticalThumbTest.cs" />

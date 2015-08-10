@@ -58,7 +58,6 @@ namespace TestStack.White.Modules.WinForm
 
                 typeof(Core.Requirements.Standard.ButtonRequirement),
                 typeof(Core.Requirements.Standard.CustomUIItemRequirement),
-                typeof(Core.Requirements.Standard.DataGridRequirement),
                 typeof(Core.Requirements.Standard.GroupBoxRequirement),
                 typeof(Core.Requirements.Standard.HotKeyRequirement),
                 typeof(Core.Requirements.Standard.HScrollBarRequirement),
@@ -95,6 +94,7 @@ namespace TestStack.White.Modules.WinForm
                 typeof(Core.Requirements.Scenarios.GetMultipleRequirement),
 
                 typeof(Modules.WinForm.Requirements.ColorRequirement),
+                typeof(Modules.WinForm.Requirements.DataGridRequirement),
 
             });
         }

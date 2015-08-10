@@ -44,6 +44,7 @@ namespace TestStack.White.Core.Mappings
 
         public virtual ControlType[] GetControlType(Type testControlType, string frameworkId)
         {
+            if (items.Count == 0) throw new ControlDictionaryException("No modules loaded. Check Modules directory");
             var controlDictionaryItem = items.FindBy(testControlType, frameworkId);
             if (controlDictionaryItem == null)
                 throw new WhiteException(string.Format("Cannot find {0} for {1}", testControlType.Name, frameworkId));

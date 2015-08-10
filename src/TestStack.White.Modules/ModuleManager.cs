@@ -31,6 +31,8 @@ namespace TestStack.White.Modules
         private List<Assembly> LoadModuleAssemblies()
         {
             DirectoryInfo dInfo = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "Modules"));
+            if (!dInfo.Exists) dInfo.Create();
+
             FileInfo[] files = dInfo.GetFiles("*.dll");
 
             List<Assembly> moduleAssemblyList = new List<Assembly>();

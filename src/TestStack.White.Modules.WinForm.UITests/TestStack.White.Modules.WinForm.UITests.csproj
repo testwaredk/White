@@ -47,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorTest.cs" />
+    <Compile Include="DataGridWinFormsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
       <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
       <Name>TestStack.White.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.WinForm.Requirements\TestStack.White.Modules.WinForm.Requirements.csproj">
+      <Project>{934a7b5a-eead-4e55-9d19-6deef72fb0e5}</Project>
+      <Name>TestStack.White.Modules.WinForm.Requirements</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Modules.WinForm\TestStack.White.Modules.WinForm.csproj">
       <Project>{283673f4-0ce8-441d-b4c4-8a8704c547e8}</Project>
@@ -86,6 +91,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)TestStack.White.Modules.WinForm\bin\debug\TestStack.White.Modules.WinForm.*" "$(TargetDir)Modules\" /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -64,7 +64,6 @@ namespace TestStack.White.Modules.Wpf
 
                 typeof(Core.Requirements.Standard.ButtonRequirement),
                 typeof(Core.Requirements.Standard.CustomUIItemRequirement),
-                typeof(Core.Requirements.Standard.DataGridRequirement),
                 typeof(Core.Requirements.Standard.GroupBoxRequirement),
                 typeof(Core.Requirements.Standard.HotKeyRequirement),
                 typeof(Core.Requirements.Standard.HScrollBarRequirement),
@@ -98,6 +97,8 @@ namespace TestStack.White.Modules.Wpf
                 typeof(Core.Requirements.Scenarios.GetMultipleRequirement), 
 
                 typeof(Core.Requirements.AutomationElementSearch.RawAutomationElementFinderTest),
+
+                typeof(Modules.Wpf.Requirements.DataGridRequirement),
             });
         }
 

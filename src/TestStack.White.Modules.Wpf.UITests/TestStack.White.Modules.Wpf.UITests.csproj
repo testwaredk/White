@@ -45,10 +45,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridWpfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
+      <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
+      <Name>TestStack.White.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Wpf.Requirements\TestStack.White.Modules.Wpf.Requirements.csproj">
+      <Project>{0116967e-b8a5-4c0e-a588-5821d97eed4e}</Project>
+      <Name>TestStack.White.Modules.Wpf.Requirements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Wpf\TestStack.White.Modules.Wpf.csproj">
+      <Project>{bc79db2c-e148-499b-a89e-33433850d7e5}</Project>
+      <Name>TestStack.White.Modules.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
+      <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
+      <Name>TestStack.White.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.ScreenObjects\TestStack.White.ScreenObjects.csproj">
+      <Project>{fcd3e92f-fee9-414d-a460-09f7f685b83e}</Project>
+      <Name>TestStack.White.ScreenObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.UITests\TestStack.White.UITests.csproj">
+      <Project>{10a51741-09f8-47ca-ab94-965ee71342f7}</Project>
+      <Name>TestStack.White.UITests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White\TestStack.White.csproj">
+      <Project>{12c59ce2-9cf7-44f4-b27c-90754609f979}</Project>
+      <Name>TestStack.White</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
@@ -58,6 +89,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf.*" "$(TargetDir)Modules\" /y
+</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

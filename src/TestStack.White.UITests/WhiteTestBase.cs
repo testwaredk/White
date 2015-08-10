@@ -43,7 +43,8 @@ namespace TestStack.White.UITests
         public void Automate()
         {
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
-            
+            if (ModulesManager.Instance.LoadedModules.Count == 0) throw new TestFailedException("No modules loaded");
+
             foreach (ModuleFacade module in ModulesManager.Instance.LoadedModules)
             {
                 currentModule = module;

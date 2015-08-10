@@ -4,8 +4,9 @@ using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.Modules;
 using Xunit;
+using TestStack.White.UITests;
 
-namespace TestStack.White.UITests.ControlTests
+namespace TestStack.White.Modules.WinForm.UITests
 {
     public class ColorTest : WhiteTestBase
     {

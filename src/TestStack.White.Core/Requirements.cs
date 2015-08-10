@@ -68,7 +68,6 @@
     {
         public class ButtonRequirement { }
         public class CustomUIItemRequirement { }
-        public class DataGridRequirement { }
         public class GroupBoxRequirement { }
         public class HotKeyRequirement { }
         public class HScrollBarRequirement { }
