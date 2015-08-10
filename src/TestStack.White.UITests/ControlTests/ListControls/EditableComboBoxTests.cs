@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         protected ComboBox ComboBoxUnderTest { get; set; }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             ComboBoxUnderTest = MainWindow.Get<ComboBox>("EditableComboBox");
             RunTest(SetValueInEditableComboBox);
@@ -30,20 +30,10 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             Assert.Equal("Test3", ComboBoxUnderTest.SelectedItemText);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.ListControls.EditableCombpBoxRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

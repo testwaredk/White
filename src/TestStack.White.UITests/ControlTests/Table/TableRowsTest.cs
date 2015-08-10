@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests.DataGrid.WinForms
     {
         Table table;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectDataGridTab();
             table = MainWindow.Get<Table>("DataGrid");
@@ -33,19 +33,9 @@ namespace TestStack.White.UITests.ControlTests.DataGrid.WinForms
             Assert.Equal("Imran", rows.GetMultipleRows("Name", "Imran")[1].Cells[0].Value);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Table.TableRowsRequirement);
         }
     }
 }

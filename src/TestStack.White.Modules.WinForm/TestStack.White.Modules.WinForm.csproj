@@ -48,6 +48,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Requirements.cs" />
     <Compile Include="WinformsTestConfiguration.cs" />
     <Compile Include="WinFormFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

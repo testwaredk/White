@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,12 +46,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
       <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
       <Name>TestStack.White.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.WinForm\TestStack.White.Modules.WinForm.csproj">
+      <Project>{283673f4-0ce8-441d-b4c4-8a8704c547e8}</Project>
+      <Name>TestStack.White.Modules.WinForm</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
       <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
@@ -59,6 +65,10 @@
     <ProjectReference Include="..\TestStack.White.ScreenObjects\TestStack.White.ScreenObjects.csproj">
       <Project>{fcd3e92f-fee9-414d-a460-09f7f685b83e}</Project>
       <Name>TestStack.White.ScreenObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.UITests\TestStack.White.UITests.csproj">
+      <Project>{10a51741-09f8-47ca-ab94-965ee71342f7}</Project>
+      <Name>TestStack.White.UITests</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White\TestStack.White.csproj">
       <Project>{12c59ce2-9cf7-44f4-b27c-90754609f979}</Project>

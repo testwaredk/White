@@ -12,7 +12,7 @@ namespace TestStack.White.UITests.Interceptors
     //TODO: Check all operations and write tests possible on all disabled uiitem
     public class DisabledControlsTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(DoNotAllowActionOnDisabledControls);
             RunTest(AllowActionsPossibleOnDisabledInputControls);
@@ -59,20 +59,10 @@ namespace TestStack.White.UITests.Interceptors
             MainWindow.Get<Button>("DisableControls").Click();
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.Interceptors.DisabledControlsRequirement);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

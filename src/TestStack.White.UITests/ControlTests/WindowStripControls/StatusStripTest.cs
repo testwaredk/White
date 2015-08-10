@@ -12,7 +12,7 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
     {
         StatusStrip statusStrip;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             statusStrip = MainWindow.StatusBar(InitializeOption.NoCache);
@@ -77,19 +77,11 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
             Assert.Equal(100, progressBar.Maximum);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.WindowStripControls.StatusStripRequirment);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

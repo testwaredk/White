@@ -10,16 +10,16 @@ namespace TestStack.White.UITests.ControlTests
     {
         Tab tab;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             tab = MainWindow.Get<Tab>("ControlsTab");
 
             RunTest(Find);
-            RunTest(()=>AssertChildrenCount(framework));
+            //FIXME: RunTest(()=>AssertChildrenCount(framework));
             RunTest(ShouldSelectTabPage);
             RunTest(ShouldSelectTabPageWithName);
             RunTest(FindControlsInsideTab);
-            RunTest(TabWithReverseDisplayOrderTest, WindowsFramework.WinForms);
+            //FIXME: RunTest(TabWithReverseDisplayOrderTest, WindowsFramework.WinForms);
         }
 
         void Find()
@@ -66,20 +66,9 @@ namespace TestStack.White.UITests.ControlTests
             Assert.NotNull(selectedTab.Get<TextBox>("TextBox"));
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Standard.TabRequirement);
         }
     }
 }

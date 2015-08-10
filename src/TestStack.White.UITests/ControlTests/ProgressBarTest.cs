@@ -25,28 +25,17 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal(50, bar.Value);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             RunTest(MinimumValue);
             RunTest(MaximumValue);
             RunTest(Value);
         }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Standard.ProgressBarRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

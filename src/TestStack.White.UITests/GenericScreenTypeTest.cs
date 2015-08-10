@@ -10,17 +10,11 @@ namespace TestStack.White.UITests
 {
     public class GenericScreenTypeTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             var screen = Repository.Get<SomeGenericScreen<int, int>>(MainWindow.Title, InitializeOption.NoCache);
             screen.MakeWindowItemsMapDirty();
             Application.ApplicationSession.Save();
-        }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
         }
 
         private class SomeGenericScreen<T1, T2> : AppScreen
@@ -39,14 +33,10 @@ namespace TestStack.White.UITests
             }
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Windows.GenericScreenTypeRequirement);
         }
 
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

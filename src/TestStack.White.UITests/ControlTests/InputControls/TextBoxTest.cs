@@ -13,15 +13,15 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class TextBoxTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(IsReadOnly);
             RunTest(CopyTest);
             RunTest(EnterText);
             RunTest(EnterBulkText);
-            RunTest(SuggestionList, WindowsFramework.WinForms);
-            RunTest(SelectFromSuggestionList, WindowsFramework.WinForms);
+            //FIXME: RunTest(SuggestionList, WindowsFramework.WinForms);
+            //FIXME: RunTest(SelectFromSuggestionList, WindowsFramework.WinForms);
         }
 
         void EnterText()
@@ -86,26 +86,9 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             Assert.Equal(false, textBox.IsReadOnly);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
-
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            yield return typeof(TextBox);
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            SelectInputControls();
-            RunTest(IsReadOnly);
-            RunTest(CopyTest);
-            RunTest(EnterText);
-            RunTest(EnterBulkText);
-            RunTest(SuggestionList, WindowsFramework.WinForms);
-            RunTest(SelectFromSuggestionList, WindowsFramework.WinForms);
+ 	        yield return typeof(Core.Requirements.InputControls.TextBoxRequirement);
         }
     }
 }

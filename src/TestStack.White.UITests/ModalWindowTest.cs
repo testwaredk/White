@@ -44,7 +44,7 @@ namespace TestStack.White.UITests
             }
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(GetModalWindow);
             RunTest(GetModalWindowBasedOnSearchCriteria);
@@ -57,20 +57,9 @@ namespace TestStack.White.UITests
             MainWindow.Get<Button>("GetMultipleButton").Click();
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Windows.ModalWindowRequirement);
         }
     }
 }

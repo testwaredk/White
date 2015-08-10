@@ -7,7 +7,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class CheckboxTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(SelectUnselect);
@@ -40,22 +40,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             Assert.False(checkBox.Checked);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.InputControls.CheckboxRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            yield return typeof(UIItems.CheckBox);
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            SelectInputControls();
-            RunTest(SelectUnselect);
-            RunTest(CheckAndUncheckCheckbox);
-        }
     }
 }

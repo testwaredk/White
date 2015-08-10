@@ -9,7 +9,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
     {
         private Spinner spinner;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             spinner = MainWindow.Get<Spinner>("NumericUpDown");
@@ -38,19 +38,9 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             Assert.Equal(3.8, spinner.Value);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Spinner);
         }
     }
 }

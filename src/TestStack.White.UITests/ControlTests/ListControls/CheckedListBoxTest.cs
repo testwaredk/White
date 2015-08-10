@@ -11,7 +11,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         private ListBox listBoxUnderTest;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             listBoxUnderTest = MainWindow.Get<ListBox>("CheckedListBox");
             RunTest(CanCheckItem);
@@ -46,20 +46,9 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             Assert.Equal(false, listBoxUnderTest.IsChecked("Item3"));
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.ListControls.CheckedlistBoxRequirement);
         }
     }
 }

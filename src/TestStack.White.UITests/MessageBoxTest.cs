@@ -36,27 +36,17 @@ namespace TestStack.White.UITests
             }
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(CloseMessageBoxTest);
             RunTest(ClickButtonOnMessageBox);
             RunTest(ThrowsWhenNotFound);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Windows.MessageBoxRequirement);
         }
     }
 }

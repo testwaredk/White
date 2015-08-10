@@ -18,25 +18,15 @@ namespace TestStack.White.UITests.InputDevices
             Assert.Equal("a", textBox.Text);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(Enter);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.InputDevices.AttachedKeyboardRequirement);
         }
     }
 }

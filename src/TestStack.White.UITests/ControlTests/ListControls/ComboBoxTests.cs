@@ -13,7 +13,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         protected ComboBox ComboBoxUnderTest { get; set; }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             ComboBoxUnderTest = MainWindow.Get<ComboBox>(SearchCriteria.ByAutomationId("AComboBox"));
             RunTest(ListItemInComboBoxWithoutTextAvailableInitially, WindowsFramework.Wpf);
@@ -135,20 +135,10 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             Assert.Equal("Test4", ComboBoxUnderTest.SelectedItem.Text);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return typeof(ComboBox);
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.ListControls.ComboBoxRequirement);
         }
     }
 }

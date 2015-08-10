@@ -18,25 +18,16 @@ namespace TestStack.White.UITests.Interceptors
             }
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             GetItemOutsideWindowButWithoutScroll();
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.Interceptors.ScollInterceptorsRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

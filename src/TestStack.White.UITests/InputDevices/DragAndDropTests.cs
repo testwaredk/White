@@ -12,7 +12,7 @@ namespace TestStack.White.UITests.InputDevices
 {
     public class DragAndDropTests : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(DragAndDrop);
             RunTest(DragAndDropBasedOnPosition);
@@ -45,20 +45,11 @@ namespace TestStack.White.UITests.InputDevices
             }
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.InputDevices.DragAndDropRequirement);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

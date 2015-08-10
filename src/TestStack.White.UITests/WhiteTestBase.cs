@@ -48,7 +48,7 @@ namespace TestStack.White.UITests
             {
                 currentModule = module;
                 // ensure that all controls is supported by the plugins before running the test
-                if (CoveredControls().All(t => module.IsControlSupported(t)))
+                if (CoveredRequirements().All(t => module.IsRequirementSupported(t)))
                 {
                     using (SetMainWindow(module))
                     {
@@ -65,6 +65,10 @@ namespace TestStack.White.UITests
                             throw new TestFailedException(string.Format("Failed to run test for {0}", module), ex);
                         }
                     }
+                }
+                else
+                {
+                    logger.Warn("No modules with support for the CoveredControls");
                 }
             }
         }
@@ -97,8 +101,6 @@ namespace TestStack.White.UITests
             }
         }
 
-        protected abstract void ExecuteTestRun(WindowsFramework framework);
-
         protected abstract void ExecuteTestRun();
 
         private IDisposable SetMainWindow(ModuleFacade module)
@@ -125,40 +127,13 @@ namespace TestStack.White.UITests
             }
         }
 
-
-        private IDisposable SetMainWindow(WindowsFramework framework)
-        {
-            try
-            {
-                /*
-                Keyboard = Keyboard.Instance;
-                var configuration = TestConfigurationFactory.Create(framework);
-                Application = configuration.LaunchApplication();
-                Repository = new ScreenRepository(Application);
-                MainWindow = configuration.GetMainWindow(Application);
-                MainScreen = configuration.GetMainScreen(Repository);
-                */
-                return new ShutdownApplicationDisposable(this);
-                
-            }
-            catch (Exception e)
-            {
-                logger.Error("Failed to launch application and get main window", e);
-                if (Application != null)
-                    Application.Close();
-                throw;
-            }
-        }
-
-        protected abstract IEnumerable<WindowsFramework> SupportedFrameworks();
-
         /// <summary>
         /// CoveredControls are the controls (UIItem types) that the test case
         /// is testing. It is only the test case itself that knows which UIItems that should be tested here.
         /// When Automate is executed, the runner ensures that the plugins loaded supports the controls that should be tested by the test case.
         /// </summary>
         /// <returns></returns>
-        protected abstract IEnumerable<Type> CoveredControls();
+        protected abstract IEnumerable<Type> CoveredRequirements();
 
         protected IEnumerable<WindowsFramework> AllFrameworks()
         {

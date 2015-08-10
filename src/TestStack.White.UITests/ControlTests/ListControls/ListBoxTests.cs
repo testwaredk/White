@@ -11,7 +11,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 {
     public class ListBoxWithScrollBarTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(SelectItemNotVisibleBecauseOfScrollBar);
             RunTest(ListItemContainingTextbox, WindowsFramework.Wpf);
@@ -58,20 +58,10 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             listBox.Select("Allen");
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.ListControls.ListBoxRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

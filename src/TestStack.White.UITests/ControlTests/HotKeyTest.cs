@@ -20,25 +20,14 @@ namespace TestStack.White.UITests.ControlTests
             Retry.For(() => Assert.Equal("Clicked", button.Text), TimeSpan.FromSeconds(2));
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
-        {
-            RunTest(() => AccessKey(framework));
-        }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
-
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override void ExecuteTestRun()
         {
-            throw new NotImplementedException();
+            //FIXME: RunTest(() => AccessKey(framework));
+        }
+
+        protected override IEnumerable<Type> CoveredRequirements()
+        {
+            yield return typeof(Core.Requirements.Standard.HotKeyRequirement);
         }
     }
 }

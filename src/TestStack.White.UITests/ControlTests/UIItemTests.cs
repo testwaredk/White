@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests
 {
     public class UIItemTests : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(can_click_on_elements_located_by_searching_through_several_containers);
         }
@@ -24,19 +24,9 @@ namespace TestStack.White.UITests.ControlTests
             listboxItem.Click();
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Standard.UIItemsRequirement);
         }
     }
 }

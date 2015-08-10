@@ -6,18 +6,7 @@ namespace TestStack.White.UITests.Repository
 {
     public class RepositoryTests : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
-        {
-
-        }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
             throw new System.NotImplementedException();
         }

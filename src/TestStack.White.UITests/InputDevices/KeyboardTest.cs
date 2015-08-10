@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.InputDevices
 {
     public class KeyboardTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(EnterAccentedChars);
             RunTest(EnterUnicodeCharacters);
@@ -134,25 +134,16 @@ namespace TestStack.White.UITests.InputDevices
             textBox.Text = string.Empty;
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
 
         public void Dispose()
         {
             Keyboard.LeaveAllKeys();
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.InputDevices.KeyboardRequirement);
         }
 
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

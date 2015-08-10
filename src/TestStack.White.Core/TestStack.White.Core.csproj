@@ -56,6 +56,7 @@
     <Compile Include="Mappings\ControlDictionaryItems.cs" />
     <Compile Include="FrameworkIdAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requirements.cs" />
     <Compile Include="Security\Cryptography.cs" />
     <Compile Include="WhiteException.cs" />
     <Compile Include="WindowsFramework.cs" />

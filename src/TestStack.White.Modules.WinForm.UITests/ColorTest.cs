@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using TestStack.White.Core;
 using TestStack.White.UIItems;
+using TestStack.White.Modules;
 using Xunit;
 
 namespace TestStack.White.UITests.ControlTests
 {
     public class ColorTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(BorderColour);
@@ -34,21 +35,10 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal(color.R, color.R);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Modules.WinForm.Requirements.ColorRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            yield return typeof(UIItems.TextBox);
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            SelectInputControls();
-            RunTest(BorderColour);
-            RunTest(DisplayAsImage);
-        }
     }
 }

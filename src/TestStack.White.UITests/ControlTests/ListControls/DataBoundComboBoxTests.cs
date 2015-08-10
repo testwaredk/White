@@ -11,7 +11,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         protected ComboBox ComboBoxUnderTest { get; set; }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             ComboBoxUnderTest = MainWindow.Get<ComboBox>("DataBoundComboBox");
             RunTest(CanSelectDataboundItems);
@@ -36,19 +36,10 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             Assert.Equal("Test", items[0].Text);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.ListControls.DataBoundComboBoxRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

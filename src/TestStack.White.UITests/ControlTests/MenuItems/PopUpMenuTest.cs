@@ -9,10 +9,10 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
 {
     public class PopUpMenuTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectListControls();
-            RunTest(()=>GetPopupMenuItems(framework));
+            //FIXME: RunTest(()=>GetPopupMenuItems(framework));
             RunTest(ClickOnPopupMenu);
             RunTest(ClickOnNestedMenu);
         }
@@ -43,20 +43,10 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
             Assert.Equal("Level 2 Clicked", listBox.HelpText);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.MenuItems.PopUpMenuRequirement);
         }
     }
 }

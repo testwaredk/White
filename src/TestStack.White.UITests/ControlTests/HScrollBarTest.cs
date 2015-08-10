@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests
     {
         private IHScrollBar hScrollBar;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             var textBox = MainWindow.Get<TextBox>("MultiLineTextBox");
@@ -56,20 +56,10 @@ namespace TestStack.White.UITests.ControlTests
             Assert.True(valueBeforeScrollLeft > hScrollBar.Value);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Standard.HScrollBarRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

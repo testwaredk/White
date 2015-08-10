@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestStack.White;
+using TestStack.White.Core.Requirements.InputControls;
 using TestStack.White.Core.Mappings;
 using System.Windows.Automation;
 
@@ -12,7 +13,7 @@ namespace TestStack.White.Modules
     {
         public ControlDictionaryItems ControlItems { get; protected set; }
         public List<Type> EditableControls { get; protected set; }
-        public List<Type> SupportedControls { get; protected set; }
+        public List<Type> SupportedRequirements { get; protected set; }
 
         public ModuleFacade()
         {
@@ -57,12 +58,13 @@ namespace TestStack.White.Modules
             EditableControls.Add(typeof(UIItems.RadioButton));
             EditableControls.Add(typeof(UIItems.ListBoxItems.ListControl));
 
-            SupportedControls = new List<Type>();
+            SupportedRequirements = new List<Type>();
+
         }
 
-        public bool IsControlSupported(Type t)
+        public bool IsRequirementSupported(Type t)
         {
-            return SupportedControls.Exists(m => m.Equals(t));
+            return SupportedRequirements.Exists(m => m.Equals(t));
         }
 
         public abstract TestConfiguration GetTestConfiguration();

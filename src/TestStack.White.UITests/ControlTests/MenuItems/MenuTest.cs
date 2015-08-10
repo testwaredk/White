@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
 {
     public class MenuTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(FindMenuBar);
             RunTest(Click);
@@ -47,20 +47,10 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
                 .SubMenu("Level 3"));
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.MenuItems.MenuRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

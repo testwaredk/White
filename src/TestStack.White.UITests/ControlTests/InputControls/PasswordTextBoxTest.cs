@@ -31,27 +31,17 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             Assert.Equal("foobar", text);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(CannotGetTextFromPassword);
             RunTest(GetPasswordValueWhenTextBoxIsNotPasswordField, WindowsFramework.WinForms);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.InputControls.PasswordTextBox);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

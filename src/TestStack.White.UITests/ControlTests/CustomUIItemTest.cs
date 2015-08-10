@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests
 {
     public class CustomUIItemTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             // ReSharper disable AccessToDisposedClosure
             using (var window = StartScenario("CustomUIItemScenario", "CustomUIItemScenario"))
@@ -32,20 +32,10 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Throws<CustomUIItemException>(()=>window.Get<MyDateUIItemWithoutMappingDefined>("DateOfBirth"));
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Standard.CustomUIItemRequirement);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

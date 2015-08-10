@@ -27,26 +27,16 @@ namespace TestStack.White.UITests
             Console.WriteLine(nativeWindow.TextColor);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(BackgroundColor);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Windows.NativeWindowRequirement);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

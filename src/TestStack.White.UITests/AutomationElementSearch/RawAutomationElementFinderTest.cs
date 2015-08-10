@@ -22,7 +22,7 @@ namespace TestStack.White.UITests.AutomationElementSearch
             });
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(Descendant);
         }
@@ -38,25 +38,15 @@ namespace TestStack.White.UITests.AutomationElementSearch
             }
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
-
         public void Dispose()
         {
             cleanup.Dispose();
         }
 
-        protected override IEnumerable<Type> CoveredControls()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            throw new NotImplementedException();
+            yield return typeof(Core.Requirements.AutomationElementSearch.RawAutomationElementFinderTest);
         }
 
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -33,19 +33,9 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal(button.Text, "Clicked");
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-        }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            yield return typeof(Button);
+            yield return typeof(Core.Requirements.Standard.ButtonRequirement);
         }
 
         protected override void ExecuteTestRun()

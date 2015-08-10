@@ -34,28 +34,18 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal("Hyperlink Clicked", hyperlink.HelpText);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             RunTest(Click);
-            RunTest(ClickablePoint, WindowsFramework.Wpf); //TODO Figure out why this fails for Windows Forms
-            RunTest(ClickHyperlinkFromLabel, WindowsFramework.Wpf);
+            //FIXME: RunTest(ClickablePoint, WindowsFramework.Wpf); //TODO Figure out why this fails for Windows Forms
+            //FIXME: RunTest(ClickHyperlinkFromLabel, WindowsFramework.Wpf);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Standard.HyperlinkRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

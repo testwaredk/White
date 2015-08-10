@@ -9,7 +9,7 @@ namespace TestStack.White.UITests.ControlTests.Splitters
 {
     public class HorizontalThumbTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             var window = OpenHorizontalSliderWindow();
             using (new DelegateDisposable(() => CloseSliderWindow(window)))
@@ -44,20 +44,11 @@ namespace TestStack.White.UITests.ControlTests.Splitters
             return MainWindow.ModalWindow("HorizontalGridSplitter");
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            // yield return FrameworkId.Silverlight; Has some timing issues
+            yield return typeof(Core.Requirements.Splitters.HorizontalThumbRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

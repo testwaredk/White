@@ -19,27 +19,17 @@ namespace TestStack.White.UITests.ControlTests
             Assert.NotEqual(null, label);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(Text);
-            RunTest(FindTextBlock, WindowsFramework.Wpf);
+            //FIXME: RunTest(FindTextBlock, WindowsFramework.Wpf);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
 
-        protected override IEnumerable<System.Type> CoveredControls()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Standard.LabelRequirement);
         }
     }
 }

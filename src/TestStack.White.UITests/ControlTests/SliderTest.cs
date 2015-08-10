@@ -9,7 +9,7 @@ namespace TestStack.White.UITests.ControlTests
     {
         private Slider slider;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             slider = MainWindow.Get<Slider>("Slider");
@@ -55,20 +55,10 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal(4, slider.Value);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
+            yield return typeof(Core.Requirements.Standard.SliderRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

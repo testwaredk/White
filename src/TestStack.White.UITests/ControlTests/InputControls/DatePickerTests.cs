@@ -8,7 +8,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class DatePickerTests : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(() => GetDate(DateTime.Today), WindowsFramework.WinForms);
@@ -46,20 +46,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
                 dateTimePicker.Date);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.InputControls.DateTimePickerRequirement);
         }
 
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

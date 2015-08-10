@@ -10,13 +10,13 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
     {
         Tree tree;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             tree = MainWindow.Get<Tree>("TreeView");
 
             RunTest(Nodes);
-            RunTest(() => FindNode(framework));
+            // FIXME: RunTest(() => FindNode(framework));
             RunTest(SelectNodeWhichNeedsScrolling);
             RunTest(SelectNode);
             RunTest(DynamicallyAddedNodeCanBeFound);
@@ -101,20 +101,9 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             Assert.Equal(treeNode, tree.SelectedNode);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.TreeItems.TreeRequirement);
         }
     }
 }

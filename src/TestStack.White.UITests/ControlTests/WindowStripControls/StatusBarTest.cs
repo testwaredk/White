@@ -10,7 +10,7 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
     {
         WPFStatusBar statusBar;
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             statusBar = MainWindow.Get<WPFStatusBar>("StatusBar");
             RunTest(StatusBar);
@@ -30,19 +30,11 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
             Assert.Equal("Status Item 1", label.Text);
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+
+        protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
+            yield return typeof(Core.Requirements.WindowStripControls.StatusBarRequirement);
         }
 
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

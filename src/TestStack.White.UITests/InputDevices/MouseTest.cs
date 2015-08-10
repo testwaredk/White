@@ -12,7 +12,7 @@ namespace TestStack.White.UITests.InputDevices
 {
     public class MouseTest : WhiteTestBase
     {
-        protected override void ExecuteTestRun(WindowsFramework framework)
+        protected override void ExecuteTestRun()
         {
             RunTest(Cursor);
             RunTest(Location);
@@ -44,20 +44,9 @@ namespace TestStack.White.UITests.InputDevices
             Retry.For(()=>Assert.Equal("Right click received", button.Text), TimeSpan.FromSeconds(5));
         }
 
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
-            yield return WindowsFramework.Wpf;
-            yield return WindowsFramework.WinForms;
-        }
-
-        protected override IEnumerable<Type> CoveredControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteTestRun()
-        {
-            throw new NotImplementedException();
+            yield return typeof(Core.Requirements.InputDevices.MouseRequirement);
         }
     }
 }

@@ -15,25 +15,14 @@ namespace TestStack.White.UITests.UIA
             Assert.Equal(string.Format("AutomationId:ButtonWithTooltip, Name:Button with Tooltip, ControlType:button, FrameworkId:{0}", frameworkid), s);
         }
 
-        protected override void ExecuteTestRun(WindowsFramework framework)
-        {
-            RunTest(()=>TestToString(framework.FrameworkId()));
-        }
-
-        protected override IEnumerable<WindowsFramework> SupportedFrameworks()
-        {
-            yield return WindowsFramework.WinForms;
-            yield return WindowsFramework.Wpf;
-        }
-
-        protected override IEnumerable<System.Type> CoveredControls()
-        {
-            throw new System.NotImplementedException();
-        }
-
         protected override void ExecuteTestRun()
         {
-            throw new System.NotImplementedException();
+            //FIXME: RunTest(()=>TestToString(framework.FrameworkId()));
+        }
+
+        protected override IEnumerable<System.Type> CoveredRequirements()
+        {
+            yield return typeof(Core.Requirements.UIA.AutomationElementXRequirement);
         }
     }
 }
