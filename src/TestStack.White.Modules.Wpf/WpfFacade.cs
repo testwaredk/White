@@ -95,6 +95,8 @@ namespace TestStack.White.Modules.Wpf
 
                 typeof(Core.Requirements.Factory.InitializeOptionRequirement),
 
+                typeof(Core.Requirements.Scenarios.GetMultipleRequirement), 
+
                 typeof(Core.Requirements.AutomationElementSearch.RawAutomationElementFinderTest),
             });
         }

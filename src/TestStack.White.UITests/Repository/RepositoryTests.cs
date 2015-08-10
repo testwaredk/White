@@ -8,12 +8,12 @@ namespace TestStack.White.UITests.Repository
     {
         protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            throw new System.NotImplementedException();
+            yield return typeof(Core.Requirements.Requirement);
         }
 
         protected override void ExecuteTestRun()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

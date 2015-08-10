@@ -127,5 +127,11 @@
     {
         public class RawAutomationElementFinderTest { }
     }
+
+    namespace Scenarios
+    {
+        public class GetMultipleRequirement { }
+        public class Win32Requirement { }
+    }
 }
 

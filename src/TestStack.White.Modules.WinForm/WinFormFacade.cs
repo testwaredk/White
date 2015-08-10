@@ -92,6 +92,8 @@ namespace TestStack.White.Modules.WinForm
 
                 typeof(Core.Requirements.AutomationElementSearch.RawAutomationElementFinderTest),
 
+                typeof(Core.Requirements.Scenarios.GetMultipleRequirement),
+
                 typeof(Modules.WinForm.Requirements.ColorRequirement),
 
             });
