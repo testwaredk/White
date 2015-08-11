@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataGridWpfTests.cs" />
+    <Compile Include="GetMultipleTest.cs" />
     <Compile Include="HyperlinkFromLabelTest.cs" />
     <Compile Include="LabelForPasswordTextTest.cs" />
     <Compile Include="PopUpMenuItemsCountTest.cs" />
