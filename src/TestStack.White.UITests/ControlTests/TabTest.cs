@@ -15,7 +15,7 @@ namespace TestStack.White.UITests.ControlTests
             tab = MainWindow.Get<Tab>("ControlsTab");
 
             RunTest(Find);
-            //FIXME: RunTest(()=>AssertChildrenCount(framework));
+            RunTest(AssertChildrenCount);
             RunTest(ShouldSelectTabPage);
             RunTest(ShouldSelectTabPageWithName);
             RunTest(FindControlsInsideTab);
@@ -27,9 +27,9 @@ namespace TestStack.White.UITests.ControlTests
             Assert.NotNull(tab);
         }
 
-        void AssertChildrenCount(WindowsFramework framework)
+        void AssertChildrenCount()
         {
-            Assert.Equal(framework == WindowsFramework.Wpf ? 4 : 5, tab.TabCount);
+            Assert.Equal(5, tab.TabCount);
         }
 
         void ShouldSelectTabPage()

@@ -107,6 +107,9 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
+            <TabItem Header="PropertyGrid" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="90" Margin="-2,-2,0,0">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
         </TabControl>
         <GroupBox Header="Scenarios" Grid.Row="3" Grid.Column="1" AutomationProperties.AutomationId="ScenariosPane">
             <StackPanel>
