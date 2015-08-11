@@ -94,6 +94,8 @@
 
         public class GenericScreenTypeRequirement { }
 
+        public class WebBrowserWindowRequirement { }
+
     }
     namespace UIA
     {

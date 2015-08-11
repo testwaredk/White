@@ -3,7 +3,7 @@ using System.Linq;
 using TestStack.White.SystemExtensions;
 using Xunit;
 
-namespace TestStack.White.WebBrowser.UITests
+namespace TestStack.White.WebBrowser.UnitTests
 {
     public class WebBrowserCodebaseTest
     {

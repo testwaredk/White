@@ -13,6 +13,10 @@ namespace TestStack.White.Modules
     {
         public ControlDictionaryItems ControlItems { get; protected set; }
         public List<Type> EditableControls { get; protected set; }
+        
+        /// <summary>
+        /// List here the requirements that the module should support.
+        /// </summary>
         public List<Type> SupportedRequirements { get; protected set; }
 
         public ModuleFacade()

@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Modules.Wpf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Modules.WinForm.Requirements", "TestStack.White.Modules.WinForm.Requirements\TestStack.White.Modules.WinForm.Requirements.csproj", "{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Modules.Silverlight.UITests", "TestStack.White.Modules.Silverlight.UITests\TestStack.White.Modules.Silverlight.UITests.csproj", "{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,10 @@ Global
 		{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,5 +242,6 @@ Global
 		{22B06D20-1275-4013-8E6B-887C7A85EB56} = {D1DFB004-1751-4D77-B581-7823D1C8C534}
 		{0116967E-B8A5-4C0E-A588-5821D97EED4E} = {D33965D0-E771-4994-9365-61EF96D4B430}
 		{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5} = {70563C0A-F964-4FB5-AD85-50DE2F9A3233}
+		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F} = {D1DFB004-1751-4D77-B581-7823D1C8C534}
 	EndGlobalSection
 EndGlobal

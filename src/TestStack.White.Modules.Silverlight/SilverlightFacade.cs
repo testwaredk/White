@@ -33,6 +33,8 @@ namespace TestStack.White.Modules.Silverlight
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Pane, "DatePicker", true, true, false, WindowsFramework.Silverlight.FrameworkId(), false));
 
+            SupportedRequirements.Add(typeof(Core.Requirements.Windows.WebBrowserWindowRequirement));
+
         }
 
 

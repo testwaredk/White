@@ -8,8 +8,8 @@
     <ProjectGuid>{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestStack.White.WebBrowser.UITests</RootNamespace>
-    <AssemblyName>TestStack.White.WebBrowser.UITests</AssemblyName>
+    <RootNamespace>TestStack.White.Modules.Silverlight.UITests</RootNamespace>
+    <AssemblyName>TestStack.White.Modules.Silverlight.UITests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -59,9 +59,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -77,16 +74,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BrowserFactoryTest.cs" />
-    <Compile Include="SilverlightTestFixture.cs" />
     <Compile Include="Silverlight\SilverlightApplicationTest.cs" />
     <Compile Include="Silverlight\SilverlightDocumentTest.cs" />
-    <Compile Include="WebBrowserCodebaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestStack.White.Core\TestStack.White.Core.csproj">
+      <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
+      <Name>TestStack.White.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
       <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
       <Name>TestStack.White.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.UITests\TestStack.White.UITests.csproj">
+      <Project>{10a51741-09f8-47ca-ab94-965ee71342f7}</Project>
+      <Name>TestStack.White.UITests</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White\TestStack.White.csproj">
       <Project>{12C59CE2-9CF7-44F4-B27C-90754609F979}</Project>
