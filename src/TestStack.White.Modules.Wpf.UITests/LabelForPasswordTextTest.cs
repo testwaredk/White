@@ -2,21 +2,22 @@ using System.Collections.Generic;
 using TestStack.White.Core;
 using TestStack.White.UIItems;
 using Xunit;
+using TestStack.White.UITests;
 
-namespace TestStack.White.UITests.ControlTests
+namespace TestStack.White.Modules.Wpf.UITests
 {
-    public class LabelTest : WhiteTestBase
+    public class LabelForPasswordTextTest : WhiteTestBase
     {
-        void Text()
+        void FindTextBlock()
         {
-            var label = MainWindow.Get<Label>("DateTimePickerLabel");
-            Assert.NotEqual(null, label.Text);
+            var label = MainWindow.Get<Label>("PasswordTextBlock");
+            Assert.NotEqual(null, label);
         }
 
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
-            RunTest(Text);
+            RunTest(FindTextBlock);
         }
 
 
