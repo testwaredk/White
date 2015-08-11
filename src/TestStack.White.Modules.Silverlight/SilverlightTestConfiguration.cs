@@ -63,7 +63,7 @@ namespace TestStack.White.Modules.Silverlight
 
         public override Window GetMainWindow(Application application)
         {
-            var ieWindow = (InternetExplorerWindow)application.GetWindow("TestSilverlightApplication - Windows Internet Explorer");
+            var ieWindow = (InternetExplorerWindow)application.GetWindow("TestSilverlightApplication - Internet Explorer");
             return ieWindow.SilverlightDocument;
         }
 
