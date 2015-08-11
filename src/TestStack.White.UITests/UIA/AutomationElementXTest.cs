@@ -3,21 +3,23 @@ using TestStack.White.Core;
 using TestStack.White.UIA;
 using TestStack.White.UIItems;
 using Xunit;
+using System.Text.RegularExpressions;
 
 namespace TestStack.White.UITests.UIA
 {
     public class AutomationElementXTest : WhiteTestBase
     {
-        public void TestToString(string frameworkid)
+        public void TestToString()
         {
             var button = MainWindow.Get<Button>("ButtonWithTooltip");
             string s = button.AutomationElement.Display();
-            Assert.Equal(string.Format("AutomationId:ButtonWithTooltip, Name:Button with Tooltip, ControlType:button, FrameworkId:{0}", frameworkid), s);
+            string pattern = @"AutomationId:ButtonWithTooltip, Name:Button with Tooltip, ControlType:button, FrameworkId:\w+";
+            Assert.True(Regex.IsMatch(s, pattern));
         }
 
         protected override void ExecuteTestRun()
         {
-            //FIXME: RunTest(()=>TestToString(framework.FrameworkId()));
+            RunTest(TestToString);
         }
 
         protected override IEnumerable<System.Type> CoveredRequirements()
