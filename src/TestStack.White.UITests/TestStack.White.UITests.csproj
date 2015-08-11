@@ -178,7 +178,6 @@
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(TargetDir)Modules\" mkdir "$(TargetDir)Modules\"
-copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight*dll" "$(TargetDir)Modules" /y
 copy "$(SolutionDir)TestStack.White.Modules.WinForm\bin\debug\TestStack.White.Modules.WinForm*dll" "$(TargetDir)Modules" /y
 copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf*dll" "$(TargetDir)Modules" /y
 copy "$(SolutionDir)TestStack.White.Modules.Win32\bin\debug\TestStack.White.Modules.Win32*dll" "$(TargetDir)Modules" /y</PostBuildEvent>

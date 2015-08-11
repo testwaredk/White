@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using TestStack.White.Configuration;
+using TestStack.White.Modules;
 
 namespace TestStack.White.WebBrowser.UITests
 {
@@ -12,6 +13,8 @@ namespace TestStack.White.WebBrowser.UITests
 
         protected SilverlightTestFixture()
         {
+            ModulesManager manager = ModulesManager.Instance;
+
             string fullPath;
             var checkoutDir = Environment.GetEnvironmentVariable("checkoutDir");
             if (string.IsNullOrEmpty(checkoutDir))
@@ -50,7 +53,7 @@ namespace TestStack.White.WebBrowser.UITests
                 catch { }
             }
             BrowserWindow = InternetExplorer.Launch("http://localhost/TestSilverlightApplication.Web/TestSilverlightApplicationTestPage.aspx",
-                                                    "TestSilverlightApplication - Windows Internet Explorer");
+                                                    "TestSilverlightApplication - Internet Explorer");
             PostSetup();
         }
 

@@ -84,6 +84,10 @@
     <Compile Include="WebBrowserCodebaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
+      <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
+      <Name>TestStack.White.Modules</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestStack.White\TestStack.White.csproj">
       <Project>{12C59CE2-9CF7-44F4-B27C-90754609F979}</Project>
       <Name>TestStack.White</Name>
@@ -113,6 +117,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)Modules\" mkdir "$(TargetDir)Modules\"
+copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight*dll" "$(TargetDir)Modules" /y
+</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
