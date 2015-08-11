@@ -76,6 +76,7 @@ namespace TestStack.White.Modules.WinForm
                 typeof(Core.Requirements.Windows.ModalWindowRequirement),
                 typeof(Core.Requirements.Windows.NativeWindowRequirement),
                 typeof(Core.Requirements.Windows.GenericScreenTypeRequirement),
+                typeof(Core.Requirements.Windows.WindowRequirement),
 
                 typeof(Core.Requirements.UIA.AutomationElementXRequirement),
 
@@ -95,8 +96,11 @@ namespace TestStack.White.Modules.WinForm
 
                 typeof(Core.Requirements.Repository.WorkSessionRequirement), 
 
+
                 typeof(Modules.WinForm.Requirements.ColorRequirement),
                 typeof(Modules.WinForm.Requirements.DataGridRequirement),
+
+                
 
             });
         }

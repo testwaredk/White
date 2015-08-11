@@ -81,6 +81,7 @@ namespace TestStack.White.Modules.Wpf
                 typeof(Core.Requirements.Windows.ModalWindowRequirement),
                 typeof(Core.Requirements.Windows.NativeWindowRequirement),
                 typeof(Core.Requirements.Windows.GenericScreenTypeRequirement),
+                typeof(Core.Requirements.Windows.WindowRequirement),
 
                 typeof(Core.Requirements.UIA.AutomationElementXRequirement),
 

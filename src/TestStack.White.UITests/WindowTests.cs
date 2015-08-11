@@ -15,10 +15,9 @@ namespace TestStack.White.UITests
     {
         protected override void ExecuteTestRun()
         {
+            RunTest(WindowScrollsToMakeItemVisibleBeforePerformingAnyAction);
             RunTest(GetAllWindows);
             RunTest(FindWindow);
-            //FIXME: RunTest(WindowWithoutTitleBar, WindowsFramework.WinForms);
-            //FIXME: RunTest(WindowWithAmerstand, WindowsFramework.WinForms);
             RunTest(IsCurrentlyActive);
             RunTest(IsCurrentlyNotActive);
             RunTest(HasAttachedMouse);
@@ -30,10 +29,7 @@ namespace TestStack.White.UITests
             RunTest(HandleDynamicallyAddedControls);
             RunTest(GetTitle);
             RunTest(ItemsWithin);
-            RunTest(WindowScrollsToMakeItemVisibleBeforePerformingAnyAction);
             RunTest(FindToolBarsWhenThereAreMultiple);
-            //FIXME: RunTest(HandlesInvisibleControlsWinforms, WindowsFramework.WinForms);
-            //FIXME: RunTest(HandlesInvisibleControlsWpf, WindowsFramework.Wpf);
             RunTest(IsClosed);
             RunTest(CanFindTitleBar);
         }
@@ -123,6 +119,9 @@ namespace TestStack.White.UITests
             }
         }
 
+        /// <summary>
+        /// The click event will try make the item visible, even though the item currently is off screen.
+        /// </summary>
         void WindowScrollsToMakeItemVisibleBeforePerformingAnyAction()
         {
             using (var window = StartScenario("OpenWindowWithScrollbars", "WindowWithScrollbars"))
