@@ -19,7 +19,6 @@ namespace TestStack.White.UITests.ControlTests
             RunTest(ShouldSelectTabPage);
             RunTest(ShouldSelectTabPageWithName);
             RunTest(FindControlsInsideTab);
-            //FIXME: RunTest(TabWithReverseDisplayOrderTest, WindowsFramework.WinForms);
         }
 
         void Find()
@@ -46,16 +45,6 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal("List Controls", tab.SelectedTab.Name);
             tab.SelectTabPage("Input Controls");
             Assert.Equal("Input Controls", tab.SelectedTab.Name);
-        }
-
-        void TabWithReverseDisplayOrderTest()
-        {
-            MainWindow.Get<Button>("ReverseTabOrderButton").Click();
-            var controlsTab = MainWindow.Get<Tab>("ControlsTab");
-            controlsTab.SelectTabPage(2);
-            Assert.Equal("Other Controls", controlsTab.SelectedTab.Name);
-            controlsTab.SelectTabPage(1);
-            Assert.Equal("Input Controls", controlsTab.SelectedTab.Name);
         }
 
         void FindControlsInsideTab()
