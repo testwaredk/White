@@ -10,10 +10,15 @@ using TestStack.White.Modules.WinForm;
 
 using Xunit;
 
-namespace TestStack.White.UITests.Repository
+namespace TestStack.White.Modules.WinForm.UITests
 {
     public class WorkSessionTest
     {
+        public WorkSessionTest()
+        {
+            ModulesManager manager = ModulesManager.Instance;
+        }
+
         [Fact]
         public void ShouldNotSaveAnyWindowInformationToFileWhenNoWindowsAreLaunched()
         {

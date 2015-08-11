@@ -132,5 +132,10 @@
         public class GetMultipleRequirement { }
         public class Win32Requirement { }
     }
+
+    namespace Repository
+    {
+        public class WorkSessionRequirement { }
+    }
 }
 

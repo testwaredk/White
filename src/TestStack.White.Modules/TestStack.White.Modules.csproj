@@ -48,6 +48,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModuleException.cs" />
     <Compile Include="WindowsConfiguration.cs" />
     <Compile Include="ModuleFacade.cs" />
     <Compile Include="ModuleManager.cs" />

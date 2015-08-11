@@ -93,6 +93,8 @@ namespace TestStack.White.Modules.WinForm
 
                 typeof(Core.Requirements.Scenarios.GetMultipleRequirement),
 
+                typeof(Core.Requirements.Repository.WorkSessionRequirement), 
+
                 typeof(Modules.WinForm.Requirements.ColorRequirement),
                 typeof(Modules.WinForm.Requirements.DataGridRequirement),
 

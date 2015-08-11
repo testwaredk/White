@@ -37,7 +37,7 @@ namespace TestStack.White.Modules
 
         public override Window GetMainWindow(Application application)
         {
-            return application.GetWindow(Criteria(), InitializeOption.NoCache);
+            return application.GetWindow(Criteria(), InitializeOption.NoCache.AndIdentifiedBy("foo"));
         }
 
         public override MainScreen GetMainScreen(ScreenRepository repository)

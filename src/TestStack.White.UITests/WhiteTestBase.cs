@@ -23,7 +23,6 @@ namespace TestStack.White.UITests
         readonly List<Window> windowsToClose = new List<Window>();
         readonly string screenshotDir;
         WindowsFramework? currentFramework = null;
-        ModuleFacade currentModule;
 
         internal Keyboard Keyboard;
 
@@ -45,32 +44,34 @@ namespace TestStack.White.UITests
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
             if (ModulesManager.Instance.LoadedModules.Count == 0) throw new TestFailedException("No modules loaded");
 
-            foreach (ModuleFacade module in ModulesManager.Instance.LoadedModules)
+            if (ModulesManager.Instance.LoadedModules.Any(m => CoveredRequirements().All(t => m.IsRequirementSupported(t))))
             {
-                currentModule = module;
-                // ensure that all controls is supported by the plugins before running the test
-                if (CoveredRequirements().All(t => module.IsRequirementSupported(t)))
+                foreach (ModuleFacade module in ModulesManager.Instance.LoadedModules)
                 {
-                    using (SetMainWindow(module))
+                    // ensure that all controls is supported by the plugins before running the test
+                    if (CoveredRequirements().All(t => module.IsRequirementSupported(t)))
                     {
-                        try
+                        using (SetMainWindow(module))
                         {
-                            ExecuteTestRun();
-                        }
-                        catch (TestFailedException)
-                        {
-                            throw;
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new TestFailedException(string.Format("Failed to run test for {0}", module), ex);
+                            try
+                            {
+                                ExecuteTestRun();
+                            }
+                            catch (TestFailedException)
+                            {
+                                throw;
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new TestFailedException(string.Format("Failed to run test for {0}", module), ex);
+                            }
                         }
                     }
                 }
-                else
-                {
-                    logger.Warn("No modules with support for the CoveredControls");
-                }
+            }
+            else
+            {
+                throw new TestFailedException(string.Format("No modules is supporting the requirements {0}", string.Join(", ", CoveredRequirements().ToList().ConvertAll(r => r.FullName).ToArray())));
             }
         }
 

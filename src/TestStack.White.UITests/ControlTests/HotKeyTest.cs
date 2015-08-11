@@ -10,10 +10,10 @@ namespace TestStack.White.UITests.ControlTests
 {
     public class HotKeyTest : WhiteTestBase
     {
-        public void AccessKey(WindowsFramework framework)
+        public void AccessKey()
         {
             var button = MainWindow.Get<Button>("ButtonWithTooltip");
-            if (framework != WindowsFramework.Wpf) Assert.Equal("Alt+B", button.AccessKey);
+            //if (framework != WindowsFramework.Wpf) Assert.Equal("Alt+B", button.AccessKey);
             Keyboard.HoldKey(KeyboardInput.SpecialKeys.ALT);
             Keyboard.Enter("B");
             Keyboard.LeaveKey(KeyboardInput.SpecialKeys.ALT);
@@ -22,7 +22,7 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override void ExecuteTestRun()
         {
-            //FIXME: RunTest(() => AccessKey(framework));
+            RunTest(AccessKey);
         }
 
         protected override IEnumerable<Type> CoveredRequirements()
