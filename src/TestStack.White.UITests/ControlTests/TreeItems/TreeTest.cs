@@ -3,6 +3,7 @@ using TestStack.White.Core;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.TreeItems;
 using Xunit;
+using System.Text.RegularExpressions;
 
 namespace TestStack.White.UITests.ControlTests.TreeItems
 {
@@ -16,7 +17,7 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             tree = MainWindow.Get<Tree>("TreeView");
 
             RunTest(Nodes);
-            // FIXME: RunTest(() => FindNode(framework));
+            RunTest(FindNode);
             RunTest(SelectNodeWhichNeedsScrolling);
             RunTest(SelectNode);
             RunTest(DynamicallyAddedNodeCanBeFound);
@@ -31,7 +32,7 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             Assert.True(tree.Nodes.Count >= 2);
         }
 
-        void FindNode(WindowsFramework framework)
+        void FindNode()
         {
             Assert.True(tree.HasNode("Root"));
             Assert.False(tree.HasNode("Roo"));
@@ -39,12 +40,11 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             Assert.True(tree.HasNode("Root", "Child"));
             Assert.True(tree.HasNode("Root", "Child", "Grand Child"));
             var exception = Assert.Throws<AutomationException>(() => tree.HasNode("Root", "Child", "Grand Child", "Grand Child"));
-            string expected = string.Format(
-                "Cannot expand TreeNode {0}TreeNode. AutomationId:, Name:Grand Child, " +
-                "ControlType:tree view item, FrameworkId:{1}, expand button not visible",
-                framework == WindowsFramework.Wpf ? "WPF" : "Win32",
-                framework.FrameworkId());
-            Assert.Equal(expected, exception.Message);
+
+            string expected = 
+                @"Cannot expand TreeNode \w+TreeNode. AutomationId:, Name:Grand Child, " +
+                @"ControlType:tree view item, FrameworkId:\w+, expand button not visible";
+            Assert.True(Regex.IsMatch(exception.Message, expected));
         }
 
         void SelectNodeWhichNeedsScrolling()
