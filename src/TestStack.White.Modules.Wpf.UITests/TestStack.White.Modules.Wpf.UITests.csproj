@@ -48,6 +48,7 @@
     <Compile Include="DataGridWpfTests.cs" />
     <Compile Include="HyperlinkFromLabelTest.cs" />
     <Compile Include="LabelForPasswordTextTest.cs" />
+    <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

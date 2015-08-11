@@ -12,18 +12,10 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
         protected override void ExecuteTestRun()
         {
             SelectListControls();
-            //FIXME: RunTest(()=>GetPopupMenuItems(framework));
             RunTest(ClickOnPopupMenu);
             RunTest(ClickOnNestedMenu);
         }
 
-        void GetPopupMenuItems(WindowsFramework framework)
-        {
-            MainWindow.Get<ListBox>("ListBoxWithVScrollBar").RightClick();
-            var popup = MainWindow.Popup;
-            int numberOfItems = framework == WindowsFramework.Wpf ? 2 : 4;
-            Assert.Equal(numberOfItems, popup.Items.Count);
-        }
 
         void ClickOnPopupMenu()
         {
