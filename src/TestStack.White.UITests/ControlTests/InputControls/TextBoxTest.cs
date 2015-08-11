@@ -20,8 +20,6 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             RunTest(CopyTest);
             RunTest(EnterText);
             RunTest(EnterBulkText);
-            //FIXME: RunTest(SuggestionList, WindowsFramework.WinForms);
-            //FIXME: RunTest(SelectFromSuggestionList, WindowsFramework.WinForms);
         }
 
         void EnterText()
@@ -59,25 +57,6 @@ namespace TestStack.White.UITests.ControlTests.InputControls
                 string clipbrdText = Clipboard.GetText();
                 Assert.Equal(textBox.Text, clipbrdText);
             }, TimeSpan.FromSeconds(5));
-        }
-
-        void SuggestionList()
-        {
-            var textBox = MainWindow.Get<WinFormTextBox>("TextBox");
-            textBox.Text = "h";
-            SuggestionList suggestionList = textBox.SuggestionList;
-            Assert.Equal(2, suggestionList.Items.Count);
-            Assert.Equal("hello", suggestionList.Items[0]);
-            Assert.Equal("hi", suggestionList.Items[1]);
-        }
-
-        void SelectFromSuggestionList()
-        {
-            var textBox = MainWindow.Get<WinFormTextBox>("TextBox");
-            textBox.Enter("h");
-            SuggestionList suggestionList = textBox.SuggestionList;
-            suggestionList.Select("hello");
-            Assert.Equal("hello", textBox.Text);
         }
 
         void IsReadOnly()

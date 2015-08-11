@@ -49,6 +49,7 @@
     <Compile Include="ColorTest.cs" />
     <Compile Include="DataGridWinFormsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextBoxWithSuggestionListTest.cs" />
     <Compile Include="WorkSessionTest.cs" />
   </ItemGroup>
   <ItemGroup>
