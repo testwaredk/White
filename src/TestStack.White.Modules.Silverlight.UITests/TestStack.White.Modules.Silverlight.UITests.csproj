@@ -120,8 +120,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(TargetDir)Modules\" mkdir "$(TargetDir)Modules\"
-copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight*dll" "$(TargetDir)Modules" /y
+    <PostBuildEvent>copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight*dll" "$(TargetDir)" /y
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

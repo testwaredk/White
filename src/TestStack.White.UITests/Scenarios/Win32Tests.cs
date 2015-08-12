@@ -21,7 +21,7 @@ namespace TestStack.White.UITests.Scenarios
         public Win32Tests()
         {
             // Load the modules
-            ModulesManager manager = ModulesManager.Instance;
+            ModulesManager manager = ModulesManager.Create();
         }
 
         [Fact]

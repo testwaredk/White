@@ -95,8 +95,7 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if not exist "$(TargetDir)Modules\" mkdir "$(TargetDir)Modules\"
-copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf*dll" "$(TargetDir)Modules\" /y
+    <PostBuildEvent>copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf*dll" "$(TargetDir)" /y
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

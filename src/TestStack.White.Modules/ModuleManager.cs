@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
 using TestStack.White.Core.Mappings;
+using System.Text.RegularExpressions;
 
 namespace TestStack.White.Modules
 {
@@ -15,22 +16,24 @@ namespace TestStack.White.Modules
     /// </summary>
     public class ModulesManager
     {
-        public static readonly ModulesManager Instance = new ModulesManager();
-
         public List<ModuleFacade> LoadedModules { get;  private set; }
 
         bool isDictionaryLoaded = false;
 
-        public ModulesManager()
+        public ModulesManager () { }
+
+        public static ModulesManager Create()
         {
-            List<Assembly> assemblies = LoadModuleAssemblies();
-            LoadedModules = GetModules(assemblies);
-            FillControlDictionary(ControlDictionary.Instance);
+            ModulesManager manager = new ModulesManager();
+            List<Assembly> assemblies = manager.LoadModuleAssemblies();
+            manager.LoadedModules = manager.GetModules(assemblies);
+            manager.FillControlDictionary(ControlDictionary.Instance);
+            return manager;
         }
 
         private List<Assembly> LoadModuleAssemblies()
         {
-            DirectoryInfo dInfo = new DirectoryInfo(Path.Combine(Environment.CurrentDirectory, "Modules"));
+            DirectoryInfo dInfo = new DirectoryInfo(Environment.CurrentDirectory);
             if (!dInfo.Exists) dInfo.Create();
 
             FileInfo[] files = dInfo.GetFiles("*.dll");
@@ -41,7 +44,11 @@ namespace TestStack.White.Modules
             {
                 foreach (FileInfo file in files)
                 {
-                    moduleAssemblyList.Add(Assembly.LoadFile(file.FullName));
+                    string pattern = @"\w+\.White\.Modules\.\w+\.dll";
+                    if (Regex.IsMatch(file.Name, pattern))
+                    {
+                        moduleAssemblyList.Add(Assembly.LoadFile(file.FullName));
+                    }
                 }
             }
             return moduleAssemblyList;

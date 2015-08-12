@@ -13,7 +13,7 @@ namespace TestStack.White.UnitTests.UIItems.Finders
     {
         public ControlTypeConditionTest()
         {
-            ModulesManager.Instance.FillControlDictionary(ControlDictionary.Instance);
+            ModulesManager manager = ModulesManager.Create();
         }
         
         [Fact]

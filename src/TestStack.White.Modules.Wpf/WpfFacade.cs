@@ -17,7 +17,7 @@ namespace TestStack.White.Modules.Wpf
             ControlItems.AddWPFPrimary(typeof(UIItems.TextBox), ControlType.Edit);
             ControlItems.AddWPFPrimary(typeof(UIItems.WPFSlider), ControlType.Slider);
 
-            ControlItems.AddWPFPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.MenuBar);
+            ControlItems.AddWPFPrimary(typeof(UIItems.WindowStripControls.MenuBar), ControlType.Menu);
 
             ControlItems.AddWPFPrimary(typeof(UIItems.WPFLabel), ControlType.Text);
             ControlItems.AddWPFPrimary(typeof(UIItems.ListBoxItems.WPFComboBox), ControlType.ComboBox);

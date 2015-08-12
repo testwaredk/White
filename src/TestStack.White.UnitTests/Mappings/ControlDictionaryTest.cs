@@ -17,7 +17,7 @@ namespace TestStack.White.UnitTests.Mappings
 
         public ControlDictionaryTest()
         {
-            ModulesManager.Instance.FillControlDictionary(ControlDictionary.Instance);
+            ModulesManager manager = ModulesManager.Create();
             controlDictionary = ControlDictionary.Instance;
         }
 

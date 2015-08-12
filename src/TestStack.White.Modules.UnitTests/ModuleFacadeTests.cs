@@ -10,18 +10,6 @@ using TestStack.White.Core.Requirements.InputControls;
 
 namespace TestStack.White.Modules.UnitTests
 {
-    public class TestModuleFacade : ModuleFacade
-    {
-        public TestModuleFacade()
-        {
-            SupportedRequirements.Add(typeof(TextBoxRequirement));
-        }
-
-        public override TestConfiguration GetTestConfiguration()
-        {
-            throw new NotImplementedException();
-        }
-    }
 
     public class ModuleFacadeTests
     {
@@ -37,13 +25,13 @@ namespace TestStack.White.Modules.UnitTests
         [Test]
         public void requirements_that_should_be_supported()
         {
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(TextBoxRequirement)));
+            Assert.True(facade.IsRequirementSupported(typeof(TextBoxRequirement)));
         }
 
         [Test]
         public void requirements_that_shouldnt_be_supported()
         {
-            Assert.IsFalse(facade.IsRequirementSupported(typeof(DateTimePickerRequirement)));
+            Assert.False(facade.IsRequirementSupported(typeof(DateTimePickerRequirement)));
         }
 
         [Test]
@@ -77,7 +65,7 @@ namespace TestStack.White.Modules.UnitTests
             };
             
             defaultItems.ForEach((item) => {
-                Assert.IsTrue(facade.ControlItems.Any(control => control.TestControlType.Equals(item)), string.Format("default item should be contained in controlitems {0}", item.FullName));
+                Assert.True(facade.ControlItems.Any(control => control.TestControlType.Equals(item)), string.Format("default item should be contained in controlitems {0}", item.FullName));
             });
                 
         }

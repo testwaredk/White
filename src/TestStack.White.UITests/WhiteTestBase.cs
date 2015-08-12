@@ -38,15 +38,19 @@ namespace TestStack.White.UITests
         protected Application Application { get; private set; }
         protected ScreenRepository Repository { get; private set; }
 
+        protected ModulesManager ModuleManager { get; private set; }
+
         [Fact]
         public void Automate()
         {
-            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
-            if (ModulesManager.Instance.LoadedModules.Count == 0) throw new TestFailedException("No modules loaded");
+            this.ModuleManager = ModulesManager.Create();
 
-            if (ModulesManager.Instance.LoadedModules.Any(m => CoveredRequirements().All(t => m.IsRequirementSupported(t))))
+            CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
+            if (this.ModuleManager.LoadedModules.Count == 0) throw new TestFailedException("No modules loaded");
+
+            if (this.ModuleManager.LoadedModules.Any(m => CoveredRequirements().All(t => m.IsRequirementSupported(t))))
             {
-                foreach (ModuleFacade module in ModulesManager.Instance.LoadedModules)
+                foreach (ModuleFacade module in this.ModuleManager.LoadedModules)
                 {
                     // ensure that all controls is supported by the plugins before running the test
                     if (CoveredRequirements().All(t => module.IsRequirementSupported(t)))
