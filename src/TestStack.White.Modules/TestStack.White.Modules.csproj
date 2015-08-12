@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestStack.White.Modules</RootNamespace>
-    <AssemblyName>TestStack.White.Plugins</AssemblyName>
+    <AssemblyName>TestStack.White.Modules</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

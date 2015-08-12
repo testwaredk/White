@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 using TestStack.White;
 using TestStack.White.Modules;
 using NUnit.Framework;
+using TestStack.White.Core.Requirements.InputControls;
 
 namespace TestStack.White.Modules.UnitTests
 {
     public class TestModuleFacade : ModuleFacade
     {
+        public TestModuleFacade()
+        {
+            SupportedRequirements.Add(typeof(TextBoxRequirement));
+        }
+
         public override TestConfiguration GetTestConfiguration()
         {
             throw new NotImplementedException();
@@ -19,40 +25,61 @@ namespace TestStack.White.Modules.UnitTests
 
     public class ModuleFacadeTests
     {
-        [Test]
-        public void controls_that_should_be_supported()
+        ModuleFacade facade;
+
+        [SetUp]
+        public void setup()
         {
-            ModuleFacade facade = new TestModuleFacade();
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Thumb)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Button)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.CheckBox)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Hyperlink)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.RadioButton)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.ListView)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.ProgressBar)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Spinner)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.GroupBox)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Panel)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.ListBoxItems.ListBox)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TableItems.Table)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TabItems.Tab)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.WindowStripControls.ToolStrip)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.PropertyGridItems.PropertyGrid)));
+            facade = new TestModuleFacade();
+        }
+
+
+        [Test]
+        public void requirements_that_should_be_supported()
+        {
+            Assert.IsTrue(facade.IsRequirementSupported(typeof(TextBoxRequirement)));
         }
 
         [Test]
-        public void secondary_controls_that_should_be_supported()
+        public void requirements_that_shouldnt_be_supported()
         {
-            ModuleFacade facade = new TestModuleFacade();
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TableItems.TableRowHeader)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TabItems.TabPage)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Scrolling.VScrollBar)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.Scrolling.HScrollBar)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TableItems.TableHeader)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.TableItems.TableRow)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.MenuItems.Menu)));
-            Assert.IsTrue(facade.IsRequirementSupported(typeof(UIItems.ListViewRow)));
+            Assert.IsFalse(facade.IsRequirementSupported(typeof(DateTimePickerRequirement)));
+        }
 
+        [Test]
+        public void controls_that_should_be_supported_by_default()
+        {
+            List<Type> defaultItems = new List<Type>() {
+                typeof(UIItems.Thumb),
+                typeof(UIItems.Button),
+                typeof(UIItems.CheckBox),
+                typeof(UIItems.RadioButton),
+                typeof(UIItems.Hyperlink),
+                typeof(UIItems.ListView),
+                typeof(UIItems.ProgressBar),
+                typeof(UIItems.Spinner),
+                typeof(UIItems.GroupBox),
+                typeof(UIItems.Panel),
+                typeof(UIItems.ListViewRow),
+                typeof(UIItems.TreeItems.Tree),
+                typeof(UIItems.ListBoxItems.ListBox),
+                typeof(UIItems.WindowStripControls.ToolStrip),
+                typeof(UIItems.PropertyGridItems.PropertyGrid),
+                typeof(UIItems.Scrolling.VScrollBar),
+                typeof(UIItems.Scrolling.HScrollBar),
+                typeof(UIItems.TabItems.Tab),
+                typeof(UIItems.TabItems.TabPage),
+                typeof(UIItems.TableItems.Table),
+                typeof(UIItems.TableItems.TableRowHeader),
+                typeof(UIItems.TableItems.TableHeader),
+                typeof(UIItems.TableItems.TableRow),
+                typeof(UIItems.MenuItems.Menu),
+            };
+            
+            defaultItems.ForEach((item) => {
+                Assert.IsTrue(facade.ControlItems.Any(control => control.TestControlType.Equals(item)), string.Format("default item should be contained in controlitems {0}", item.FullName));
+            });
+                
         }
     }
 }
