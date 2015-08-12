@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestStack.White;
 using TestStack.White.Modules;
-using NUnit.Framework;
+using Xunit;
 using TestStack.White.Core.Requirements.InputControls;
 
 namespace TestStack.White.Modules.UnitTests
@@ -15,26 +15,25 @@ namespace TestStack.White.Modules.UnitTests
     {
         ModuleFacade facade;
 
-        [SetUp]
-        public void setup()
+        public ModuleFacadeTests()
         {
             facade = new TestModuleFacade();
         }
 
 
-        [Test]
+        [Fact]
         public void requirements_that_should_be_supported()
         {
             Assert.True(facade.IsRequirementSupported(typeof(TextBoxRequirement)));
         }
 
-        [Test]
+        [Fact]
         public void requirements_that_shouldnt_be_supported()
         {
             Assert.False(facade.IsRequirementSupported(typeof(DateTimePickerRequirement)));
         }
 
-        [Test]
+        [Fact]
         public void controls_that_should_be_supported_by_default()
         {
             List<Type> defaultItems = new List<Type>() {
