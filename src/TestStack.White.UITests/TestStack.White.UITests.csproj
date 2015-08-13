@@ -90,7 +90,6 @@
     <Compile Include="Reporting\SubFlowsTest.cs" />
     <Compile Include="Reporting\SubFlowTest.cs" />
     <Compile Include="Reporting\Two.cs" />
-    <Compile Include="Repository\RepositoryTests.cs" />
     <Compile Include="MessageBoxTest.cs" />
     <Compile Include="ModalWindowTest.cs" />
     <Compile Include="NativeWindowTest.cs" />
@@ -172,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
+    <Folder Include="Repository\" />
     <Folder Include="Screens\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
