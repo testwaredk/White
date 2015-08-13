@@ -26,20 +26,11 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal("Hyperlink Clicked", hyperlink.HelpText);
         }
 
-        public void ClickHyperlinkFromLabel()
-        {
-            var labelContainingHyperlink = MainWindow.Get<WPFLabel>("LinkLabelContainer");
-            var hyperlink = labelContainingHyperlink.Hyperlink("Link Text");
-            hyperlink.Click();
-            Assert.Equal("Hyperlink Clicked", hyperlink.HelpText);
-        }
-
         protected override void ExecuteTestRun()
         {
             SelectOtherControls();
             RunTest(Click);
             RunTest(ClickablePoint); 
-            RunTest(ClickHyperlinkFromLabel);
         }
 
         protected override IEnumerable<System.Type> CoveredRequirements()
