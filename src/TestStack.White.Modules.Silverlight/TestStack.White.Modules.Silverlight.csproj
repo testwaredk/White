@@ -65,7 +65,7 @@
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
       <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
-      <Name>TestStack.White.Plugins</Name>
+      <Name>TestStack.White.Modules</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestStack.White.ScreenObjects\TestStack.White.ScreenObjects.csproj">
       <Project>{fcd3e92f-fee9-414d-a460-09f7f685b83e}</Project>

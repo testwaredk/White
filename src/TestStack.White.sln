@@ -105,6 +105,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Modules.Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStack.White.Modules.Silverlight.UITests", "TestStack.White.Modules.Silverlight.UITests\TestStack.White.Modules.Silverlight.UITests.csproj", "{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScripts", "{177BFAFE-263E-4742-9FC7-626017FB483C}"
+	ProjectSection(SolutionItems) = preProject
+		..\run-uitests.cmd = ..\run-uitests.cmd
+		..\run-unittests.cmd = ..\run-unittests.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
