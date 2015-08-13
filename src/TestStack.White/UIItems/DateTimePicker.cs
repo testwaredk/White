@@ -6,7 +6,7 @@ using TestStack.White.WindowsAPI;
 
 namespace TestStack.White.UIItems
 {
-    public class DateTimePicker : UIItem
+    public class DateTimePicker : UIItem, IDateTimePicker
     {
         protected DateTimePicker() {}
         public DateTimePicker(AutomationElement automationElement, ActionListener actionListener) : base(automationElement, actionListener) {}
