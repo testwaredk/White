@@ -40,7 +40,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return typeof(Spinner);
+            yield return typeof(Core.Requirements.InputControls.SpinnerRequirement);
         }
     }
 }

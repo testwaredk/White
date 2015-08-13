@@ -27,7 +27,7 @@ namespace TestStack.White.Modules.WinForm
             ControlItems.Add(ControlDictionaryItem.WinFormSecondary(typeof(UIItems.TreeItems.Win32TreeNode), ControlType.TreeItem));
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.DateTimePicker), ControlType.Pane, "SysDateTimePick32", true, true, false, WindowsFramework.WinForms.FrameworkId(), false));
-
+            
             SupportedRequirements.AddRange(new List<Type>() {
                 typeof(Core.Requirements.InputControls.RadioButtonRequirement),
                 typeof(Core.Requirements.InputControls.CheckboxRequirement),
@@ -36,6 +36,7 @@ namespace TestStack.White.Modules.WinForm
                 typeof(Core.Requirements.InputControls.RadioButtonRequirement),
                 typeof(Core.Requirements.InputControls.TristateItemReqiurement),
                 typeof(Core.Requirements.InputControls.TextBoxRequirement),
+                typeof(Core.Requirements.InputControls.SpinnerRequirement),
 
                 typeof(Core.Requirements.ListControls.CheckedlistBoxRequirement),
                 typeof(Core.Requirements.ListControls.ComboBoxRequirement),
