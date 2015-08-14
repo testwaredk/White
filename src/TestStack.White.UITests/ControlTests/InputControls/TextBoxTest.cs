@@ -13,6 +13,11 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class TextBoxTest : WhiteTestBase
     {
+        public virtual TextBox GetTextBox()
+        {
+            return MainWindow.Get<TextBox>("TextBox");
+        }
+
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
@@ -24,10 +29,9 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void EnterText()
         {
-            var textBox = MainWindow.Get<TextBox>("TextBox");
+            var textBox = GetTextBox();
             textBox.Text = "somethingElse";
             Assert.Equal("somethingElse", textBox.Text);
-            Assert.Equal("Text Changed", textBox.HelpText);
             textBox.Text = "";
             Assert.Equal("", textBox.Text);
             textBox.Text = "againSomethingElse";
@@ -36,14 +40,14 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void EnterBulkText()
         {
-            var textBox = MainWindow.Get<TextBox>("TextBox");
+            var textBox = GetTextBox();
             textBox.BulkText = "somethingElse";
             Assert.Equal("somethingElse", textBox.Text);
         }
 
-        void CopyTest()
+        public virtual void CopyTest()
         {
-            var textBox = MainWindow.Get<TextBox>("TextBox");
+            var textBox = GetTextBox();
             AttachedKeyboard attachedKeyboard = MainWindow.Keyboard;
             textBox.Text = "userText";
             attachedKeyboard.HoldKey(KeyboardInput.SpecialKeys.CONTROL);
@@ -61,7 +65,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void IsReadOnly()
         {
-            var textBox = MainWindow.Get<TextBox>("TextBox");
+            var textBox = GetTextBox();
             Assert.Equal(false, textBox.IsReadOnly);
         }
 

@@ -3,7 +3,9 @@ using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
 using TestStack.White.Core.Mappings;
+using TestStack.White.Configuration;
 using System.Text.RegularExpressions;
+using Castle.Core.Logging;
 
 namespace TestStack.White.Modules
 {
@@ -16,6 +18,8 @@ namespace TestStack.White.Modules
     /// </summary>
     public class ModulesManager
     {
+        private static readonly ILogger Logger = CoreAppXmlConfiguration.Instance.LoggerFactory.Create(typeof(ModulesManager));
+
         public List<ModuleFacade> LoadedModules { get;  private set; }
 
         bool isDictionaryLoaded = false;
@@ -48,6 +52,7 @@ namespace TestStack.White.Modules
                     if (Regex.IsMatch(file.Name, pattern))
                     {
                         moduleAssemblyList.Add(Assembly.LoadFile(file.FullName));
+                        Logger.Info("Loaded assembly " + file.FullName);
                     }
                 }
             }

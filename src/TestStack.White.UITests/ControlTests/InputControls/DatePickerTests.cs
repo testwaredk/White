@@ -8,6 +8,11 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class DatePickerTests : WhiteTestBase
     {
+        public virtual IDateTimePicker GetDatePicker()
+        {
+            return (IDateTimePicker)MainWindow.Get<DateTimePicker>("DatePicker");
+        }
+
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
@@ -19,13 +24,13 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         private void GetDate(DateTime? defaultTime)
         {
-            var dateTimePicker = MainWindow.Get<DateTimePicker>("DatePicker");
+            var dateTimePicker = GetDatePicker();
             Assert.Equal(defaultTime, dateTimePicker.Date);
         }
 
         private void SetDate()
         {
-            var dateTimePicker = MainWindow.Get<DateTimePicker>("DatePicker");
+            var dateTimePicker = GetDatePicker();
             DateTime changedDate = DateTime.Today.AddDays(23);
             dateTimePicker.Date = changedDate;
             Assert.Equal(changedDate, dateTimePicker.Date);
@@ -37,7 +42,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         private void ClearDate()
         {
-            var dateTimePicker = MainWindow.Get<DateTimePicker>("DatePicker");
+            var dateTimePicker = GetDatePicker();
             var date = dateTimePicker.Date;
             dateTimePicker.Date = null;
 
