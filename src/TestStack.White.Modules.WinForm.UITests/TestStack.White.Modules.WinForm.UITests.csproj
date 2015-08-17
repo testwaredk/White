@@ -51,7 +51,7 @@
     <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabTestReverseDisplayOrderTest.cs" />
-    <Compile Include="TextBoxWithSuggestionListTest.cs" />
+    <Compile Include="WinFormTextBoxTests.cs" />
     <Compile Include="WindowForWinFormTests.cs" />
     <Compile Include="WorkSessionTest.cs" />
   </ItemGroup>

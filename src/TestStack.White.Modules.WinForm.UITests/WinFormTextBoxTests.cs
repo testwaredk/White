@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TestStack.White.Core;
 using TestStack.White.InputDevices;
@@ -7,22 +7,29 @@ using TestStack.White.UIItems.ListViewItems;
 using TestStack.White.Utility;
 using TestStack.White.WindowsAPI;
 using Xunit;
-using TestStack.White.UITests;
+using TestStack.White.UITests.ControlTests.InputControls;
 
 namespace TestStack.White.Modules.WinForm.UITests
 {
-    public class TextBoxWithSuggestionListTest : WhiteTestBase
+    public class WinFormTextBoxTests : TextBoxTest
     {
+        public override TextBox GetTextBox()
+        {
+            return MainWindow.Get<WinFormTextBox>("TextBox");
+        }
+
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
             RunTest(SuggestionList);
             RunTest(SelectFromSuggestionList);
+            RunTest(base.HelpTextShouldContainTextChanged);
+            RunTest(base.CopyTest);
         }
 
         void SuggestionList()
         {
-            var textBox = MainWindow.Get<WinFormTextBox>("TextBox");
+            var textBox = (WinFormTextBox)GetTextBox();
             textBox.Text = "h";
             SuggestionList suggestionList = textBox.SuggestionList;
             Assert.Equal(2, suggestionList.Items.Count);
@@ -32,16 +39,11 @@ namespace TestStack.White.Modules.WinForm.UITests
 
         void SelectFromSuggestionList()
         {
-            var textBox = MainWindow.Get<WinFormTextBox>("TextBox");
+            var textBox = (WinFormTextBox)GetTextBox();
             textBox.Enter("h");
             SuggestionList suggestionList = textBox.SuggestionList;
             suggestionList.Select("hello");
             Assert.Equal("hello", textBox.Text);
-        }
-
-        protected override IEnumerable<Type> CoveredRequirements()
-        {
- 	        yield return typeof(Core.Requirements.InputControls.TextBoxRequirement);
         }
     }
 }

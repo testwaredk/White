@@ -22,9 +22,19 @@ namespace TestStack.White.UITests.ControlTests.InputControls
         {
             SelectInputControls();
             RunTest(IsReadOnly);
-            RunTest(CopyTest);
             RunTest(EnterText);
             RunTest(EnterBulkText);
+        }
+
+        /// <summary>
+        /// Only for Winform and Wpf
+        /// </summary>
+        public void HelpTextShouldContainTextChanged()
+        {
+            var textBox = GetTextBox();
+            textBox.Text = "somethingElse";
+            Assert.Equal("somethingElse", textBox.Text);
+            Assert.Equal("Text Changed", textBox.HelpText);
         }
 
         void EnterText()
@@ -45,7 +55,10 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             Assert.Equal("somethingElse", textBox.Text);
         }
 
-        public virtual void CopyTest()
+        /// <summary>
+        /// Only for Winform and Wpf
+        /// </summary>
+        public void CopyTest()
         {
             var textBox = GetTextBox();
             AttachedKeyboard attachedKeyboard = MainWindow.Keyboard;

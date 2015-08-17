@@ -52,6 +52,7 @@
     <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowHandleInvisibleControlsTests.cs" />
+    <Compile Include="WpfTextBoxTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
