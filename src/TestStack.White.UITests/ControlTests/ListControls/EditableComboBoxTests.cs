@@ -12,7 +12,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         protected override void ExecuteTestRun()
         {
-            ComboBoxUnderTest = MainWindow.Get<ComboBox>("EditableComboBox");
+            ComboBoxUnderTest = MainScreen.GetEditableComboBox();
             RunTest(SetValueInEditableComboBox);
             RunTest(SelectItemInEditableComboBox);
         }

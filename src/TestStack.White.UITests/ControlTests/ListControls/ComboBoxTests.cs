@@ -15,10 +15,8 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         protected override void ExecuteTestRun()
         {
-            ComboBoxUnderTest = MainWindow.Get<ComboBox>(SearchCriteria.ByAutomationId("AComboBox"));
-            RunTest(ListItemInComboBoxWithoutTextAvailableInitially, WindowsFramework.Wpf);
-            RunTest(ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved);
-            RunTest(ComboBoxOnlyCollapsesWhenExpansionWasForItemRetrieval);
+            SelectListControls();
+            ComboBoxUnderTest = MainScreen.GetComboBox();
             RunTest(CanSelectItemAtTopOfList);
             RunTest(CanGetAllItems);
             RunTest(CanSelectItemAtBottomOfList);
@@ -26,9 +24,13 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             RunTest(CanSelectByIndex);
             RunTest(CanSelectReallyLongText);
             RunTest(SetValue);
+            RunTest(ComboBoxOnlyCollapsesWhenExpansionWasForItemRetrieval);
         }
 
-        void ListItemInComboBoxWithoutTextAvailableInitially()
+        /// <summary>
+        /// This test requieres that the combo box initially hasn't been opened during the lifetime of the form.
+        /// </summary>
+        public void ListItemInComboBoxWithoutTextAvailableInitially()
         {
             try
             {
@@ -41,7 +43,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             }
         }
 
-        void ComboBoxOnlyCollapsesWhenExpansionWasForItemRetrieval()
+        public void ComboBoxOnlyCollapsesWhenExpansionWasForItemRetrieval()
         {
             // Arrange
             var expandCollapsePattern = (ExpandCollapsePattern)ComboBoxUnderTest.AutomationElement.GetCurrentPattern(ExpandCollapsePattern.Pattern);
@@ -55,7 +57,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
                 // Act
 #pragma warning disable 168
-// ReSharper disable once UnusedVariable
+                // ReSharper disable once UnusedVariable
                 var items = ComboBoxUnderTest.Items;
 #pragma warning restore 168
 
@@ -70,7 +72,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             }
         }
 
-        void ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved()
+        public void ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved()
         {
             // Arrange
             var config = CoreAppXmlConfiguration.Instance;
@@ -81,7 +83,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
                 // Act
 #pragma warning disable 168
                 // Required to force the expansion of the combobox
-// ReSharper disable once UnusedVariable
+                // ReSharper disable once UnusedVariable
                 var items = ComboBoxUnderTest.Items;
 #pragma warning restore 168
 
@@ -96,7 +98,6 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             }
 
         }
-
         void CanSelectByIndex()
         {
             ComboBoxUnderTest.Select(4);
@@ -119,8 +120,8 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void CanSelectItemAtTopOfList()
         {
-            ComboBoxUnderTest.Select("Test2");
-            Assert.Equal("Test2", ComboBoxUnderTest.SelectedItemText);
+            ComboBoxUnderTest.Select("Test8");
+            Assert.Equal("Test8", ComboBoxUnderTest.SelectedItemText);
         }
 
         void CanSelectReallyLongText()
@@ -134,7 +135,6 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             ComboBoxUnderTest.SetValue("Test4");
             Assert.Equal("Test4", ComboBoxUnderTest.SelectedItem.Text);
         }
-
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {

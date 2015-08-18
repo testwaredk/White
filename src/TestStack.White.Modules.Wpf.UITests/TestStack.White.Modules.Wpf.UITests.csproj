@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxTests.cs" />
     <Compile Include="DataGridWpfTests.cs" />
     <Compile Include="GetMultipleTest.cs" />
     <Compile Include="HyperlinkFromLabelTest.cs" />

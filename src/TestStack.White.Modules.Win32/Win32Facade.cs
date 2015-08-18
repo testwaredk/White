@@ -18,7 +18,7 @@ namespace TestStack.White.Modules.Win32
             ControlItems.AddWin32Primary(typeof(UIItems.TextBox), ControlType.Document);
             ControlItems.AddWin32Primary(typeof(UIItems.Image), ControlType.Image);
             ControlItems.AddWin32Primary(typeof(UIItems.Label), ControlType.Text);
-            
+
             ControlItems.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
             ControlItems.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.TreeItems.Win32TreeNode), ControlType.TreeItem));
 

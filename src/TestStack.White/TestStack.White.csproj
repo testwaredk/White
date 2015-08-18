@@ -164,6 +164,8 @@
     <Compile Include="UIA\WindowsPointX.cs" />
     <Compile Include="UIA\RectX.cs" />
     <Compile Include="UIItems\IDateTimePicker.cs" />
+    <Compile Include="UIItems\ListBoxItems\Win32ComboBox.cs" />
+    <Compile Include="UIItems\ListBoxItems\Win32ListItem.cs" />
     <Compile Include="UIItems\UIItemExtensions.cs" />
     <Compile Include="UIItems\Custom\CustomUIItemType.cs" />
     <Compile Include="UIItems\Finders\AutomationElementProperty.cs" />
@@ -191,7 +193,6 @@
     <Compile Include="UIItems\Scrolling\WpfTreeViewVScrollBar.cs" />
     <Compile Include="UIItems\Slider.cs" />
     <Compile Include="UIItems\DateUnit.cs" />
-    <Compile Include="UIItems\ListBoxItems\Win32ComboBox.cs" />
     <Compile Include="UIItems\DateFormat.cs" />
     <Compile Include="UIItems\TabItems\TabPages.cs" />
     <Compile Include="UIItems\TableItems\NullTableHeader.cs" />
@@ -282,7 +283,6 @@
     <Compile Include="UIItems\ListBoxItems\ListItem.cs" />
     <Compile Include="UIItems\ListBoxItems\ListItemContainer.cs" />
     <Compile Include="UIItems\ListBoxItems\ListItems.cs" />
-    <Compile Include="UIItems\ListBoxItems\Win32ListItem.cs" />
     <Compile Include="UIItems\ListBoxItems\WPFListItem.cs" />
     <Compile Include="UIItems\ListView.cs" />
     <Compile Include="UIItems\ListViewCell.cs" />

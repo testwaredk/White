@@ -6,8 +6,8 @@ namespace TestStack.White.UIItems.ListBoxItems
     [PlatformSpecificItem]
     public class Win32ListItem : ListItem
     {
-        protected Win32ListItem() {}
-        public Win32ListItem(AutomationElement automationElement, ActionListener actionListener) : base(automationElement, actionListener) {}
+        protected Win32ListItem() { }
+        public Win32ListItem(AutomationElement automationElement, ActionListener actionListener) : base(automationElement, actionListener) { }
 
         public override void Check()
         {
@@ -29,9 +29,22 @@ namespace TestStack.White.UIItems.ListBoxItems
         {
             get
             {
-                var toggleState = (ToggleState) Property(TogglePattern.ToggleStateProperty);
+                var toggleState = (ToggleState)Property(TogglePattern.ToggleStateProperty);
                 return toggleState.Equals(ToggleState.On);
             }
+        }
+
+        public override void Select(bool shouldSelect)
+        {
+            if (!shouldSelect) return;
+
+            actionListener.ActionPerforming(this);
+
+            var selectionItemPattern =
+                (SelectionItemPattern)automationElement.GetCurrentPattern(SelectionItemPattern.Pattern);
+            selectionItemPattern.Select();
+
+            actionListener.ActionPerformed(Action.WindowMessage);
         }
     }
 }
