@@ -8,29 +8,23 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class DatePickerTests : WhiteTestBase
     {
-        public virtual IDateTimePicker GetDatePicker()
-        {
-            return (IDateTimePicker)MainWindow.Get<DateTimePicker>("DatePicker");
-        }
-
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
-            RunTest(() => GetDate(DateTime.Today), WindowsFramework.WinForms);
-            RunTest(() => GetDate(null), WindowsFramework.Wpf, WindowsFramework.Silverlight);
+            RunTest(GetDate);
             RunTest(SetDate);
-            RunTest(ClearDate, WindowsFramework.Wpf, WindowsFramework.WinForms);
+            RunTest(ClearDate);
         }
 
-        private void GetDate(DateTime? defaultTime)
+        private void GetDate()
         {
-            var dateTimePicker = GetDatePicker();
-            Assert.Equal(defaultTime, dateTimePicker.Date);
+            var dateTimePicker = MainScreen.GetDateTimePicker();
+            Assert.Equal(MainScreen.GetExpectedDateForDatePicker(), dateTimePicker.Date);
         }
 
         private void SetDate()
         {
-            var dateTimePicker = GetDatePicker();
+            var dateTimePicker = MainScreen.GetDateTimePicker();
             DateTime changedDate = DateTime.Today.AddDays(23);
             dateTimePicker.Date = changedDate;
             Assert.Equal(changedDate, dateTimePicker.Date);
@@ -42,14 +36,24 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         private void ClearDate()
         {
-            var dateTimePicker = GetDatePicker();
-            var date = dateTimePicker.Date;
+            var dateTimePicker = MainScreen.GetDateTimePicker();
+
+            DateTime changedDate = DateTime.Today.AddDays(18);
+
+            // set the date to a date not used in the tests
+            dateTimePicker.Date = changedDate;
+
+            // reset the date to expected date
+            dateTimePicker.Date = MainScreen.GetExpectedDateForDatePicker();
+
+            // clear the date
             dateTimePicker.Date = null;
 
-            //Checks that date in Win32 DateTimePicker didn't change, but date in WPF DateTimePicker was cleared
-            Assert.Equal(dateTimePicker.Framework == WindowsFramework.Wpf ? null : date,
-                dateTimePicker.Date);
+            // expect that the date is unchanged unless 
+            Assert.Equal(MainScreen.GetExpectedDateForDatePicker(), dateTimePicker.Date);
+
         }
+
 
         protected override IEnumerable<Type> CoveredRequirements()
         {

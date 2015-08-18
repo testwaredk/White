@@ -16,7 +16,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         private void SelectUnselect()
         {
-            var checkBox = MainWindow.Get<CheckBox>("CheckBox");
+            var checkBox = MainScreen.GetCheckBox();
             Assert.False(checkBox.IsSelected);
             Assert.False(checkBox.Checked);
             checkBox.Select();
@@ -29,7 +29,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         private void CheckAndUncheckCheckbox()
         {
-            var checkBox = MainWindow.Get<CheckBox>("CheckBox");
+            var checkBox = MainScreen.GetCheckBox();
             Assert.False(checkBox.Checked);
 
             checkBox.Checked = true;

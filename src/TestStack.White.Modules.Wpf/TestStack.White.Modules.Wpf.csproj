@@ -38,10 +38,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestStack.White.ScreenObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2672efbf3e161801, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\white-modules-vb6\src\lib\TestStack.White.ScreenObjects.dll</HintPath>
+    </Reference>
     <Reference Include="UIAutomationClient" />
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Screens\WpfMainScreen.cs" />
     <Compile Include="WpfTestConfiguration.cs" />
     <Compile Include="WpfFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,9 +69,7 @@
       <Name>TestStack.White</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Screens\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

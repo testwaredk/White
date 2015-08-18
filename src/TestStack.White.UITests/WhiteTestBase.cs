@@ -61,13 +61,13 @@ namespace TestStack.White.UITests
                             {
                                 ExecuteTestRun();
                             }
-                            catch (TestFailedException)
+                            catch (TestFailedException ex)
                             {
-                                throw;
+                                throw new TestFailedException(string.Format("Assertion failed in module {0}", module.ToString()), ex);
                             }
                             catch (Exception ex)
                             {
-                                throw new TestFailedException(string.Format("Failed to run test for {0}", module), ex);
+                                throw new TestFailedException(string.Format("Failed to run test for {0}", module.ToString()), ex);
                             }
                         }
                     }

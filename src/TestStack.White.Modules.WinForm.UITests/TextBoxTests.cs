@@ -11,7 +11,7 @@ using TestStack.White.UITests.ControlTests.InputControls;
 
 namespace TestStack.White.Modules.WinForm.UITests
 {
-    public class WinFormTextBoxTests : TextBoxTest
+    public class TextBoxTests : TextBoxTest
     {
         protected override void ExecuteTestRun()
         {
