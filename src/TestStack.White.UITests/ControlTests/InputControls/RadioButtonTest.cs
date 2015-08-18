@@ -9,7 +9,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
     {
         void SelectSingleRadioButton()
         {
-            var radioButton = MainWindow.Get<RadioButton>("RadioButton1");
+            var radioButton = MainScreen.GetRadioButton1();
             Assert.False(radioButton.IsSelected);
             radioButton.Select();
             Assert.True(radioButton.IsSelected);
@@ -17,8 +17,8 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void SelectRadioButtonGroup()
         {
-            var radioButton1 = MainWindow.Get<RadioButton>("RadioButton1");
-            var radioButton2 = MainWindow.Get<RadioButton>("RadioButton2");
+            var radioButton1 = MainScreen.GetRadioButton1();
+            var radioButton2 = MainScreen.GetRadioButton2();
 
             Assert.False(radioButton1.IsSelected && radioButton2.IsSelected);
 
