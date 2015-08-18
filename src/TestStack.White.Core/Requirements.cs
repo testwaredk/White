@@ -24,7 +24,7 @@
         public class CheckedlistBoxRequirement { }
         public class ComboBoxRequirement { }
         public class DataBoundComboBoxRequirement { }
-        public class EditableCombpBoxRequirement { }
+        public class EditableComboBoxRequirement { }
         public class ListBoxRequirement { }
         public class ListViewRequirement { }
     }

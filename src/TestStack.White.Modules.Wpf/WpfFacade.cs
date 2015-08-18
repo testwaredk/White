@@ -47,7 +47,7 @@ namespace TestStack.White.Modules.Wpf
                 typeof(Core.Requirements.ListControls.CheckedlistBoxRequirement),
                 typeof(Core.Requirements.ListControls.ComboBoxRequirement),
                 typeof(Core.Requirements.ListControls.DataBoundComboBoxRequirement),
-                typeof(Core.Requirements.ListControls.EditableCombpBoxRequirement),
+                typeof(Core.Requirements.ListControls.EditableComboBoxRequirement),
                 typeof(Core.Requirements.ListControls.ListBoxRequirement),
                 typeof(Core.Requirements.ListControls.ListViewRequirement),
 

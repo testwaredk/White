@@ -32,7 +32,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return typeof(Core.Requirements.ListControls.EditableCombpBoxRequirement);
+            yield return typeof(Core.Requirements.ListControls.EditableComboBoxRequirement);
         }
 
     }
