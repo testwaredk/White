@@ -11,7 +11,7 @@ namespace TestStack.White.UITests.ControlTests
     {
         public void Click()
         {
-            var button = MainWindow.Get<Button>("ButtonWithTooltip");
+            var button = MainScreen.GetButtonWithTooltip(MainWindow);
             button.Click();
             
             Assert.Equal(button.Text, "Button Clicked with Mouse");
@@ -28,7 +28,7 @@ namespace TestStack.White.UITests.ControlTests
 
         public void RaiseClickEvent()
         {
-            var button = MainWindow.Get<Button>("ButtonWithTooltip");
+            var button = MainScreen.GetButtonWithTooltip(MainWindow);
             button.RaiseClickEvent();
             Assert.Equal(button.Text, "Clicked");
         }
