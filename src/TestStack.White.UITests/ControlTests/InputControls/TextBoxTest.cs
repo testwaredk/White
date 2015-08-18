@@ -13,11 +13,6 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 {
     public class TextBoxTest : WhiteTestBase
     {
-        public virtual TextBox GetTextBox()
-        {
-            return MainWindow.Get<TextBox>("TextBox");
-        }
-
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
@@ -31,7 +26,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
         /// </summary>
         public void HelpTextShouldContainTextChanged()
         {
-            var textBox = GetTextBox();
+            var textBox = MainScreen.GetTextBox();
             textBox.Text = "somethingElse";
             Assert.Equal("somethingElse", textBox.Text);
             Assert.Equal("Text Changed", textBox.HelpText);
@@ -39,7 +34,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void EnterText()
         {
-            var textBox = GetTextBox();
+            var textBox = MainScreen.GetTextBox();
             textBox.Text = "somethingElse";
             Assert.Equal("somethingElse", textBox.Text);
             textBox.Text = "";
@@ -50,7 +45,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void EnterBulkText()
         {
-            var textBox = GetTextBox();
+            var textBox = MainScreen.GetTextBox();
             textBox.BulkText = "somethingElse";
             Assert.Equal("somethingElse", textBox.Text);
         }
@@ -60,7 +55,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
         /// </summary>
         public void CopyTest()
         {
-            var textBox = GetTextBox();
+            var textBox = MainScreen.GetTextBox();
             AttachedKeyboard attachedKeyboard = MainWindow.Keyboard;
             textBox.Text = "userText";
             attachedKeyboard.HoldKey(KeyboardInput.SpecialKeys.CONTROL);
@@ -78,7 +73,7 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         void IsReadOnly()
         {
-            var textBox = GetTextBox();
+            var textBox = MainScreen.GetTextBox();
             Assert.Equal(false, textBox.IsReadOnly);
         }
 

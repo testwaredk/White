@@ -13,11 +13,6 @@ namespace TestStack.White.Modules.WinForm.UITests
 {
     public class WinFormTextBoxTests : TextBoxTest
     {
-        public override TextBox GetTextBox()
-        {
-            return MainWindow.Get<WinFormTextBox>("TextBox");
-        }
-
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
@@ -29,7 +24,7 @@ namespace TestStack.White.Modules.WinForm.UITests
 
         void SuggestionList()
         {
-            var textBox = (WinFormTextBox)GetTextBox();
+            var textBox = (WinFormTextBox)MainScreen.GetTextBox();
             textBox.Text = "h";
             SuggestionList suggestionList = textBox.SuggestionList;
             Assert.Equal(2, suggestionList.Items.Count);
@@ -39,7 +34,7 @@ namespace TestStack.White.Modules.WinForm.UITests
 
         void SelectFromSuggestionList()
         {
-            var textBox = (WinFormTextBox)GetTextBox();
+            var textBox = (WinFormTextBox)MainScreen.GetTextBox();
             textBox.Enter("h");
             SuggestionList suggestionList = textBox.SuggestionList;
             suggestionList.Select("hello");
