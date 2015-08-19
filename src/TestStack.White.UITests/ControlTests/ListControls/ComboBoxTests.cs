@@ -11,12 +11,11 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 {
     public class ComboBoxTests : WhiteTestBase
     {
-        protected ComboBox ComboBoxUnderTest { get; set; }
+        protected ComboBox ComboBoxUnderTest { get { return MainScreen.GetComboBox(); } }
 
         protected override void ExecuteTestRun()
         {
             SelectListControls();
-            ComboBoxUnderTest = MainScreen.GetComboBox();
             RunTest(CanSelectItemAtTopOfList);
             RunTest(CanGetAllItems);
             RunTest(CanSelectItemAtBottomOfList);

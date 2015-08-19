@@ -13,7 +13,7 @@ namespace TestStack.White.UITests.ControlTests
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
-            var textBox = MainWindow.Get<TextBox>("MultiLineTextBox");
+            var textBox = MainScreen.GetMultilineTextBox();
             textBox.Text = "hfdsfjkhsdfjhdsfjhdsfhkjsdfhdsfkjhsdfjkdshfkjds " +
                            "fhsdkfhsdkfhhfdsfjkhsdfjhdsfjhdsfhkjsdfhdsfkjhsdf " +
                            "jkdshfkjdsfhsdkfhsdkfhhfdsfjkhsdfjhdsfjhdsfhkjsdfh " +

@@ -23,7 +23,7 @@ namespace TestStack.White.Modules.WinForm
             ControlItems.AddWinFormPrimary(typeof(UIItems.WindowStripControls.StatusStrip), ControlType.StatusBar);
             ControlItems.AddWinFormPrimary(typeof(UIItems.ListBoxItems.WinFormComboBox), ControlType.ComboBox);
 
-            ControlItems.Add(ControlDictionaryItem.WinFormSecondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
+            ControlItems.Add(ControlDictionaryItem.Win32Secondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
             ControlItems.Add(ControlDictionaryItem.WinFormSecondary(typeof(UIItems.TreeItems.Win32TreeNode), ControlType.TreeItem));
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.DateTimePicker), ControlType.Pane, "SysDateTimePick32", true, true, false, WindowsFramework.WinForms.FrameworkId(), false));

@@ -15,9 +15,10 @@ namespace TestStack.White.Modules.Wpf.UITests
     {
         protected override void ExecuteTestRun()
         {
-            base.ExecuteTestRun();
-            RunTest(ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved);
+            SelectListControls();
             RunTest(ListItemInComboBoxWithoutTextAvailableInitially);
+            RunTest(ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved);
+            base.ExecuteTestRun();
         }
     }
 }

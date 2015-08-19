@@ -28,8 +28,8 @@ namespace TestStack.White.Modules.Wpf
 
             // Secondary controls
 
-            ControlItems.AddWPFSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem);
-
+            ControlItems.Add(ControlDictionaryItem.WPFSecondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
+            
             ControlItems.AddWPFSecondary(typeof(UIItems.TreeItems.WPFTreeNode), ControlType.TreeItem);
 
             ControlItems.Add(new ControlDictionaryItem(typeof(UIItems.WpfDatePicker), ControlType.Custom, "DatePicker", true, true, false, WindowsFramework.Wpf.FrameworkId(), false));

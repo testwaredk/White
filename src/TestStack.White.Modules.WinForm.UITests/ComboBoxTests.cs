@@ -15,7 +15,10 @@ namespace TestStack.White.Modules.WinForm.UITests
     {
         protected override void ExecuteTestRun()
         {
+            // Execute all the basic tests for ComboBox
             base.ExecuteTestRun();
+
+            // Execute the specialized test 
             RunTest(ComboBoxWithAutoExpandCollapsedOnceItemsAreRetrieved);
         }
     }
