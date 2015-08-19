@@ -9,13 +9,12 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
 {
     public class TreeTest : WhiteTestBase
     {
-        Tree tree;
+        protected Tree tree { get { return MainScreen.GetTreeView();  } }
+        protected Button buttonAddNode { get { return MainScreen.GetButtonAddNode(); } }
 
         protected override void ExecuteTestRun()
         {
             SelectOtherControls();
-            tree = MainWindow.Get<Tree>("TreeView");
-
             RunTest(Nodes);
             RunTest(FindNode);
             RunTest(SelectNodeWhichNeedsScrolling);
@@ -25,11 +24,12 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             RunTest(GetClickedNodePathForGrandChild);
             RunTest(GetClickedNodePathForRoot);
             RunTest(ScrollAndSelect);
+
         }
 
         void Nodes()
         {
-            Assert.True(tree.Nodes.Count >= 2);
+            Assert.True(tree.Nodes.Count >= 2, "More than one node should be found");
         }
 
         void FindNode()
@@ -40,11 +40,10 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             Assert.True(tree.HasNode("Root", "Child"));
             Assert.True(tree.HasNode("Root", "Child", "Grand Child"));
             var exception = Assert.Throws<AutomationException>(() => tree.HasNode("Root", "Child", "Grand Child", "Grand Child"));
-
-            string expected = 
-                @"Cannot expand TreeNode \w+TreeNode. AutomationId:, Name:Grand Child, " +
+            string pattern =
+                @"Cannot expand TreeNode .*TreeNode. AutomationId:, Name:Grand Child, " +
                 @"ControlType:tree view item, FrameworkId:\w+, expand button not visible";
-            Assert.True(Regex.IsMatch(exception.Message, expected));
+            Assert.True(System.Text.RegularExpressions.Regex.IsMatch(exception.Message, pattern));
         }
 
         void SelectNodeWhichNeedsScrolling()
@@ -68,7 +67,7 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
 
         void DynamicallyAddedNodeCanBeFound()
         {
-            MainWindow.Get<Button>("AddNode").Click();
+            buttonAddNode.Click();
             Assert.True(tree.HasNode("AddedNode"));
         }
 
@@ -100,6 +99,7 @@ namespace TestStack.White.UITests.ControlTests.TreeItems
             treeNode.Select();
             Assert.Equal(treeNode, tree.SelectedNode);
         }
+
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {

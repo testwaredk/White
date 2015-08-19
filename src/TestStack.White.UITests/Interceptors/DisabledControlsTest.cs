@@ -12,6 +12,9 @@ namespace TestStack.White.UITests.Interceptors
     //TODO: Check all operations and write tests possible on all disabled uiitem
     public class DisabledControlsTest : WhiteTestBase
     {
+        protected Button BottonDisableControls { get { return MainScreen.GetButtonDisableControls(); } }
+        
+
         protected override void ExecuteTestRun()
         {
             RunTest(DoNotAllowActionOnDisabledControls);
@@ -22,41 +25,41 @@ namespace TestStack.White.UITests.Interceptors
         void DoNotAllowActionOnDisabledControls()
         {
             SelectInputControls();
-            var textBox = MainWindow.Get<TextBox>("TextBox");
-            MainWindow.Get<Button>("DisableControls").Click();
+            var textBox = MainScreen.GetTextBox();
+            BottonDisableControls.Click();
             Retry.For(() => !textBox.Enabled, TimeSpan.FromSeconds(2));
             Assert.Throws<ElementNotEnabledException>(() => { textBox.Text = "blah"; });
-            MainWindow.Get<Button>("DisableControls").Click();
+            BottonDisableControls.Click();
         }
 
         void AllowActionsPossibleOnDisabledInputControls()
         {
             SelectInputControls();
-            var textBox = MainWindow.Get<TextBox>("TextBox");
+            var textBox = MainScreen.GetTextBox();
 
             // Set Values
             textBox.Text = "blah";
 
-            MainWindow.Get<Button>("DisableControls").Click();
+            BottonDisableControls.Click();
 
             // Assert we can still read the values
             Assert.Equal("blah", textBox.Text);
-            MainWindow.Get<Button>("DisableControls").Click();
+            BottonDisableControls.Click();
         }
 
         void AllowActionsPossibleOnDisabledListControls()
         {
             SelectListControls();
-            var comboBox = MainWindow.Get<ComboBox>("AComboBox");
+            var comboBox = MainScreen.GetComboBox();
 
             // Set Values
             comboBox.Select("Test2");
 
-            MainWindow.Get<Button>("DisableControls").Click();
+            BottonDisableControls.Click();
 
             // Assert we can still read the values
             Assert.Equal("Test2", comboBox.SelectedItem.Text);
-            MainWindow.Get<Button>("DisableControls").Click();
+            BottonDisableControls.Click();
         }
 
         protected override IEnumerable<Type> CoveredRequirements()
