@@ -7,11 +7,11 @@ using TestStack.White.UIItems.ListViewItems;
 using TestStack.White.Utility;
 using TestStack.White.WindowsAPI;
 using Xunit;
-using ListControls=TestStack.White.UITests.ControlTests.ListControls;
+using Tests=TestStack.White.UITests.ControlTests.ListControls;
 
-namespace TestStack.White.Modules.WinForm.UITests
+namespace TestStack.White.Modules.WinForm.UITests.ListControls
 {
-    public class ComboBoxTests : ListControls.ComboBoxTests
+    public class ComboBoxTests : Tests.ComboBoxTests
     {
         protected override void ExecuteTestRun()
         {

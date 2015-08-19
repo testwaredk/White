@@ -8,30 +8,31 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 {
     public class ListViewTest : WhiteTestBase
     {
+        protected ListView GetListViewControl() { return MainScreen.GetListViewWindowScreen().GetListViewControl();  } 
+
         protected override void ExecuteTestRun()
         {
-            RunTest(CellCount);
-            RunTest(CellText);
-            RunTest(Columns);
-            RunTest(MultiSelect);
+            RunTest(SelectRow); // OK
+            RunTest(SelectedRow); // OK
+            RunTest(Columns); // OK
+            RunTest(CellCount); // OK
+            RunTest(CellText); // OK
             RunTest(RowCount);
+            RunTest(MultiSelect);
             RunTest(SelectBasedOnCell);
-            RunTest(SelectRow);
             RunTest(SelectScrolledRow);
-            RunTest(SelectedRow);
             RunTest(SelectedRows);
-            RunTest(SelectWhenHorizontalScrollIsPresent);
         }
 
         void SelectRow()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 listView.Select(0);
                 ListViewRow firstRow = listView.Rows[0];
                 Assert.Equal(true, firstRow.IsSelected);
-                Assert.Equal("ListView item selected - " + 0, listView.HelpText);
+                //Assert.Equal("ListView item selected - " + 0, listView.HelpText);
                 listView.Select(1);
                 ListViewRow secondRow = listView.Rows[1];
                 Assert.Equal(true, secondRow.IsSelected);
@@ -39,29 +40,29 @@ namespace TestStack.White.UITests.ControlTests.ListControls
         }
         void SelectScrolledRow()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 listView.Select("Key", "Action15");
                 Assert.Equal("App15", listView.SelectedRows[0].Cells["Value"].Text);
             }
         }
         void SelectedRow()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
-                listView.Select(0);
+                var listView = GetListViewControl();
+                listView.Select(2);
                 ListViewRow listViewRow = listView.SelectedRows[0];
-                Assert.Equal("Search", listViewRow.Cells["Key"].Text);
+                Assert.Equal("Picture", listViewRow.Cells["Key"].Text);
             }
         }
 
         void SelectBasedOnCell()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 listView.Select("Key", "Mail");
                 Assert.Equal("Mail", listView.SelectedRows[0].Cells["Key"].Text);
             }
@@ -69,9 +70,9 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void Columns()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 ListViewColumns columns = listView.Header.Columns;
                 Assert.Equal(2, columns.Count);
                 Assert.Equal("Key", columns[0].Name);
@@ -81,18 +82,18 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void RowCount()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 Assert.Equal(18, listView.Rows.Count);
             }
         }
 
         void CellCount()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 ListViewRow row = listView.Rows[0];
                 Assert.Equal(2, row.Cells.Count);
             }
@@ -100,9 +101,9 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void CellText()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 ListViewRow first = listView.Rows[0];
                 Assert.Equal("Search", first.Cells[0].Text);
                 Assert.Equal("Google", first.Cells[1].Text);
@@ -114,9 +115,9 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void SelectedRows()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 listView.Rows[2].Select();
                 listView.Rows[0].Select();
                 ListViewRows rows = listView.SelectedRows;
@@ -126,16 +127,16 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void MultiSelect()
         {
-            using (var window = StartScenario("OpenListView", "ListViewWindow"))
+            using (var window = StartScenarioListView())
             {
-                var listView = window.Get<ListView>("ListView");
+                var listView = GetListViewControl();
                 listView.Rows[0].Select();
                 listView.Rows[1].MultiSelect();
                 Assert.Equal(2, listView.SelectedRows.Count);
             }
         }
 
-        void SelectWhenHorizontalScrollIsPresent()
+        public void SelectWhenHorizontalScrollIsPresent()
         {
             using (var window = StartScenario("OpenListView", "ListViewWindow"))
             {

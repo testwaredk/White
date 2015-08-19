@@ -19,12 +19,13 @@ namespace TestStack.White.UIItems
     /// </summary>
     public class ListView : UIItem, SuggestionList, VerticalSpanProvider
     {
-        private readonly ListViewFactory listViewFactory;
+        protected virtual ListViewFactory listViewFactory { get; set; }
         private AutomationPropertyChangedEventHandler handler;
 
-        protected ListView() {}
+        protected ListView() { }
 
-        public ListView(AutomationElement automationElement, ActionListener actionListener) : base(automationElement, actionListener)
+        public ListView(AutomationElement automationElement, ActionListener actionListener)
+            : base(automationElement, actionListener)
         {
             listViewFactory = new ListViewFactory(new AutomationElementFinder(automationElement), this);
         }
@@ -127,7 +128,7 @@ namespace TestStack.White.UIItems
         public override void HookEvents(UIItemEventListener eventListener)
         {
             var safeAutomationEventHandler =
-                new SafeAutomationEventHandler(this, eventListener, objs => ListViewEvent.Create(this, (AutomationPropertyChangedEventArgs) objs[0]));
+                new SafeAutomationEventHandler(this, eventListener, objs => ListViewEvent.Create(this, (AutomationPropertyChangedEventArgs)objs[0]));
             handler = safeAutomationEventHandler.PropertyChange;
             Automation.AddAutomationPropertyChangedEventHandler(automationElement, TreeScope.Descendants, handler, SelectionItemPattern.IsSelectedProperty);
         }

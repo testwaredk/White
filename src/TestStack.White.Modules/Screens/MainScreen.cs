@@ -34,14 +34,13 @@ namespace TestStack.White.Modules.Screens
         public virtual string GetHelpText() { return Window.HelpText; }
         public virtual Button GetButtonAddNode() { return Window.Get<Button>("AddNode"); }
 
-        /*
         public virtual ListViewWindowScreen GetListViewWindowScreen()
         {
             var window = Window.ModalWindow("ListViewWindow");
             ListViewWindowScreen screen = new ListViewWindowScreen(window, this.ScreenRepository);
             return screen;
         }
-        */
+        
         #region Expected values
         public virtual int GetExpectedTabCount() { return 5; }
         public virtual string GetExpectedTextOnRaiseClickEventOnButton() { return "Clicked"; }

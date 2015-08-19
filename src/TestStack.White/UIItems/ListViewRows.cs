@@ -10,7 +10,9 @@ namespace TestStack.White.UIItems
 {
     public class ListViewRows : UIItemList<ListViewRow>
     {
-        private ListViewRows(ICollection tees) : base(tees) {}
+        protected ListViewRows() { }
+
+        private ListViewRows(ICollection tees) : base(tees) { }
 
         public ListViewRows(AutomationElementFinder finder, ActionListener actionListener, ListViewHeader header)
         {

@@ -165,6 +165,16 @@ namespace TestStack.White.UITests
             }
         }
 
+        protected Window StartScenarioListView()
+        {
+            MainScreen.GetButtonOpenListView().Click();
+            var screen = MainScreen.GetListViewWindowScreen();
+            var window = screen.GetWindow();
+            windowsToClose.Add(window);
+            return window;
+        }
+
+
         protected Window StartScenario(string scenarioButtonId, string windowTitle)
         {
             MainWindow.Get<Button>(scenarioButtonId).Click();

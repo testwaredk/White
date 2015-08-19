@@ -7,11 +7,11 @@ using TestStack.White.UIItems.WPFUIItems;
 using TestStack.White.Core;
 using Xunit;
 using TestStack.White.Modules.Wpf.Screens;
-using ListControls = TestStack.White.UITests.ControlTests.ListControls;
+using Tests = TestStack.White.UITests.ControlTests.ListControls;
 
-namespace TestStack.White.Modules.Wpf.UITests
+namespace TestStack.White.Modules.Wpf.UITests.ListControls
 {
-    public class ListBoxWithScrollBarTest : ListControls.ListBoxWithScrollBarTest
+    public class ListBoxWithScrollBarTest : Tests.ListBoxWithScrollBarTest
     {
         protected override void ExecuteTestRun()
         {

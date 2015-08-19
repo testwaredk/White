@@ -45,12 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComboBoxTests.cs" />
+    <Compile Include="ListControls\ComboBoxTests.cs" />
     <Compile Include="DataGridWpfTests.cs" />
     <Compile Include="GetMultipleTest.cs" />
     <Compile Include="HyperlinkFromLabelTest.cs" />
     <Compile Include="LabelForPasswordTextTest.cs" />
-    <Compile Include="ListBoxWithScrollBarTest.cs" />
+    <Compile Include="ListControls\ListBoxWithScrollBarTest.cs" />
+    <Compile Include="ListControls\ListViewTest.cs" />
     <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowHandleInvisibleControlsTests.cs" />

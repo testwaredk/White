@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModuleException.cs" />
+    <Compile Include="Screens\ListViewWindowScreen.cs" />
     <Compile Include="WindowsConfiguration.cs" />
     <Compile Include="ModuleFacade.cs" />
     <Compile Include="ModuleManager.cs" />
