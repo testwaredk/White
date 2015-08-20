@@ -168,6 +168,30 @@
       <Project>{dfe6ddc7-b6f5-4ec4-99d1-0185068e3ddf}</Project>
       <Name>TestStack.White.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Silverlight\TestStack.White.Modules.Silverlight.csproj">
+      <Project>{22b06d20-1275-4013-8e6b-887c7a85eb56}</Project>
+      <Name>TestStack.White.Modules.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Win32\TestStack.White.Modules.Win32.csproj">
+      <Project>{2aab5dd0-e9e4-4217-a24a-a44246bcf061}</Project>
+      <Name>TestStack.White.Modules.Win32</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.WinForm.Requirements\TestStack.White.Modules.WinForm.Requirements.csproj">
+      <Project>{934a7b5a-eead-4e55-9d19-6deef72fb0e5}</Project>
+      <Name>TestStack.White.Modules.WinForm.Requirements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.WinForm\TestStack.White.Modules.WinForm.csproj">
+      <Project>{283673f4-0ce8-441d-b4c4-8a8704c547e8}</Project>
+      <Name>TestStack.White.Modules.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Wpf.Requirements\TestStack.White.Modules.Wpf.Requirements.csproj">
+      <Project>{0116967e-b8a5-4c0e-a588-5821d97eed4e}</Project>
+      <Name>TestStack.White.Modules.Wpf.Requirements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestStack.White.Modules.Wpf\TestStack.White.Modules.Wpf.csproj">
+      <Project>{bc79db2c-e148-499b-a89e-33433850d7e5}</Project>
+      <Name>TestStack.White.Modules.Wpf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestStack.White.Modules\TestStack.White.Modules.csproj">
       <Project>{73cb797a-4da8-4b5f-bdd6-395a197576fb}</Project>
       <Name>TestStack.White.Modules</Name>
@@ -192,10 +216,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)TestStack.White.Modules.Silverlight\bin\debug\TestStack.White.Modules.Silverlight.*" "$(TargetDir)" /y
-copy "$(SolutionDir)TestStack.White.Modules.WinForm\bin\debug\TestStack.White.Modules.WinForm.*" "$(TargetDir)" /y
-copy "$(SolutionDir)TestStack.White.Modules.Wpf\bin\debug\TestStack.White.Modules.Wpf.*" "$(TargetDir)" /y
-copy "$(SolutionDir)TestStack.White.Modules.Win32\bin\debug\TestStack.White.Modules.Win32.*" "$(TargetDir)" /y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
