@@ -12,13 +12,12 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override void ExecuteTestRun()
         {
-            tab = MainWindow.Get<Tab>("ControlsTab");
+            tab = MainScreen.GetControlsTab();
 
             RunTest(Find);
             RunTest(AssertChildrenCount);
             RunTest(ShouldSelectTabPage);
             RunTest(ShouldSelectTabPageWithName);
-            RunTest(FindControlsInsideTab);
         }
 
         void Find()
@@ -28,7 +27,7 @@ namespace TestStack.White.UITests.ControlTests
 
         void AssertChildrenCount()
         {
-            Assert.Equal(5, tab.TabCount);
+            Assert.Equal(MainScreen.GetExpectedTabCount(), tab.TabCount);
         }
 
         void ShouldSelectTabPage()
@@ -47,8 +46,9 @@ namespace TestStack.White.UITests.ControlTests
             Assert.Equal("Input Controls", tab.SelectedTab.Name);
         }
 
-        void FindControlsInsideTab()
+        public void FindControlsInsideTab()
         {
+            Tab tab = MainScreen.GetControlsTab();
             tab.SelectTabPage(1);
             ITabPage selectedTab = tab.SelectedTab;
             Assert.NotNull(selectedTab);

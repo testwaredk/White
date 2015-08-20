@@ -57,6 +57,7 @@
     <Compile Include="MenuItems\MenuTest.cs" />
     <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TabTest.cs" />
     <Compile Include="WindowHandleInvisibleControlsTests.cs" />
     <Compile Include="WpfTextBoxTests.cs" />
   </ItemGroup>

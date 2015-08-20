@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="TestStack.White.UITests.ControlTests.TabTest.Automate" /><Add Test="TestStack.White.Modules.WinForm.UITests.TabTest.Automate" /><Add Test="TestStack.White.Modules.Wpf.UITests.TabTest.Automate" /></Playlist>
