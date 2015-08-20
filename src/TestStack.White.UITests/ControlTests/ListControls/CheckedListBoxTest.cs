@@ -21,29 +21,29 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
         void CanCheckItem()
         {
-            Assert.Equal(false, listBoxUnderTest.IsChecked("Item1"));
+            Assert.False(listBoxUnderTest.IsChecked("Item1"));
             listBoxUnderTest.Check("Item1");
-            Assert.Equal(true, listBoxUnderTest.IsChecked("Item1"));
+            Assert.True(listBoxUnderTest.IsChecked("Item1"));
         }
 
         void CheckSelectedItem()
         {
-            Assert.Equal(false, listBoxUnderTest.IsChecked("Item2"));
-            var item = listBoxUnderTest.Item("Item2");
-            ((SelectionItemPattern)item.AutomationElement.GetCurrentPattern(SelectionItemPattern.Pattern))
-                .Select();
-            listBoxUnderTest.Check("Item2");
-            Assert.Equal(true, listBoxUnderTest.IsChecked("Item2"));
+            Assert.False(listBoxUnderTest.IsSelected("Item2"), "The item should be unselected");
+            listBoxUnderTest.Select("Item2");
+            Assert.True(listBoxUnderTest.IsSelected("Item2"), "The item should be selected");
+            // selecting another item should unselect the current item
+            listBoxUnderTest.Select("Item4");
+            Assert.False(listBoxUnderTest.IsSelected("Item2"), "The item should be unselected");
         }
 
         public void CheckUncheckItem()
         {
-            Assert.Equal(false, listBoxUnderTest.IsChecked("Item3"));
+            Assert.False(listBoxUnderTest.IsChecked("Item3"));
             listBoxUnderTest.Check("Item3");
-            Assert.Equal(true, listBoxUnderTest.IsChecked("Item3"));
+            Assert.True(listBoxUnderTest.IsChecked("Item3"));
 
             listBoxUnderTest.UnCheck("Item3");
-            Assert.Equal(false, listBoxUnderTest.IsChecked("Item3"));
+            Assert.False(listBoxUnderTest.IsChecked("Item3"));
         }
 
         protected override IEnumerable<System.Type> CoveredRequirements()

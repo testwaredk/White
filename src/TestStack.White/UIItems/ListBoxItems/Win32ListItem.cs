@@ -12,17 +12,15 @@ namespace TestStack.White.UIItems.ListBoxItems
         public override void Check()
         {
             if (Checked) return;
-            Select(!Checked);
-            if (Checked) return;
-            Select(!Checked);
+            if (!base.IsSelected) Select(true);
+            base.Click();
         }
 
         public override void UnCheck()
         {
             if (!Checked) return;
-            Select(Checked);
-            if (!Checked) return;
-            Select(Checked);
+            if (!base.IsSelected) Select(true);
+            base.Click();
         }
 
         public override bool Checked
@@ -32,19 +30,6 @@ namespace TestStack.White.UIItems.ListBoxItems
                 var toggleState = (ToggleState)Property(TogglePattern.ToggleStateProperty);
                 return toggleState.Equals(ToggleState.On);
             }
-        }
-
-        public override void Select(bool shouldSelect)
-        {
-            if (!shouldSelect) return;
-
-            actionListener.ActionPerforming(this);
-
-            var selectionItemPattern =
-                (SelectionItemPattern)automationElement.GetCurrentPattern(SelectionItemPattern.Pattern);
-            selectionItemPattern.Select();
-
-            actionListener.ActionPerformed(Action.WindowMessage);
         }
     }
 }

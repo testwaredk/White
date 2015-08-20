@@ -28,7 +28,7 @@ namespace TestStack.White.Modules.Wpf
 
             // Secondary controls
 
-            ControlItems.Add(ControlDictionaryItem.WPFSecondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem));
+            ControlItems.Add(ControlDictionaryItem.WPFSecondary(typeof(UIItems.ListBoxItems.WPFListItem), ControlType.ListItem));
             
             ControlItems.AddWPFSecondary(typeof(UIItems.TreeItems.WPFTreeNode), ControlType.TreeItem);
 

@@ -72,6 +72,7 @@ namespace TestStack.White.Core.Mappings
             {
                 throw new ControlDictionaryException(string.Format("Could not find TestControl for ControlType={0} and FrameworkId:{1}",
                                                                    controlType.LocalizedControlType, frameWorkId));
+                
             }
             if (dictionaryItems.Length > 1)
             {
