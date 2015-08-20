@@ -60,7 +60,9 @@
     namespace WindowStripControls
     {
         public class StatusBarRequirement { }
-        public class StatusStripRequirment { }
+        public class StatusStripRequirement { }
+        public class ToolStripRequirement { }
+        public class ToolbarRequirement { }
 
     }
 

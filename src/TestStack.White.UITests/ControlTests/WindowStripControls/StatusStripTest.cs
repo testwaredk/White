@@ -80,7 +80,7 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {
-            yield return typeof(Core.Requirements.WindowStripControls.StatusStripRequirment);
+            yield return typeof(Core.Requirements.WindowStripControls.StatusStripRequirement);
         }
 
     }

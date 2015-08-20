@@ -56,7 +56,7 @@ namespace TestStack.White.Modules.WinForm
                 typeof(Core.Requirements.TreeItems.TreeNodeRequirement),
                 typeof(Core.Requirements.TreeItems.TreeRequirement),
 
-                typeof(Core.Requirements.WindowStripControls.StatusStripRequirment),
+                typeof(Core.Requirements.WindowStripControls.StatusStripRequirement),
 
                 typeof(Core.Requirements.Standard.ButtonRequirement),
                 typeof(Core.Requirements.Standard.CustomUIItemRequirement),
