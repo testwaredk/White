@@ -8,6 +8,7 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 using Xunit;
+using System.Windows;
 
 namespace TestStack.White.UITests
 {
@@ -15,6 +16,8 @@ namespace TestStack.White.UITests
     {
         protected override void ExecuteTestRun()
         {
+            RunTest(ClickButtonAtPosition);
+            return;
             RunTest(WindowScrollsToMakeItemVisibleBeforePerformingAnyAction);
             RunTest(GetAllWindows);
             RunTest(FindWindow);
@@ -32,6 +35,16 @@ namespace TestStack.White.UITests
             RunTest(FindToolBarsWhenThereAreMultiple);
             RunTest(IsClosed);
             RunTest(CanFindTitleBar);
+        }
+
+        void ClickButtonAtPosition()
+        {
+            Point topLeft = MainWindow.Bounds.TopLeft;
+            Point buttonPosition = MainScreen.GetButtonWithTooltip(MainWindow).ClickablePoint;
+            Point relativePosition = new Point(buttonPosition.X - topLeft.X, buttonPosition.Y - topLeft.Y);
+
+            MainWindow.Click(relativePosition);
+            Assert.Equal("Button Clicked with Mouse", MainScreen.GetButtonWithTooltip(MainWindow).Text);
         }
 
         void GetAllWindows()

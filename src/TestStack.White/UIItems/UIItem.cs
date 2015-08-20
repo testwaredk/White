@@ -146,6 +146,18 @@ namespace TestStack.White.UIItems
             return null;
         }
 
+        /// <summary>
+        /// Click at relative point within the UIItem
+        /// </summary>
+        /// <param name="point"></param>
+        public virtual void Click(Point point)
+        {
+            actionListener.ActionPerforming(this);
+            Point topLeft = this.Bounds.TopLeft;
+            Point absolutePoint = new Point(topLeft.X + point.X, topLeft.Y + point.Y);
+            mouse.Click(absolutePoint, actionListener);
+        }
+
         public virtual void RightClickAt(Point point)
         {
             actionListener.ActionPerforming(this);
