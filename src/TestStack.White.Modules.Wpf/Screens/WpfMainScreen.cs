@@ -3,6 +3,7 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White.Modules.Screens;
+using TestStack.White.UIItems.WindowStripControls;
 
 namespace TestStack.White.Modules.Wpf.Screens
 {
@@ -22,5 +23,8 @@ namespace TestStack.White.Modules.Wpf.Screens
 
         public virtual Button GetChangeListItems() { return Window.Get<Button>("ChangeListItems"); }
 
+        public override StatusBar GetStatusBar() { return Window.Get<WPFStatusBar>("StatusBar"); }
+
+        public override string GetExpectedStatusBarText() { return "Status Item 1"; }
     }
 }

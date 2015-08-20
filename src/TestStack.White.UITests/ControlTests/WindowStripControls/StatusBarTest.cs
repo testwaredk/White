@@ -8,11 +8,11 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
 {
     public class StatusBarTest : WhiteTestBase
     {
-        WPFStatusBar statusBar;
+        StatusBar statusBar;
 
         protected override void ExecuteTestRun()
         {
-            statusBar = MainWindow.Get<WPFStatusBar>("StatusBar");
+            statusBar = MainScreen.GetStatusBar();
             RunTest(StatusBar);
             RunTest(StatusBarItem);
         }
@@ -27,7 +27,7 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
             UIItemCollection collection = statusBar.Items;
             Assert.Equal(2, collection.Count);
             var label = (Label) collection[0];
-            Assert.Equal("Status Item 1", label.Text);
+            Assert.Equal(MainScreen.GetExpectedStatusBarText(), label.Text);
         }
 
 

@@ -12,7 +12,8 @@ namespace TestStack.White.Modules.Screens
 {
     public class MainScreen : AppScreen
     {
-        public MainScreen(Window window, ScreenRepository screenRepository) : base(window, screenRepository) { } 
+        public MainScreen(Window window, ScreenRepository screenRepository) : base(window, screenRepository) { }
+        public virtual StatusBar GetStatusBar() { return null; }
         public virtual MenuBar GetMenuBar() { return Window.MenuBar; }
         public virtual TextBox GetTextBox() { return Window.Get<TextBox>("TextBox"); }
         public virtual ComboBox GetComboBox() { return Window.Get<ComboBox>(SearchCriteria.ByAutomationId("AComboBox")); }
@@ -45,6 +46,7 @@ namespace TestStack.White.Modules.Screens
         public virtual int GetExpectedTabCount() { return 5; }
         public virtual string GetExpectedTextOnRaiseClickEventOnButton() { return "Clicked"; }
         public virtual DateTime? GetExpectedDateForDatePicker() { return DateTime.Today; }
+        public virtual string GetExpectedStatusBarText() { return ""; }
         #endregion
 
     }
