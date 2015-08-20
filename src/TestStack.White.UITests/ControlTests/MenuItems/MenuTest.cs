@@ -14,31 +14,24 @@ namespace TestStack.White.UITests.ControlTests.MenuItems
         {
             RunTest(FindMenuBar);
             RunTest(Click);
-            RunTest(FindByAutomationId, WindowsFramework.Wpf);
             RunTest(FindMultiLevelMenuItem);
         }
 
-        void FindMenuBar()
+        public void FindMenuBar()
         {
             Assert.NotNull(MainWindow.MenuBar);
             Assert.NotNull(MainWindow.MenuBar.MenuItem("File"));
             Assert.Equal(1, MainWindow.MenuBars.Count);
         }
 
-        void Click()
+        public void Click()
         {
             Menu menu = MainWindow.MenuBar.MenuItem("File", "Click Me");
             menu.Click();
-            Assert.Equal(MainWindow.HelpText, "Click Me Clicked");
+            Assert.Equal(MainScreen.GetHelpText(), "Click Me Clicked");
         }
 
-        void FindByAutomationId()
-        {
-            MenuBar menuBar = MainWindow.MenuBar;
-            Assert.NotNull(menuBar.MenuItemBy(SearchCriteria.ByAutomationId("FileId")));
-        }
-
-        void FindMultiLevelMenuItem()
+        public void FindMultiLevelMenuItem()
         {
             MenuBar menuBar = MainWindow.MenuBar;
             Menu menu = menuBar.MenuItem("Multi-Level Menu");
