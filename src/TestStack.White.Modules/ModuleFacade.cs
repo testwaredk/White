@@ -55,6 +55,7 @@ namespace TestStack.White.Modules
             ControlItems.AddSecondary(typeof(UIItems.TableItems.TableRow), ControlType.Custom);
             ControlItems.AddSecondary(typeof(UIItems.MenuItems.Menu), ControlType.MenuItem);
             ControlItems.AddSecondary(typeof(UIItems.ListViewRow), ControlType.DataItem);
+            //ControlItems.AddSecondary(typeof(UIItems.ListBoxItems.Win32ListItem), ControlType.ListItem);
 
             EditableControls = new List<Type>();
             EditableControls.Add(typeof(UIItems.TextBox));
