@@ -7,9 +7,9 @@
     <description>TestStack.White.ScreenObjects adds support for the Page Object Pattern, allowing you to write clean maintainable UI Tests</description>
     <authors>Vivek Singh, Jake Ginnivan</authors>
     <owners>Jake Ginnivan</owners>
-    <licenseUrl>https://github.com/TestStack/White/blob/master/LICENSE.txt</licenseUrl>
-    <iconUrl>https://raw.github.com/TestStack/White/master/logo.png</iconUrl>
-    <projectUrl>https://github.com/TestStack/White</projectUrl>
+    <licenseUrl>https://gitlab.com/testwaredk-dn/White/blob/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://gitlab.com/testwaredk-dn/White/blob/master/logo.png</iconUrl>
+    <projectUrl>https://gitlab.com/testwaredk-dn/White</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright Jake Ginnivan 2013</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
@@ -18,9 +18,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="TestStack.White.ScreenObjects.dll" target="lib\net40" />
-    <file src="TestStack.White.ScreenObjects.pdb" target="lib\net40" />
-    <file src="TestStack.White.Reporting.dll" target="lib\net40" />
-    <file src="TestStack.White.Reporting.pdb" target="lib\net40" />
+    <file src="bin\Debug\TestStack.White.ScreenObjects.dll" target="lib\net40" />
+    <file src="bin\Debug\TestStack.White.ScreenObjects.pdb" target="lib\net40" />
+    <file src="bin\Debug\TestStack.White.Reporting.dll" target="lib\net40" />
+    <file src="bin\Debug\TestStack.White.Reporting.pdb" target="lib\net40" />
   </files>
 </package>

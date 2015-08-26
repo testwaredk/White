@@ -76,6 +76,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="TestStack.White.Modules.WinForm.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="white.snk" />
   </ItemGroup>
   <ItemGroup />

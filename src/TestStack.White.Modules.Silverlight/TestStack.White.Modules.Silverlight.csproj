@@ -82,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestStack.White.Modules.Silverlight.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="white.snk" />
   </ItemGroup>
   <ItemGroup>

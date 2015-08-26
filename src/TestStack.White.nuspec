@@ -43,6 +43,8 @@
     <file src="TestStack.White.Modules.Wpf\bin\Debug\TestStack.White.Modules.Wpf.dll" target="lib\net40" />	
     <file src="TestStack.White.Modules.Wpf\bin\Debug\TestStack.White.Modules.Wpf.pdb" target="lib\net40" />	
     <file src="TestStack.White.Modules.Wpf.Requirements\bin\Debug\TestStack.White.Modules.Wpf.Requirements.dll" target="lib\net40" />	
-    <file src="TestStack.White.Modules.Wpf.Requirements\bin\Debug\TestStack.White.Modules.Wpf.Requirements.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Wpf.Requirements\bin\Debug\TestStack.White.Modules.Wpf.Requirements.pdb" target="lib\net40" />
+    <file src="TestStack.White.UITests\bin\Debug\TestStack.White.UITests.dll" target="lib\net40" />
+    <file src="TestStack.White.UITests\bin\Debug\TestStack.White.UITests.pdb" target="lib\net40" />
   </files>
 </package>
