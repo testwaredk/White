@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>TestStack.White.Modules.WinForm</id>
+    <id>TestStack.White.Modules.UITests</id>
     <version>$version$</version>
-    <title>TestStack.White.Modules.WinForm</title>
+    <title>TestStack.White.Modules.UITests</title>
     <summary>TestStack.White is the official replacement for the White UI automation framework</summary>
     <description>
       White is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. It is .NET based and does not require the use of any proprietary scripting languages. Tests/automation programs using White can be written with whatever .NET language, IDE and tools you are already using. White provides a consistent object-oriented API, hiding the complexity of Microsoft's UIAutomation library (on which White is based) and windows messages.
 
       * TestStack.White is the official replacement for White *
     </description>
-    <authors>Vivek Singh, Jake Ginnivan</authors>
+    <authors>Vivek Singh, Jake Ginnivan, Jakob Øjvind Nielsen</authors>
     <owners>Jake Ginnivan</owners>
     <licenseUrl>https://gitlab.com/testwaredk-dn/White/blob/master/LICENSE.txt</licenseUrl>
     <iconUrl>https://gitlab.com/testwaredk-dn/White/blob/master/logo.png</iconUrl>
@@ -22,12 +22,15 @@
       <dependency id="TestStack.White" version="$version$" />
       <dependency id="TestStack.White.ScreenObjects" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
+      <dependency id="TestStack.White.Modules.Silverlight" version="$version$" />
+      <dependency id="TestStack.White.Modules.Wpf" version="$version$" />
+      <dependency id="TestStack.White.Modules.WinForm" version="$version$" />
+      <dependency id="TestStack.White.Modules.Win32" version="$version$" />
+      <dependency id="xUnit" version="1.9.2" />
     </dependencies>
   </metadata>
   <files>
-	  <file src="bin\debug\TestStack.White.Modules.WinForm.dll" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.WinForm.pdb" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.WinForm.Requirements.dll" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.WinForm.Requirements.pdb" target="lib\net40" />
+    <file src="bin\debug\TestStack.White.UITests.dll" target="lib\net40" />
+    <file src="bin\debug\TestStack.White.UITests.pdb" target="lib\net40" />
   </files>
 </package>

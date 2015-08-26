@@ -10,14 +10,14 @@
 
       * TestStack.White is the official replacement for White *
     </description>
-    <authors>Jakob Øjvind Nielsen</authors>
-    <owners>Jakob Øjvind Nielsen</owners>
+    <authors>Vivek Singh, Jake Ginnivan</authors>
+    <owners>Jake Ginnivan</owners>
     <licenseUrl>https://gitlab.com/testwaredk-dn/White/blob/master/LICENSE.txt</licenseUrl>
     <iconUrl>https://gitlab.com/testwaredk-dn/White/blob/master/logo.png</iconUrl>
     <projectUrl>https://gitlab.com/testwaredk-dn/White</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright Jakob Øjvind Nielsen 2015</copyright>
-    <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation</tags>
+    <copyright>Copyright Jake Ginnivan 2013</copyright>
+    <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
     <dependencies>
       <dependency id="TestStack.White" version="$version$" />
       <dependency id="TestStack.White.ScreenObjects" version="$version$" />
