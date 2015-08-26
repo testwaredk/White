@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>TestStack.White</id>
+    <version>$version$</version>
+    <title>TestStack.White</title>
+    <summary>TestStack.White is the official replacement for the White UI automation framework</summary>
+    <description>White is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. It is .NET based and does not require the use of any proprietary scripting languages. Tests/automation programs using White can be written with whatever .NET language, IDE and tools you are already using. White provides a consistent object-oriented API, hiding the complexity of Microsoft's UIAutomation library (on which White is based) and windows messages.
+
+* TestStack.White is the official replacement for White *</description>
+    <authors>Vivek Singh, Jake Ginnivan, Jakob Øjvind Nielsen</authors>
+    <owners>Jake Ginnivan</owners>
+    <licenseUrl>https://github.com/TestStack/White/blob/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://raw.github.com/TestStack/White/master/logo.png</iconUrl>
+    <projectUrl>https://github.com/TestStack/White</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright Jake Ginnivan 2012</copyright>
+    <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation</tags>
+    <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="TestStack.White\bin\debug\TestStack.White.dll" target="lib\net40" />
+    <file src="TestStack.White\bin\debug\TestStack.White.pdb" target="lib\net40" />
+    <file src="TestStack.White\bin\debug\TestStack.White.xml" target="lib\net40" />
+    <file src="TestStack.White.Core\bin\Debug\TestStack.White.Core.dll" target="lib\net40" />
+    <file src="TestStack.White.Core\bin\Debug\TestStack.White.Core.pdb" target="lib\net40" />
+    <file src="TestStack.White.Modules\bin\Debug\TestStack.White.Modules.dll" target="lib\net40" />
+    <file src="TestStack.White.Modules\bin\Debug\TestStack.White.Modules.pdb" target="lib\net40" />
+    <file src="TestStack.White.Reporting\bin\Debug\TestStack.White.Reporting.dll" target="lib\net40" />
+    <file src="TestStack.White.Reporting\bin\Debug\TestStack.White.Reporting.pdb" target="lib\net40" />
+    <file src="TestStack.White.ScreenObjects\bin\Debug\TestStack.White.ScreenObjects.dll" target="lib\net40" />	
+    <file src="TestStack.White.ScreenObjects\bin\Debug\TestStack.White.ScreenObjects.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Silverlight\bin\Debug\TestStack.White.Modules.Silverlight.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Silverlight\bin\Debug\TestStack.White.Modules.Silverlight.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Win32\bin\Debug\TestStack.White.Modules.Win32.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Win32\bin\Debug\TestStack.White.Modules.Win32.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.WinForm\bin\Debug\TestStack.White.Modules.WinForm.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.WinForm\bin\Debug\TestStack.White.Modules.WinForm.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.WinForm.Requirements\bin\Debug\TestStack.White.Modules.WinForm.Requirements.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.WinForm.Requirements\bin\Debug\TestStack.White.Modules.WinForm.Requirements.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Wpf\bin\Debug\TestStack.White.Modules.Wpf.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Wpf\bin\Debug\TestStack.White.Modules.Wpf.pdb" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Wpf.Requirements\bin\Debug\TestStack.White.Modules.Wpf.Requirements.dll" target="lib\net40" />	
+    <file src="TestStack.White.Modules.Wpf.Requirements\bin\Debug\TestStack.White.Modules.Wpf.Requirements.pdb" target="lib\net40" />	
+  </files>
+</package>

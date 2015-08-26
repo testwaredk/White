@@ -21,7 +21,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="TestStack.White.WebBrowser.dll" target="lib\net40" />
-    <file src="TestStack.White.WebBrowser.pdb" target="lib\net40" />
+    <file src="bin\debug\TestStack.White.WebBrowser.dll" target="lib\net40" />
+    <file src="bin\debug\TestStack.White.WebBrowser.pdb" target="lib\net40" />
   </files>
 </package>

@@ -111,6 +111,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScript
 		..\run-unittests.cmd = ..\run-unittests.cmd
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{1DEFFA4F-BEEB-400B-ADD2-1E13D696CA4A}"
+	ProjectSection(SolutionItems) = preProject
+		TestStack.White.nuspec = TestStack.White.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -257,5 +262,6 @@ Global
 		{0116967E-B8A5-4C0E-A588-5821D97EED4E} = {D33965D0-E771-4994-9365-61EF96D4B430}
 		{934A7B5A-EEAD-4E55-9D19-6DEEF72FB0E5} = {70563C0A-F964-4FB5-AD85-50DE2F9A3233}
 		{FF4C5653-D6B8-4E17-82B1-E23D52F1C49F} = {D1DFB004-1751-4D77-B581-7823D1C8C534}
+		{1DEFFA4F-BEEB-400B-ADD2-1E13D696CA4A} = {1BCBA4C4-8C47-496C-B0D4-FDE9D066ED27}
 	EndGlobalSection
 EndGlobal
