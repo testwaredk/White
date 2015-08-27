@@ -147,9 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="TestStack.White.UITests.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="white.snk" />
   </ItemGroup>
   <ItemGroup>

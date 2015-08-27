@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\LICENSE-APACHE.txt = ..\LICENSE-APACHE.txt
 		..\LICENSE-MIT.txt = ..\LICENSE-MIT.txt
 		..\LICENSE.txt = ..\LICENSE.txt
+		..\NextVersion.txt = ..\NextVersion.txt
 		..\package.bat = ..\package.bat
 		..\README.md = ..\README.md
 		..\TestStack.White.proj = ..\TestStack.White.proj
@@ -113,9 +114,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScript
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{1DEFFA4F-BEEB-400B-ADD2-1E13D696CA4A}"
-	ProjectSection(SolutionItems) = preProject
-		TestStack.White.nuspec = TestStack.White.nuspec
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
