@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>TestStack.White.Modules.UITests</id>
+    <id>TestStack.White.UITests</id>
     <version>$version$</version>
-    <title>TestStack.White.Modules.UITests</title>
+    <title>TestStack.White.UITests</title>
     <summary>TestStack.White is the official replacement for the White UI automation framework</summary>
     <description>
       White is a framework for automating rich client applications based on Win32, WinForms, WPF, Silverlight and SWT (Java) platforms. It is .NET based and does not require the use of any proprietary scripting languages. Tests/automation programs using White can be written with whatever .NET language, IDE and tools you are already using. White provides a consistent object-oriented API, hiding the complexity of Microsoft's UIAutomation library (on which White is based) and windows messages.
@@ -19,9 +19,19 @@
     <copyright>Copyright Jake Ginnivan 2013</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
     <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
       <dependency id="TestStack.White" version="$version$" />
+      <dependency id="TestStack.White.Core" version="$version$" />
       <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Reporting" version="$version$" />
+      <dependency id="TestStack.White.WebBrowser" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
+      <dependency id="TestStack.White.Modules.Silverlight" version="$version$" />
+      <dependency id="TestStack.White.Modules.Win32" version="$version$" />
+      <dependency id="TestStack.White.Modules.WinForm" version="$version$" />
+      <dependency id="TestStack.White.Modules.WinForm.Requirements" version="$version$" />
+      <dependency id="TestStack.White.Modules.Wpf" version="$version$" />
+      <dependency id="TestStack.White.Modules.Wpf.Requirements" version="$version$" />
       <dependency id="xUnit" version="1.9.2" />
     </dependencies>
   </metadata>

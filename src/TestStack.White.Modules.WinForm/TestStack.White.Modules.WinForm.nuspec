@@ -19,15 +19,16 @@
     <copyright>Copyright Jake Ginnivan 2013</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
     <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
       <dependency id="TestStack.White" version="$version$" />
-      <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Core" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
+      <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Modules.WinForm.Requirements" version="$version$" />
     </dependencies>
   </metadata>
   <files>
 	  <file src="bin\debug\TestStack.White.Modules.WinForm.dll" target="lib\net40" />
     <file src="bin\debug\TestStack.White.Modules.WinForm.pdb" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.WinForm.Requirements.dll" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.WinForm.Requirements.pdb" target="lib\net40" />
   </files>
 </package>

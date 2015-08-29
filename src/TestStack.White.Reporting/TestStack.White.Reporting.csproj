@@ -86,6 +86,9 @@
     <Compile Include="Domain\SubFlows.cs" />
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="TestStack.White.Reporting.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="white.snk" />
     <Compile Include="Utility\HtmlGenerator.cs" />
   </ItemGroup>

@@ -19,8 +19,9 @@
     <copyright>Copyright Jake Ginnivan 2013</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
     <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
       <dependency id="TestStack.White" version="$version$" />
-      <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Core" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
     </dependencies>
   </metadata>

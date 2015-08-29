@@ -14,13 +14,14 @@
     <copyright>Copyright Jake Ginnivan 2013</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation PageObject TestStack</tags>
     <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
       <dependency id="TestStack.White" version="$version$" />
+      <dependency id="TestStack.White.Core" version="$version$" />
+      <dependency id="TestStack.White.Reporting" version="$version$" />
     </dependencies>
   </metadata>
   <files>
     <file src="bin\Debug\TestStack.White.ScreenObjects.dll" target="lib\net40" />
     <file src="bin\Debug\TestStack.White.ScreenObjects.pdb" target="lib\net40" />
-    <file src="bin\Debug\TestStack.White.Reporting.dll" target="lib\net40" />
-    <file src="bin\Debug\TestStack.White.Reporting.pdb" target="lib\net40" />
   </files>
 </package>

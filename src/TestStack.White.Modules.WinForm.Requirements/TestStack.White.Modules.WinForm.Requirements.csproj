@@ -50,6 +50,9 @@
     <Compile Include="WinFormRequirements.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="TestStack.White.Modules.WinForm.Requirements.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="white.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,15 +19,16 @@
     <copyright>Copyright Jakob Øjvind Nielsen 2015</copyright>
     <tags>White UIAutomation Testing UIA WPF Silverlight Win32 Automation</tags>
     <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
       <dependency id="TestStack.White" version="$version$" />
-      <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Core" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
+      <dependency id="TestStack.White.ScreenObjects" version="$version$" />
+      <dependency id="TestStack.White.Modules.Wpf.Requirements" version="$version$" />
     </dependencies>
   </metadata>
   <files>
 	  <file src="bin\debug\TestStack.White.Modules.Wpf.dll" target="lib\net40" />
     <file src="bin\debug\TestStack.White.Modules.Wpf.pdb" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.Wpf.Requirements.dll" target="lib\net40" />
-    <file src="bin\debug\TestStack.White.Modules.Wpf.Requirements.pdb" target="lib\net40" />
   </files>
 </package>
