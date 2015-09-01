@@ -24,14 +24,7 @@
       <dependency id="TestStack.White.Core" version="$version$" />
       <dependency id="TestStack.White.ScreenObjects" version="$version$" />
       <dependency id="TestStack.White.Reporting" version="$version$" />
-      <dependency id="TestStack.White.WebBrowser" version="$version$" />
       <dependency id="TestStack.White.Modules" version="$version$" />
-      <dependency id="TestStack.White.Modules.Silverlight" version="$version$" />
-      <dependency id="TestStack.White.Modules.Win32" version="$version$" />
-      <dependency id="TestStack.White.Modules.WinForm" version="$version$" />
-      <dependency id="TestStack.White.Modules.WinForm.Requirements" version="$version$" />
-      <dependency id="TestStack.White.Modules.Wpf" version="$version$" />
-      <dependency id="TestStack.White.Modules.Wpf.Requirements" version="$version$" />
       <dependency id="xUnit" version="1.9.2" />
     </dependencies>
   </metadata>

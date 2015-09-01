@@ -85,6 +85,7 @@ namespace TestStack.White.UITests
             {
                 try
                 {
+                    logger.Debug("Executing " + testAction.Method.Name);
                     testAction();
                 }
                 catch (Exception ex)
