@@ -18,7 +18,8 @@ namespace TestStack.White.UITests.ControlTests.InputControls
             RunTest(GetDate);
             RunTest(SetDate);
             RunTest(ClearDate);
-            RunTest(ForwardBackwards);
+            RunTest(ChangeDateToLastDayOfMonth);
+            RunTest(ChangeDateLeapDate);
             
         }
 
@@ -62,66 +63,30 @@ namespace TestStack.White.UITests.ControlTests.InputControls
 
         }
 
-        /// <summary>
-        /// This test serves the purpose to fix a defect found while trying to set the date to 31-08-2015
-        /// The problem was how the datetimepicker is navigated
-        /// </summary>
-        private void ForwardBackwards()
+        private void ChangeDateToLastDayOfMonth()
         {
-            List<DateTime> dates = new List<DateTime>();
-            for (int i = 0; i < 365; i++)
-            {
-                
-                DateTime? baseDate = new DateTime(2015, 1, 1).AddDays(i);
+            DateTime? dateInMonthWithLessThan31Days = new DateTime(2015, 02, 10);
+            DateTime? dateInMonthWith31Days = new DateTime(2015, 01, 31);
 
-                if (baseDate.Value.Day == 31 || baseDate.Value.Day == 10 || baseDate.Value.Day == 9)
-                {
-                    DateTime date = baseDate.Value;
+            dateTimePicker.Date = dateInMonthWithLessThan31Days;
+            Assert.Equal(dateInMonthWithLessThan31Days, dateTimePicker.Date);
 
-                    try
-                    {
-                        backwards(dateTimePicker, baseDate);
-                    }
-                    catch
-                    {
-                        dates.Add(date);
-                    }
+            dateTimePicker.Date = dateInMonthWith31Days;
+            Assert.Equal(dateInMonthWith31Days, dateTimePicker.Date);
 
-                    try
-                    {
-                        forward(dateTimePicker, baseDate);
-                    }
-                    catch
-                    {
-                        dates.Add(date);
-                    }
-                }
-            }
-            List<String> dateStrings = dates.ConvertAll<string>((d) => d.ToShortDateString());
-
-            Assert.True(dates.Count == 0, string.Join("\n", dateStrings.ToArray()));
-            
         }
 
-
-        private void forward(IDateTimePicker dateTimePicker, DateTime? baseDate)
+        private void ChangeDateLeapDate()
         {
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(10));
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(0));
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(-10));
-        }
+            DateTime? dateInANonLeapYear = new DateTime(2015, 02, 10);
+            DateTime? leapDate = new DateTime(2016, 02, 29);
 
-        private void backwards(IDateTimePicker dateTimePicker, DateTime? baseDate)
-        {
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(-10));
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(0));
-            SetAndAssertDate(dateTimePicker, baseDate.Value.AddDays(10));
-        }
+            dateTimePicker.Date = dateInANonLeapYear;
+            Assert.Equal(dateInANonLeapYear, dateTimePicker.Date);
 
-        private void SetAndAssertDate(IDateTimePicker dateTimePicker, DateTime? newDate)
-        {
-            dateTimePicker.Date = newDate;
-            Assert.Equal(newDate, dateTimePicker.Date);
+            dateTimePicker.Date = leapDate;
+            Assert.Equal(leapDate, dateTimePicker.Date);
+
         }
 
 

@@ -34,6 +34,8 @@ namespace TestStack.White.UIItems
                 return;
             }
 
+            // first set the year, then month, then day, otherwise we end up trying to set a day that doesnt exist in a month 
+            // like going from 10-02-2015 to 31-01-2015
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
             keyboard.Send(dateFormat.DisplayValue(dateTime.Value, 2).ToString(), actionListener);
