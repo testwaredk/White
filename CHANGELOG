@@ -1,0 +1,3 @@
+#2.0.0
+ - Refactoret white to support Modules
+ - Bugfix: WindowsConfiguration is not using the test applications directory as working directory.

@@ -5,6 +5,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BCBA4C4-8C47-496C-B0D4-FDE9D066ED27}"
 	ProjectSection(SolutionItems) = preProject
 		..\Build.cmd = ..\Build.cmd
+		..\CHANGELOG = ..\CHANGELOG
 		..\Changes.txt = ..\Changes.txt
 		..\LICENSE-APACHE.txt = ..\LICENSE-APACHE.txt
 		..\LICENSE-MIT.txt = ..\LICENSE-MIT.txt
