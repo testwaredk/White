@@ -15,6 +15,6 @@ namespace TestStack.White.Modules.Screens
         public virtual ListView GetListViewControl() { return Window.Get<ListView>("ListView"); }
         public Window GetWindow() { return Window; }
 
-        public Button GetDeleteButton() { return Window.Get<Button>("cmdDeleteRow"); }
+        public virtual Button GetDeleteButton() { return Window.Get<Button>("cmdDeleteRow"); }
     }
 }
