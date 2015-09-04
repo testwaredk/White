@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpfTestApplication="clr-namespace:WpfTestApplication"
-        mc:Ignorable="d" Title="ListViewWindow" Height="300" Width="300"
+        mc:Ignorable="d" Title="ListViewWindow" Height="345.091" Width="300"
         d:DataContext="{d:DesignInstance wpfTestApplication:ListViewWindow}">
-    <Grid>
+    <Grid Margin="0,0,0,52">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding ListViewItems}" x:Name="ListView" SelectionChanged="ListViewOnSelectionChanged">
+        <ListView ItemsSource="{Binding ListViewItems}" x:Name="ListView" SelectionChanged="ListViewOnSelectionChanged" Height="241" VerticalAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel />
@@ -24,12 +24,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView ItemsSource="{Binding ListViewItemsWithScroll}" x:Name="ListViewWithHorizontalScroll" Grid.Column="1">
+        <ListView ItemsSource="{Binding ListViewItemsWithScroll}" x:Name="ListViewWithHorizontalScroll" Grid.Column="1" Height="241" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Key" DisplayMemberBinding="{Binding Key}" />
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="cmdDeleteRow" Content="DeleteRow" HorizontalAlignment="Left" Height="29" Margin="30,246,0,-12" VerticalAlignment="Top" Width="130" Click="cmdDeleteRow_Click"/>
     </Grid>
 </Window>

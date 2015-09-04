@@ -55,5 +55,10 @@ namespace WpfTestApplication
         {
             AutomationProperties.SetHelpText(ListView, "ListView item selected - " + ListView.SelectedIndex);
         }
+
+        private void cmdDeleteRow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            listViewItems.RemoveAt(0);
+        }
     }
 }

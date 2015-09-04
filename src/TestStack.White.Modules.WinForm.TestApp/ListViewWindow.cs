@@ -15,5 +15,11 @@ namespace WindowsFormsTestApplication
             if (ListView.SelectedIndices.Count == 0) return;
             ListView.AccessibleDescription = "ListView item selected - " + ListView.SelectedIndices[0];
         }
+
+        private void cmdDeleteRow_Click(object sender, EventArgs e)
+        {
+            ListView.Items.RemoveAt(0);
+        }
+
     }
 }

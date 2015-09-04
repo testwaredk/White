@@ -8,10 +8,12 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 {
     public class ListViewTest : WhiteTestBase
     {
-        protected ListView GetListViewControl() { return MainScreen.GetListViewWindowScreen().GetListViewControl();  } 
+        protected ListView GetListViewControl() { return MainScreen.GetListViewWindowScreen().GetListViewControl();  }
+        protected Button GetDeleteButton() { return MainScreen.GetListViewWindowScreen().GetDeleteButton();  }
 
         protected override void ExecuteTestRun()
         {
+            RunTest(DeleteRows);
             RunTest(SelectRow); // OK
             RunTest(SelectedRow); // OK
             RunTest(Columns); // OK
@@ -143,6 +145,24 @@ namespace TestStack.White.UITests.ControlTests.ListControls
                 var listView = window.Get<ListView>("ListViewWithHorizontalScroll");
                 listView.Row("Key", "bardfgreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrre")
                     .Select();
+            }
+        }
+
+        /// <summary>
+        /// The Rows object should update so that none of the deleted rows are represented in the object
+        /// </summary>
+        public void DeleteRows()
+        {
+            using (var window = StartScenarioListView())
+            {
+                var listView = GetListViewControl();
+                int countRows = listView.Rows.Count;
+
+                listView.Rows[0].Select();
+                GetDeleteButton().Click();
+                
+
+                Assert.Equal(countRows-1, listView.Rows.Count);
             }
         }
 
