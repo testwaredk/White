@@ -14,7 +14,7 @@ namespace TestStack.White.Modules.Wpf.Screens
         {
         }
 
-
+        public override Button GetButtonUpdateStatusBarText() { return Window.Get<Button>("UpdateStatusBarText"); }
         public override int GetExpectedTabCount() { return 4; }
 
         public override System.DateTime? GetExpectedDateForDatePicker() { return null; }

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using WpfTestApplication.Scenarios;
 using WpfTestApplication.Scenarios.CustomUIItem;
@@ -220,6 +221,12 @@ namespace WpfTestApplication
 
             public ObservableCollection<string> ComboboxItems
             { get; set; }
+        }
+
+        private void cmdUpdateStatusBarText_Click(object sender, RoutedEventArgs e)
+        {
+            StatusBarItem item = (StatusBarItem)this.StatusBar.Items[0];
+            item.Content = this.TextBox.Text;
         }
     }
 }

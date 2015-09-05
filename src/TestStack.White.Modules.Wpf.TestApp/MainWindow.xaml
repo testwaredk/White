@@ -132,6 +132,8 @@
                         AutomationProperties.AutomationId="OpenMessageBox" />
                 <Button Content="Open Window With Scrollbars" Click="OpenWindowWithScrollbars"
                         AutomationProperties.AutomationId="OpenWindowWithScrollbars" />
+                <Button x:Name="cmdUpdateStatusBarText" Content="Update StatusBar Text" Click="cmdUpdateStatusBarText_Click"
+                	AutomationProperties.AutomationId="UpdateStatusBarText" />
             </StackPanel>
         </GroupBox>
         <StatusBar Name="StatusBar" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">

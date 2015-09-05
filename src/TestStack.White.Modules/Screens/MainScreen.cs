@@ -13,6 +13,7 @@ namespace TestStack.White.Modules.Screens
     public class MainScreen : AppScreen
     {
         public MainScreen(Window window, ScreenRepository screenRepository) : base(window, screenRepository) { }
+        public virtual Button GetButtonUpdateStatusBarText() { return null; }
         public virtual StatusBar GetStatusBar() { return null; }
         public virtual MenuBar GetMenuBar() { return Window.MenuBar; }
         public virtual TextBox GetTextBox() { return Window.Get<TextBox>("TextBox"); }
@@ -48,6 +49,7 @@ namespace TestStack.White.Modules.Screens
         public virtual DateTime? GetExpectedDateForDatePicker() { return DateTime.Today; }
         public virtual string GetExpectedStatusBarText() { return ""; }
         #endregion
+
 
     }
 }

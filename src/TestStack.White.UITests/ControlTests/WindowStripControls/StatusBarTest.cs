@@ -15,6 +15,7 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
             statusBar = MainScreen.GetStatusBar();
             RunTest(StatusBar);
             RunTest(StatusBarItem);
+            RunTest(StatusBarContentChange);
         }
 
         void StatusBar()
@@ -30,6 +31,17 @@ namespace TestStack.White.UITests.ControlTests.WindowStripControls
             Assert.Equal(MainScreen.GetExpectedStatusBarText(), label.Text);
         }
 
+        void StatusBarContentChange()
+        {
+            SelectInputControls();
+            MainScreen.GetTextBox().Text = "StatusBarHasChanged";
+            MainScreen.GetButtonUpdateStatusBarText().Click();
+
+            string statusBarItemText = (statusBar.Items[0] as Label).Text;
+
+            Assert.Equal("StatusBarHasChanged", statusBarItemText);
+
+        }
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {
