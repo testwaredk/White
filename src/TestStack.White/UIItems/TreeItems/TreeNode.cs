@@ -142,5 +142,22 @@ namespace TestStack.White.UIItems.TreeItems
                 return value;
             }
         }
+
+        /// <summary>
+        /// Fetches the value from the valuepattern if available
+        /// </summary>
+        public virtual string Value
+        {
+            get
+            {
+                object patternObject;
+                if (automationElement.TryGetCurrentPattern(ValuePattern.Pattern, out patternObject))
+                {
+                    return ((ValuePattern)patternObject).Current.Value;
+                }
+                return "";
+            }
+        }
+
     }
 }

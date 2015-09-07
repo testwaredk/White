@@ -4,8 +4,8 @@ namespace TestStack.White.ScreenObjects
 {
     public class RepositoryComponent
     {
-        protected readonly Window Window;
-        protected readonly ScreenRepository ScreenRepository;
+        public readonly Window Window;
+        public readonly ScreenRepository ScreenRepository;
 
         protected RepositoryComponent() {}
 
