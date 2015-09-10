@@ -1,42 +1,40 @@
 using System;
 using System.Collections.Generic;
-using System.Windows.Automation;
 using TestStack.White.Configuration;
-using TestStack.White.Core.Mappings;
 using TestStack.White.UIItems;
-using TestStack.White.UIItems.Finders;
-using TestStack.White.UIItems.TabItems;
-using TestStack.White.UIItems.WindowItems;
-using TestStack.White.Utility;
 using TestStack.White.Core;
+using Castle.Core.Logging;
 using Xunit;
 
 namespace TestStack.White.UITests
 {
     public class TryFindChildTest : WhiteTestBase
     {
+        ILogger logger = CoreAppXmlConfiguration.Instance.LoggerFactory.Create(typeof(TryFindChildTest));
         void DetectTextBoxAndTryGetIt()
         {
-
             UIItemContainer inputControls = MainScreen.GetInputControls();
 
-            IUIItem uiItem; 
-            Assert.True(inputControls.TryGet<TextBox>("TextBox", out uiItem));
+            TextBox textBox; 
+            Assert.True(inputControls.TryGet<TextBox>("TextBox", out textBox));
 
-            TextBox textBox = (TextBox)uiItem;
             Assert.Equal(textBox.Id, "TextBox");
             textBox.Text = "TryGetWasHere";
-
-
-
             Assert.Equal("TryGetWasHere", textBox.Text);
         }
 
-        void TryGetSomeNonExistingStuff()
+        void ShouldSpendAllWaitingTimeSearchingForUnexistingItem()
         {
             UIItemContainer inputControls = MainScreen.GetInputControls();
-            IUIItem uiItem;
-            Assert.False(inputControls.TryGet<TextBox>("DosntExist", new TimeSpan(1000), out uiItem));
+            TextBox uiItem;
+            
+            long wait = new TimeSpan(0,0,5).Ticks;
+            long shouldEndAt = DateTime.Now.Ticks + wait;
+            
+            Assert.False(inputControls.TryGet<TextBox>("DosntExist", new TimeSpan(wait), out uiItem));
+            long finishedAt = DateTime.Now.Ticks;
+            
+            Assert.True(shouldEndAt <= finishedAt);
             Assert.Null(uiItem);
         }
 
@@ -44,11 +42,11 @@ namespace TestStack.White.UITests
         {
             SelectInputControls();
             RunTest(DetectTextBoxAndTryGetIt);
-            RunTest(TryGetSomeNonExistingStuff);
+            RunTest(ShouldSpendAllWaitingTimeSearchingForUnexistingItem);
         }
 
 
-        protected override IEnumerable<System.Type> CoveredRequirements()
+        protected override IEnumerable<Type> CoveredRequirements()
         {
             yield return typeof(Core.Requirements.Windows.MessageBoxRequirement);
         }

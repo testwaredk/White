@@ -95,7 +95,7 @@ namespace TestStack.White.UIItems
 
         }
 
-        public virtual bool TryGet<T>(string primaryIdentification, out IUIItem uiItem) where T : IUIItem
+        public virtual bool TryGet<T>(string primaryIdentification, out T uiItem) 
         {
             return TryGet<T>(SearchCriteria.ByAutomationId(primaryIdentification), CoreAppXmlConfiguration.Instance.BusyTimeout(), out uiItem);
         }
@@ -108,12 +108,12 @@ namespace TestStack.White.UIItems
         /// <param name="timeout">Try get the item but timeout if limit is reached</param>
         /// <param name="uiItem">The child that was found, is null if not found</param>
         /// <returns>Returns true if successful found and false if not found</returns>
-        public virtual bool TryGet<T>(TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        public virtual bool TryGet<T>(TimeSpan timeout, out T uiItem)
         {
             return TryGet<T>(SearchCriteria.All, timeout, out uiItem);
         }
 
-        public virtual bool TryGet<T>(string primaryIdentification, TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        public virtual bool TryGet<T>(string primaryIdentification, TimeSpan timeout, out T uiItem)
         {
             return TryGet<T>(SearchCriteria.ByAutomationId(primaryIdentification), timeout, out uiItem);
         }
@@ -126,7 +126,7 @@ namespace TestStack.White.UIItems
         /// <param name="timeout">Try get the item but timeout if limit is reached</param>
         /// <param name="uiItem">The child that was found, is null if not found</param>
         /// <returns>Returns true if successful found and false if not found</returns>
-        public virtual bool TryGet<T>(SearchCriteria searchCriteria, TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        public virtual bool TryGet<T>(SearchCriteria searchCriteria, TimeSpan timeout, out T uiItem)
         {
             
             uiItem = (T)Retry.For(() =>
@@ -136,8 +136,8 @@ namespace TestStack.White.UIItems
 
             if (uiItem != null)
             {
-                HandleIfCustomUIItem(uiItem);
-                HandleIfUIItemContainer(uiItem);
+                HandleIfCustomUIItem((IUIItem)uiItem);
+                HandleIfUIItemContainer((IUIItem)uiItem);
                 return true;
             }
 
