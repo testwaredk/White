@@ -95,6 +95,55 @@ namespace TestStack.White.UIItems
 
         }
 
+        public virtual bool TryGet<T>(string primaryIdentification, out IUIItem uiItem) where T : IUIItem
+        {
+            return TryGet<T>(SearchCriteria.ByAutomationId(primaryIdentification), CoreAppXmlConfiguration.Instance.BusyTimeout(), out uiItem);
+        }
+
+
+        /// <summary>
+        /// Try Get the child. If it succeed, then the out uiItem will be set to child othewise null.
+        /// </summary>
+        /// <typeparam name="T">The testControlType to be found</typeparam>
+        /// <param name="timeout">Try get the item but timeout if limit is reached</param>
+        /// <param name="uiItem">The child that was found, is null if not found</param>
+        /// <returns>Returns true if successful found and false if not found</returns>
+        public virtual bool TryGet<T>(TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        {
+            return TryGet<T>(SearchCriteria.All, timeout, out uiItem);
+        }
+
+        public virtual bool TryGet<T>(string primaryIdentification, TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        {
+            return TryGet<T>(SearchCriteria.ByAutomationId(primaryIdentification), timeout, out uiItem);
+        }
+
+        /// <summary>
+        /// Try Get the child. If it succeed, then the out uiItem will be set to child othewise null.
+        /// </summary>
+        /// <typeparam name="T">The testControlType to be found</typeparam>
+        /// <param name="searchCriteria"></param>
+        /// <param name="timeout">Try get the item but timeout if limit is reached</param>
+        /// <param name="uiItem">The child that was found, is null if not found</param>
+        /// <returns>Returns true if successful found and false if not found</returns>
+        public virtual bool TryGet<T>(SearchCriteria searchCriteria, TimeSpan timeout, out IUIItem uiItem) where T : IUIItem
+        {
+            
+            uiItem = (T)Retry.For(() =>
+                    CurrentContainerItemFactory.Find(searchCriteria.AndControlType(typeof(T), Framework), WindowSession),
+                    b => (bool)b.AutomationElement.GetCurrentPropertyValue(AutomationElement.IsOffscreenProperty, false),
+                    timeout);
+
+            if (uiItem != null)
+            {
+                HandleIfCustomUIItem(uiItem);
+                HandleIfUIItemContainer(uiItem);
+                return true;
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Finds UIItem which matches specified type and searchCriteria. Look at documentation of SearchCriteria for details on it.
         /// </summary>

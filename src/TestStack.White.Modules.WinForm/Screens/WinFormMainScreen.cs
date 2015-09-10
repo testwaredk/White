@@ -11,7 +11,7 @@ namespace TestStack.White.Modules.WinForm.Screens
             : base(window, screenRepository)
         {
         }
-
+        public override UIItemContainer GetInputControls() { return Window.Get<Panel>("inputControls1"); }
         public override Button GetReverseTabOrderButton() { return Window.Get<Button>("ReverseTabOrderButton"); }
     }
 }

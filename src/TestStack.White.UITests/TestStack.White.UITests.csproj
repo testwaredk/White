@@ -87,6 +87,7 @@
     <Compile Include="ControlTests\WindowStripControls\StatusBarTest.cs" />
     <Compile Include="ControlTests\WindowStripControls\StatusStripTest.cs" />
     <Compile Include="GenericScreenTypeTest.cs" />
+    <Compile Include="TryFindChildTest.cs" />
     <Compile Include="Reporting\One.cs" />
     <Compile Include="Reporting\SessionReportTest.cs" />
     <Compile Include="Reporting\SubFlowsTest.cs" />

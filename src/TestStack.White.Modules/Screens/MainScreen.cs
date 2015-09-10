@@ -13,6 +13,7 @@ namespace TestStack.White.Modules.Screens
     public class MainScreen : AppScreen
     {
         public MainScreen(Window window, ScreenRepository screenRepository) : base(window, screenRepository) { }
+        public virtual UIItemContainer GetInputControls() { return null; }
         public virtual Button GetButtonUpdateStatusBarText() { return null; }
         public virtual StatusBar GetStatusBar() { return null; }
         public virtual MenuBar GetMenuBar() { return Window.MenuBar; }
