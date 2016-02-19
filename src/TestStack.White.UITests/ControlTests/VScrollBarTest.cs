@@ -16,7 +16,7 @@ namespace TestStack.White.UITests.ControlTests
 
         protected override void ExecuteTestRun()
         {
-            listBox = MainWindow.Get<ListBox>("ListBoxWithVScrollBar");
+            listBox = MainScreen.GetListBoxWithVScrollBar();
             vScrollBar = listBox.ScrollBars.Vertical;
             vScrollBar.ScrollDown();
             smallChange = vScrollBar.Value;
