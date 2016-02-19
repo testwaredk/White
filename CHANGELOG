@@ -1,3 +1,6 @@
+#2.0.1
+  - Fixed VScrollBarTest to use MainScreen implementation so that tests for VScrollbars for other modules can be executed
+
 #2.0.0
  - Refactoret white to support Modules
  - Bugfix: WindowsConfiguration is not using the test applications directory as working directory.
