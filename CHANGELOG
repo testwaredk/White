@@ -1,3 +1,6 @@
+#2.1.0
+  - Implemented support for DateTimePicker with time format and spinner
+
 #2.0.1
   - Fixed VScrollBarTest to use MainScreen implementation so that tests for VScrollbars for other modules can be executed
 
