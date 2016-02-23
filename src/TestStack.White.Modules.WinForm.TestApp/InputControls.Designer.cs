@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BlueTextBox = new System.Windows.Forms.TextBox();
             this.TriStateCheckBox = new System.Windows.Forms.CheckBox();
+            this.TimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,10 +185,26 @@
             this.TriStateCheckBox.ThreeState = true;
             this.TriStateCheckBox.UseVisualStyleBackColor = true;
             // 
+            // TimePicker
+            // 
+            this.TimePicker.Cursor = System.Windows.Forms.Cursors.Default;
+            this.TimePicker.CustomFormat = "HH:mm:ss";
+            this.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.TimePicker.Location = new System.Drawing.Point(230, 177);
+            this.TimePicker.MaxDate = new System.DateTime(2016, 1, 1, 23, 59, 59, 0);
+            this.TimePicker.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
+            this.TimePicker.Name = "TimePicker";
+            this.TimePicker.ShowUpDown = true;
+            this.TimePicker.Size = new System.Drawing.Size(100, 20);
+            this.TimePicker.TabIndex = 44;
+            this.TimePicker.Value = new System.DateTime(2016, 1, 1, 20, 8, 0, 0);
+            this.TimePicker.ValueChanged += new System.EventHandler(this.TimePicker_ValueChanged);
+            // 
             // InputControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TimePicker);
             this.Controls.Add(this.TriStateCheckBox);
             this.Controls.Add(this.BlueTextBox);
             this.Controls.Add(this.label1);
@@ -225,5 +242,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BlueTextBox;
         private System.Windows.Forms.CheckBox TriStateCheckBox;
+        private System.Windows.Forms.DateTimePicker TimePicker;
     }
 }

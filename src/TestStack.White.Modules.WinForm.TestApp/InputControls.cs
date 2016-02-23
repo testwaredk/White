@@ -7,6 +7,8 @@ namespace WindowsFormsTestApplication
         public InputControls()
         {
             InitializeComponent();
+            TimePicker.Format = DateTimePickerFormat.Time;
+            TimePicker.ShowUpDown = true;
         }
 
         private void InputControls_EnabledChanged(object sender, System.EventArgs e)
@@ -25,6 +27,11 @@ namespace WindowsFormsTestApplication
         private void UnmaskPasswordButton_Click(object sender, System.EventArgs e)
         {
             PasswordBox.UseSystemPasswordChar = false;
+        }
+
+        private void TimePicker_ValueChanged(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
