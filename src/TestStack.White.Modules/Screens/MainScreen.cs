@@ -32,6 +32,7 @@ namespace TestStack.White.Modules.Screens
         public virtual Button GetFoo() { return Window.Get<Button>(SearchCriteria.ByAutomationId("foo")); }
         public virtual Button GetButtonDisableControls() { return Window.Get<Button>("DisableControls"); }
         public virtual IDateTimePicker GetDateTimePicker() { return Window.Get<DateTimePicker>("DatePicker"); }
+        public virtual IDateTimePicker GetTimePicker() { return Window.Get<DateTimePicker>("TimePicker"); }
         public virtual Button GetButtonOpenListView() { return Window.Get<Button>("OpenListView"); }
         public virtual Tree GetTreeView() { return Window.Get<Tree>("TreeView"); }
         public virtual string GetHelpText() { return Window.HelpText; }
