@@ -53,6 +53,7 @@
     <Compile Include="ListControls\ListViewTest.cs" />
     <Compile Include="PopUpMenuItemsCountTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimePickerTests.cs" />
     <Compile Include="TabTest.cs" />
     <Compile Include="ListControls\ComboBoxTests.cs" />
     <Compile Include="TextBoxTests.cs" />

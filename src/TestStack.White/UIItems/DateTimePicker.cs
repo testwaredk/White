@@ -22,7 +22,10 @@ namespace TestStack.White.UIItems
             }
             set
             {
-                SetDate(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
+                if (HasSpinner)
+                    SetTime(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
+                else
+                    SetDate(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
             }
         }
 
@@ -44,5 +47,29 @@ namespace TestStack.White.UIItems
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.LEFT, actionListener);
             keyboard.Send(dateFormat.DisplayValue(dateTime.Value, 0).ToString().PadLeft(2, '0'), actionListener);
         }
+
+        private void SetTime(DateTime? dateTime, DateFormat dateFormat)
+        {
+            if (dateTime == null)
+            {
+                Logger.Warn("DateTime cannot be null, value will not be set");
+                return;
+            }
+            keyboard.Send(dateTime.Value.Hour.ToString().PadLeft(2, '0'), actionListener);
+            keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
+            keyboard.Send(dateTime.Value.Minute.ToString().PadLeft(2, '0'), actionListener);
+            keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
+            keyboard.Send(dateTime.Value.Second.ToString().PadLeft(2, '0'), actionListener);
+        }
+
+        private bool HasSpinner
+        {
+            get
+            {
+                AutomationElementCollection elementCollection = this.AutomationElement.FindAll(TreeScope.Children, Condition.TrueCondition);
+                return elementCollection.Count > 0;
+            }
+        }
+
     }
 }
