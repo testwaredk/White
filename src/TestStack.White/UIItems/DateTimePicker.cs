@@ -65,7 +65,7 @@ namespace TestStack.White.UIItems
 
 
 
-        public bool IsTimePicker
+        public virtual bool IsTimePicker
         {
             get
             {
