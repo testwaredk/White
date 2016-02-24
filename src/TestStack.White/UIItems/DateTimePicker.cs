@@ -22,10 +22,7 @@ namespace TestStack.White.UIItems
             }
             set
             {
-                if (HasSpinner)
-                    SetTime(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
-                else
-                    SetDate(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
+                SetDate(value, CoreAppXmlConfiguration.Instance.DefaultDateFormat);
             }
         }
 
@@ -37,24 +34,28 @@ namespace TestStack.White.UIItems
                 return;
             }
 
+            if (IsTimePicker)
+                SendTime(dateTime.Value, dateFormat);
+            else
+                SendDate(dateTime.Value, dateFormat);
+        }
+
+        private void SendDate(DateTime dateTime, DateFormat dateFormat)
+        {
             // first set the year, then month, then day, otherwise we end up trying to set a day that doesnt exist in a month 
             // like going from 10-02-2015 to 31-01-2015
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
-            keyboard.Send(dateFormat.DisplayValue(dateTime.Value, 2).ToString(), actionListener);
+            keyboard.Send(dateFormat.DisplayValue(dateTime, 2).ToString(), actionListener);
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.LEFT, actionListener);
-            keyboard.Send(dateFormat.DisplayValue(dateTime.Value, 1).ToString().PadLeft(2, '0'), actionListener);
+            keyboard.Send(dateFormat.DisplayValue(dateTime, 1).ToString().PadLeft(2, '0'), actionListener);
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.LEFT, actionListener);
-            keyboard.Send(dateFormat.DisplayValue(dateTime.Value, 0).ToString().PadLeft(2, '0'), actionListener);
+            keyboard.Send(dateFormat.DisplayValue(dateTime, 0).ToString().PadLeft(2, '0'), actionListener);
+
         }
 
-        private void SetTime(DateTime? dateTime, DateFormat dateFormat)
+        private void SendTime(DateTime? dateTime, DateFormat dateFormat)
         {
-            if (dateTime == null)
-            {
-                Logger.Warn("DateTime cannot be null, value will not be set");
-                return;
-            }
             keyboard.Send(dateTime.Value.Hour.ToString().PadLeft(2, '0'), actionListener);
             keyboard.PressSpecialKey(KeyboardInput.SpecialKeys.RIGHT, actionListener);
             keyboard.Send(dateTime.Value.Minute.ToString().PadLeft(2, '0'), actionListener);
@@ -62,7 +63,9 @@ namespace TestStack.White.UIItems
             keyboard.Send(dateTime.Value.Second.ToString().PadLeft(2, '0'), actionListener);
         }
 
-        private bool HasSpinner
+
+
+        public bool IsTimePicker
         {
             get
             {
