@@ -75,6 +75,9 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyProperties.cs">
+      <Link>Properties\SharedAssemblyProperties.cs</Link>
+    </Compile>
     <Compile Include="AppScreen.cs" />
     <Compile Include="AppScreenComponent.cs" />
     <Compile Include="AppScreenException.cs" />

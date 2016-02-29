@@ -50,6 +50,9 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyProperties.cs">
+      <Link>Properties\SharedAssemblyProperties.cs</Link>
+    </Compile>
     <Compile Include="Mappings\ControlDictionary.cs" />
     <Compile Include="Mappings\ControlDictionaryException.cs" />
     <Compile Include="Mappings\ControlDictionaryItem.cs" />

@@ -54,6 +54,9 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyProperties.cs">
+      <Link>Properties\SharedAssemblyProperties.cs</Link>
+    </Compile>
     <Compile Include="ModuleException.cs" />
     <Compile Include="Screens\ListViewWindowScreen.cs" />
     <Compile Include="WindowsConfiguration.cs" />
