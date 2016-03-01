@@ -1,22 +1,45 @@
 @echo off
 setlocal
+
+set OUTPUT_DIRECTORY=
+set BATCH=false
+
+:loop
+if not "%1"=="" (
+	if "%1"=="--output-directory" (
+		set OUTPUT_DIRECTORY=%2& shift
+	)
+	if "%1"=="--batch" (
+		set BATCH=true
+	)
+	if "%1"=="--help" (
+		goto :usage
+	)
+	shift
+	goto :loop
+)
+
+:: check mandatory arguments, if NUGET_PACKAGES not set from arguments, then try fetch it from environment
+if "%OUTPUT_DIRECTORY%"=="" set OUTPUT_DIRECTORY=%NUGET_PACKAGES%
+if "%OUTPUT_DIRECTORY%"=="" goto usage
+
+
 set REQUIRED_SHARED_ASSEMBLY_VERSION_CONTENT=AssemblyCompany AssemblyCopyright AssemblyProduct AssemblyVersion
 set REQUIRED_ASSEMBLY_INFO_CONTENT=AssemblyTitle AssemblyDescription ComVisible Guid
 
 call :verify_assembly_version_setup || exit /b 1
 
-if not "%1"=="" set NUGET_PACKAGES=%1
 :: ensure that we have a path to nuget packages
-if "%NUGET_PACKAGES%"=="" echo NUGET_PACKAGES was empty & goto usage
-if not exist %NUGET_PACKAGES% echo ERROR: Path %NUGET_PACKAGES% did not exists
-echo Creating package in %NUGET_PACKAGES%
+if "%OUTPUT_DIRECTORY%"=="" echo OUTPUT_DIRECTORY was empty & goto usage
+if not exist %OUTPUT_DIRECTORY% echo ERROR: Path %OUTPUT_DIRECTORY% did not exists
+echo Creating package in %OUTPUT_DIRECTORY%
 
 
 call :extract_version VERSION
 if "%VERSION%"=="" echo VERSION was empty & goto usage
 echo Found VERSION %VERSION%
 
-call :create_nuget_packages %VERSION% %NUGET_PACKAGES%
+call :create_nuget_packages %VERSION% %OUTPUT_DIRECTORY%
 
 goto :eof
 
@@ -91,12 +114,13 @@ goto :eof
 
 :usage
 	echo.
-	echo   Usage:  package [path]
-	echo         path         : the path to the NuGetPackage directory. Default is %NUGET_PACKAGES%
-	echo.  
-	echo   Example packaging to directory ..\NuGetPackage 
-	echo         package ..\NuGetPackage 
+	echo   Usage:  package [OPTIONS]
 	echo.
+	echo      OPTIONS
+	echo         --output-directory   : the path to the NuGetPackage directory. Default is ^%NUGET_PACKAGES^%
+	echo         --batch              : runs in batch mode, which prevent the script from pause at the endlocal
+	echo         --help               : displays this help text
+	echo.  
 	echo   The package.bat method also ensures that the setup of the assembly version are setup correctly
 	exit /b 1
 goto :eof
