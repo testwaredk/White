@@ -43,7 +43,7 @@ namespace TestStack.White.UITests
         [Fact]
         public void Automate()
         {
-            this.ModuleManager = ModulesManager.Create();
+            this.ModuleManager = ModulesManager.Instance;
 
             CoreAppXmlConfiguration.Instance.LoggerFactory = new ConsoleFactory(LoggerLevel.Debug);
             if (this.ModuleManager.LoadedModules.Count == 0) throw new TestFailedException("No modules loaded");

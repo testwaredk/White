@@ -16,7 +16,7 @@ namespace TestStack.White.Modules.WinForm.UITests
     {
         public WorkSessionTest()
         {
-            ModulesManager manager = ModulesManager.Create();
+            ModulesManager manager = ModulesManager.Instance;
         }
 
         [Fact]
