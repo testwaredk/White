@@ -7,4 +7,4 @@
 [assembly: AssemblyProduct("TestStack.White")]
 
 // Version information for an assembly consists of the following four values:
-[assembly: AssemblyVersion("2.2.0")]
+[assembly: AssemblyVersion("2.2.1")]
