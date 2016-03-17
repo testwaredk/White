@@ -110,17 +110,20 @@ namespace TestStack.White.UITests.Scenarios
             mainWindow.Get<Button>(SearchCriteria.ByText("2")).Click();
             mainWindow.Get<Button>(SearchCriteria.ByText("3")).Click();
             mainWindow.Get<Button>(SearchCriteria.ByText("4")).Click();
-            mainWindow.Get<Button>(SearchCriteria.ByText("Add")).Click();
+            // at some point perhaps a windows update have changed the name / text on "Add" to "+"
+            mainWindow.Get<Button>(SearchCriteria.ByAutomationId("93")).Click(); //+
             mainWindow.Get<Button>(SearchCriteria.ByText("5")).Click();
             mainWindow.Get<Button>(SearchCriteria.ByText("6")).Click();
             mainWindow.Get<Button>(SearchCriteria.ByText("7")).Click();
             mainWindow.Get<Button>(SearchCriteria.ByText("8")).Click();
             //Button with text as +(for sum)
             //Read button to get the result
-            mainWindow.Get<Button>(SearchCriteria.ByText("Equals")).Click();
+
+            // at some point perhaps a windows update have changed the name / text on "Equals" to "="
+            mainWindow.Get<Button>(SearchCriteria.ByAutomationId("121")).Click(); //=
 
             //Get the result
-            var resultLable = mainWindow.Get<Label>(SearchCriteria.ByAutomationId("150"));
+            var resultLable = mainWindow.Get<Label>(SearchCriteria.ByAutomationId("150")); //result
             string result = resultLable.Text;
             Assert.Equal("6912", result);
         }
