@@ -50,15 +50,10 @@ namespace TestStack.White.UIItems.Scrolling
 
             logger.DebugFormat("Trying to make visible {0}, item's bounds are {1} and parent's span is {2}", uiItem, uiItem.Bounds, verticalSpan);
 
-            scrollValue = -1;
             var success = Retry.For(
                 () =>
                 {
-                    if (scrollValue == verticalScroll.Value) // then it could not scroll any further with large scroll
-                        verticalScroll.ScrollDown();
-                    else
-                        verticalScroll.ScrollDownLarge();
-                    scrollValue = verticalScroll.Value;
+                    verticalScroll.ScrollDownLarge();
                     var bounds = uiItem.Bounds;
                     const string messageFormat = "Trying to make {0} visible, item's bounds are {1} and parent's span is {2}";
                     logger.DebugFormat(messageFormat, uiItem, bounds, verticalSpan);
@@ -69,6 +64,5 @@ namespace TestStack.White.UIItems.Scrolling
             throw new UIActionException(string.Format("Could not make the {0} visible{1}", uiItem, Constants.BusyMessage));
         }
 
-        static double scrollValue;
     }
 }

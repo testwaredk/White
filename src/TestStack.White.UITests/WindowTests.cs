@@ -16,8 +16,8 @@ namespace TestStack.White.UITests
     {
         protected override void ExecuteTestRun()
         {
-            RunTest(ClickButtonAtPosition);
             RunTest(WindowScrollsToMakeItemVisibleBeforePerformingAnyAction);
+            RunTest(ClickButtonAtPosition);
             RunTest(GetAllWindows);
             RunTest(FindWindow);
             RunTest(IsCurrentlyActive);
