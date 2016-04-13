@@ -10,6 +10,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         protected ListView GetListViewControl() { return MainScreen.GetListViewWindowScreen().GetListViewControl();  }
         protected Button GetDeleteButton() { return MainScreen.GetListViewWindowScreen().GetDeleteButton();  }
+        protected int GetExpectedColumnCount() { return MainScreen.GetListViewWindowScreen().GetExpectedColumnCount(); }
 
         protected override void ExecuteTestRun()
         {
@@ -76,7 +77,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             {
                 var listView = GetListViewControl();
                 ListViewColumns columns = listView.Header.Columns;
-                Assert.Equal(2, columns.Count);
+                Assert.Equal(GetExpectedColumnCount(), columns.Count);
                 Assert.Equal("Key", columns[0].Name);
                 Assert.Equal("Value", columns[1].Name);
             }
@@ -97,7 +98,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             {
                 var listView = GetListViewControl();
                 ListViewRow row = listView.Rows[0];
-                Assert.Equal(2, row.Cells.Count);
+                Assert.Equal(GetExpectedColumnCount(), row.Cells.Count);
             }
         }
 
