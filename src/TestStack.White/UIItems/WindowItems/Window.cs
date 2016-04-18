@@ -20,6 +20,7 @@ using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.MenuItems;
 using TestStack.White.UIItems.WindowStripControls;
 using TestStack.White.Utility;
+using TestStack.White.WindowsAPI;
 using Action = TestStack.White.UIItems.Actions.Action;
 
 namespace TestStack.White.UIItems.WindowItems
@@ -471,6 +472,19 @@ UI actions on window needing mouse would not work in area not falling under the 
                         element =>
                         element.Current.HasKeyboardFocus && !element.Current.ControlType.Equals(ControlType.Custom));
             }
+        }
+
+        /// <summary>
+        /// Snaps the window to the desktop, so that the window is completely contained in the desktop and not having any boundsoutside desktop bounds.
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool SnapToDesktop()
+        {
+            var nativeWindow = new NativeWindow(new IntPtr(this.AutomationElement.Current.NativeWindowHandle));
+            var desktopRect = TestStack.White.Desktop.Instance.Bounds;
+
+            var snapToDesktop = new System.Windows.Rect(desktopRect.X, desktopRect.Y, desktopRect.Width, desktopRect.Height-40);
+            return nativeWindow.Move(snapToDesktop);
         }
     }
 }

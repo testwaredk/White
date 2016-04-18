@@ -4,6 +4,7 @@ using TestStack.White.Core;
 using TestStack.White.UIA;
 using TestStack.White.UIItems;
 using TestStack.White.WindowsAPI;
+using Xunit;
 
 namespace TestStack.White.UITests
 {
@@ -27,9 +28,31 @@ namespace TestStack.White.UITests
             Console.WriteLine(nativeWindow.TextColor);
         }
 
+        void MoveWindowTest()
+        {
+            var nativeWindow = new NativeWindow(new IntPtr(MainWindow.AutomationElement.Current.NativeWindowHandle));
+            var desktopRect = TestStack.White.Desktop.Instance.Bounds;
+            
+            var snapToDesktop = new System.Windows.Rect(desktopRect.X, desktopRect.Y, desktopRect.Width, desktopRect.Height-40);
+            nativeWindow.Move(snapToDesktop);
+
+            Assert.Equal(snapToDesktop, MainWindow.Bounds);
+        }
+
+        void SnapToDesktopTest()
+        {
+            var desktopRect = TestStack.White.Desktop.Instance.Bounds;
+            var snapToDesktop = new System.Windows.Rect(desktopRect.X, desktopRect.Y, desktopRect.Width, desktopRect.Height-40);
+            MainWindow.SnapToDesktop();
+
+            Assert.Equal(snapToDesktop, MainWindow.Bounds);
+        }
+
         protected override void ExecuteTestRun()
         {
             SelectInputControls();
+            RunTest(MoveWindowTest);
+            RunTest(SnapToDesktopTest);
             RunTest(BackgroundColor);
         }
 
