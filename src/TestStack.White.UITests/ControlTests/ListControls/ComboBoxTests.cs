@@ -31,7 +31,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
         public void CanGetTextWhenItemIsSelected()
         {
             ComboBoxUnderTest.Select("Test20");
-            Assert.Equal(ComboBoxUnderTest.Text, "Test20");
+            Assert.Equal("Test20", ComboBoxUnderTest.Text);
         }
 
         /// <summary>
