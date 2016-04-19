@@ -1,3 +1,6 @@
+#2.4.0
+	- Implemented Text property on ComboBox
+
 #2.3.0
 	- Feature to Snap window to desktop. Implemented on Window.SnapToDesktop()
 
