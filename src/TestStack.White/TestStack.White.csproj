@@ -167,6 +167,7 @@
     <Compile Include="UIA\WindowsPointX.cs" />
     <Compile Include="UIA\RectX.cs" />
     <Compile Include="UIItems\IDateTimePicker.cs" />
+    <Compile Include="UIItems\ListBoxItems\Win32ComboBox.cs" />
     <Compile Include="UIItems\ListBoxItems\Win32ListItem.cs" />
     <Compile Include="UIItems\UIItemExtensions.cs" />
     <Compile Include="UIItems\Custom\CustomUIItemType.cs" />
