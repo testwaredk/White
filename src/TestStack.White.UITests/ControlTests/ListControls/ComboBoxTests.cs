@@ -16,6 +16,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
         protected override void ExecuteTestRun()
         {
             SelectListControls();
+            RunTest(CanGetTextWhenItemIsSelected);
             RunTest(CanSelectItemAtTopOfList);
             RunTest(CanGetAllItems);
             RunTest(CanSelectItemAtBottomOfList);
@@ -24,6 +25,13 @@ namespace TestStack.White.UITests.ControlTests.ListControls
             RunTest(CanSelectReallyLongText);
             RunTest(SetValue);
             RunTest(ComboBoxOnlyCollapsesWhenExpansionWasForItemRetrieval);
+            
+        }
+
+        public void CanGetTextWhenItemIsSelected()
+        {
+            ComboBoxUnderTest.Select("Test20");
+            Assert.Equal(ComboBoxUnderTest.Text, "Test20");
         }
 
         /// <summary>

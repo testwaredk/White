@@ -29,5 +29,8 @@ namespace TestStack.White.UIItems.ListBoxItems
                 return calculator.VerticalSpan;
             }
         }
+
+
+        
     }
 }

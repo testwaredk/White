@@ -113,5 +113,26 @@ namespace TestStack.White.UIItems.ListBoxItems
             if (lastSelectedItem == null && SelectedItem != null) return false;
             return Equals(SelectedItemText, lastSelectedItem == null ? null : lastSelectedItem.Text);
         }
+
+        /// <summary>
+        /// WPF uses SelectionPattern, GetSelection
+        /// </summary>
+        public virtual string Text
+        {
+            get
+            {
+                var pattern = this.Pattern(SelectionPattern.Pattern) as SelectionPattern;
+                if (pattern != null)
+                {
+                    var selectedElement = pattern.Current.GetSelection();
+                    if (selectedElement.Length > 0)
+                    {
+                        return selectedElement[0].Current.Name;
+                    }
+                    return string.Empty;
+                }
+                return string.Empty;
+            }
+        }
     }
 }
