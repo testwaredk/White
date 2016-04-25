@@ -18,5 +18,7 @@ namespace TestStack.White.Modules.Screens
         public virtual Button GetDeleteButton() { return Window.Get<Button>("cmdDeleteRow"); }
 
         public virtual int GetExpectedColumnCount() { return 2; }
+
+        public virtual Button GetAddButton() { return Window.Get<Button>("cmdAddRow"); }
     }
 }

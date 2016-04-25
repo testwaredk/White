@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using TestStack.White.Core;
 using TestStack.White.UIItems;
@@ -10,10 +11,12 @@ namespace TestStack.White.UITests.ControlTests.ListControls
     {
         protected ListView GetListViewControl() { return MainScreen.GetListViewWindowScreen().GetListViewControl();  }
         protected Button GetDeleteButton() { return MainScreen.GetListViewWindowScreen().GetDeleteButton();  }
+        protected Button GetAddButton() { return MainScreen.GetListViewWindowScreen().GetAddButton(); }
         protected int GetExpectedColumnCount() { return MainScreen.GetListViewWindowScreen().GetExpectedColumnCount(); }
 
         protected override void ExecuteTestRun()
         {
+            RunTest(DeleteAndAddRow);
             RunTest(DeleteRows);
             RunTest(SelectRow); // OK
             RunTest(SelectedRow); // OK
@@ -166,6 +169,28 @@ namespace TestStack.White.UITests.ControlTests.ListControls
                 Assert.Equal(countRows-1, listView.Rows.Count);
             }
         }
+
+        /// <summary>
+        /// The Rows object should update so that none of the deleted rows are represented in the object
+        /// </summary>
+        public void DeleteAndAddRow()
+        {
+            using (var window = StartScenarioListView())
+            {
+                var listView = GetListViewControl();
+                int countRows = listView.Rows.Count;
+
+                listView.Rows[0].Select();
+                GetDeleteButton().Click();
+
+                GetAddButton().Click();
+
+                Assert.Equal(countRows, listView.Rows.Count);
+
+                Assert.Equal(listView.Rows.Last().Name, "NewItem");
+            }
+        }
+
 
         protected override IEnumerable<System.Type> CoveredRequirements()
         {

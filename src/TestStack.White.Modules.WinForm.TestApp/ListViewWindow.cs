@@ -21,5 +21,18 @@ namespace WindowsFormsTestApplication
             ListView.Items.RemoveAt(0);
         }
 
+        private void cmdAddRow_Click_1(object sender, EventArgs e)
+        {
+            var newItem = new ListViewItem() 
+            {
+                Text = "NewItem",
+            };
+
+            newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "NewSubItem" });
+
+
+            ListView.Items.Add(newItem);
+        }
+
     }
 }
