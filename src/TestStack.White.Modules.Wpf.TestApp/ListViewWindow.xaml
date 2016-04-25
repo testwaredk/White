@@ -31,6 +31,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="cmdDeleteRow" Content="DeleteRow" HorizontalAlignment="Left" Height="29" Margin="30,246,0,-12" VerticalAlignment="Top" Width="130" Click="cmdDeleteRow_Click"/>
+        <Button x:Name="cmdDeleteRow" Content="DeleteRow" HorizontalAlignment="Left" Height="29" Margin="0,244,0,-10" VerticalAlignment="Top" Width="100" Click="cmdDeleteRow_Click"/>
+        <Button x:Name="cmdAddRow" Content="AddRow" HorizontalAlignment="Left" Height="29" Margin="105,244,0,-10" VerticalAlignment="Top" Width="100" Click="cmdAddRow_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

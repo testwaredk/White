@@ -60,5 +60,11 @@ namespace WpfTestApplication
         {
             listViewItems.RemoveAt(0);
         }
+
+        private void cmdAddRow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var newItem = new ListViewData("NewItem", "NewSubItem");
+            listViewItems.Add(newItem);
+        }
     }
 }

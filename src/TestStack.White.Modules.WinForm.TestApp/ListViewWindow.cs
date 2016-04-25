@@ -29,8 +29,6 @@ namespace WindowsFormsTestApplication
             };
 
             newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "NewSubItem" });
-
-
             ListView.Items.Add(newItem);
         }
 
