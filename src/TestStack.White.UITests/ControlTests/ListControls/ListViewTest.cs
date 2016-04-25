@@ -188,7 +188,7 @@ namespace TestStack.White.UITests.ControlTests.ListControls
 
                 Assert.Equal(countRows, listView.Rows.Count);
 
-                Assert.Equal(listView.Rows.Last().Cells[0].Text, "NewItem");
+                Assert.Equal("NewItem", listView.Rows.Last().Cells[0].Text);
             }
         }
 
